@@ -57,9 +57,68 @@ IMPORTANT GUIDELINES:
     ]
 
 
+async def handle_get_database_schema(arguments: Dict[str, Any]) -> List[TextContent]:
+    """Handle get_database_schema tool calls."""
+    try:
+        schema_info = await sales_data.get_database_info()
+        return [
+            TextContent(
+                type="text", text=f"Contoso Sales Database Schema:\n\n{schema_info}"
+            )
+        ]
+    except Exception as e:
+        return [
+            TextContent(
+                type="text", text=f"Error retrieving database schema: {str(e)}"
+            )
+        ]
+
+
+async def handle_fetch_sales_data_using_sqlite_query(arguments: Dict[str, Any]) -> List[TextContent]:
+    """Handle fetch_sales_data_using_sqlite_query tool calls."""
+    try:
+        sqlite_query = arguments.get("sqlite_query")
+
+        if not sqlite_query:
+            return [
+                TextContent(
+                    type="text", text="Error: sqlite_query parameter is required"
+                )
+            ]
+
+        # Validate that query includes LIMIT
+        if "LIMIT" not in sqlite_query.upper():
+            return [
+                TextContent(
+                    type="text",
+                    text="Error: Query must include 'LIMIT 30' to prevent returning too many rows. Please modify your query.",
+                )
+            ]
+
+        result = await sales_data.async_fetch_sales_data_using_sqlite_query(
+            sqlite_query
+        )
+
+        return [TextContent(type="text", text=f"Query Results:\n{result}")]
+
+    except Exception as e:
+        return [
+            TextContent(
+                type="text", text=f"Error executing database query: {str(e)}"
+            )
+        ]
+
+
+# Tool handler registry - maps tool names to their handler functions
+TOOL_HANDLERS = {
+    "get_database_schema": handle_get_database_schema,
+    "fetch_sales_data_using_sqlite_query": handle_fetch_sales_data_using_sqlite_query,
+}
+
+
 @server.call_tool()
 async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
-    """Handle tool calls."""
+    """Handle tool calls using a registry of handler functions."""
 
     # Ensure database connection is established
     if sales_data.conn is None:
@@ -72,56 +131,14 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
                 )
             ]
 
-    if name == "get_database_schema":
-        try:
-            schema_info = await sales_data.get_database_info()
-            return [
-                TextContent(
-                    type="text", text=f"Contoso Sales Database Schema:\n\n{schema_info}"
-                )
-            ]
-        except Exception as e:
-            return [
-                TextContent(
-                    type="text", text=f"Error retrieving database schema: {str(e)}"
-                )
-            ]
-
-    elif name == "fetch_sales_data_using_sqlite_query":
-        try:
-            sqlite_query = arguments.get("sqlite_query")
-
-            if not sqlite_query:
-                return [
-                    TextContent(
-                        type="text", text="Error: sqlite_query parameter is required"
-                    )
-                ]
-
-            # Validate that query includes LIMIT
-            if "LIMIT" not in sqlite_query.upper():
-                return [
-                    TextContent(
-                        type="text",
-                        text="Error: Query must include 'LIMIT 30' to prevent returning too many rows. Please modify your query.",
-                    )
-                ]
-
-            result = await sales_data.async_fetch_sales_data_using_sqlite_query(
-                sqlite_query
-            )
-
-            return [TextContent(type="text", text=f"Query Results:\n{result}")]
-
-        except Exception as e:
-            return [
-                TextContent(
-                    type="text", text=f"Error executing database query: {str(e)}"
-                )
-            ]
-
-    else:
+    # Look up the handler function for this tool
+    handler = TOOL_HANDLERS.get(name)
+    
+    if handler is None:
         return [TextContent(type="text", text=f"Unknown tool: {name}")]
+    
+    # Call the handler function
+    return await handler(arguments)
 
 
 async def main():
