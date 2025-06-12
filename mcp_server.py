@@ -3,6 +3,7 @@
 MCP Server with math and database tools for the docker model runner.
 Provides math tools and Contoso sales database access.
 """
+
 import asyncio
 from typing import Any, Dict, List
 
@@ -29,11 +30,7 @@ async def list_tools() -> List[Tool]:
         Tool(
             name="get_database_schema",
             description="Get the database schema information for the Contoso Sales Database. Always call this tool first before generating SQL queries to understand the available tables, columns, and data values.",
-            inputSchema={
-                "type": "object",
-                "properties": {},
-                "required": []
-            }
+            inputSchema={"type": "object", "properties": {}, "required": []},
         ),
         Tool(
             name="fetch_sales_data_using_sqlite_query",
@@ -51,19 +48,19 @@ IMPORTANT GUIDELINES:
                 "properties": {
                     "sqlite_query": {
                         "type": "string",
-                        "description": "A well-formed SQLite query to extract sales data. Must include LIMIT 30."
+                        "description": "A well-formed SQLite query to extract sales data. Must include LIMIT 30.",
                     }
                 },
-                "required": ["sqlite_query"]
-            }
-        )
+                "required": ["sqlite_query"],
+            },
+        ),
     ]
 
 
 @server.call_tool()
 async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
     """Handle tool calls."""
-    
+
     # Ensure database connection is established
     if sales_data.conn is None:
         await sales_data.connect()
@@ -71,72 +68,60 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
             return [
                 TextContent(
                     type="text",
-                    text="Error: Unable to connect to the Contoso Sales Database"
+                    text="Error: Unable to connect to the Contoso Sales Database",
                 )
             ]
-    
+
     if name == "get_database_schema":
         try:
             schema_info = await sales_data.get_database_info()
             return [
                 TextContent(
-                    type="text",
-                    text=f"Contoso Sales Database Schema:\n\n{schema_info}"
+                    type="text", text=f"Contoso Sales Database Schema:\n\n{schema_info}"
                 )
             ]
         except Exception as e:
             return [
                 TextContent(
-                    type="text",
-                    text=f"Error retrieving database schema: {str(e)}"
+                    type="text", text=f"Error retrieving database schema: {str(e)}"
                 )
             ]
-    
+
     elif name == "fetch_sales_data_using_sqlite_query":
         try:
             sqlite_query = arguments.get("sqlite_query")
-            
+
             if not sqlite_query:
                 return [
                     TextContent(
-                        type="text",
-                        text="Error: sqlite_query parameter is required"
+                        type="text", text="Error: sqlite_query parameter is required"
                     )
                 ]
-            
+
             # Validate that query includes LIMIT
             if "LIMIT" not in sqlite_query.upper():
                 return [
                     TextContent(
                         type="text",
-                        text="Error: Query must include 'LIMIT 30' to prevent returning too many rows. Please modify your query."
+                        text="Error: Query must include 'LIMIT 30' to prevent returning too many rows. Please modify your query.",
                     )
                 ]
-            
-            result = await sales_data.async_fetch_sales_data_using_sqlite_query(sqlite_query)
-            
-            return [
-                TextContent(
-                    type="text",
-                    text=f"Query Results:\n{result}"
-                )
-            ]
-            
+
+            result = await sales_data.async_fetch_sales_data_using_sqlite_query(
+                sqlite_query
+            )
+
+            return [TextContent(type="text", text=f"Query Results:\n{result}")]
+
         except Exception as e:
             return [
                 TextContent(
-                    type="text",
-                    text=f"Error executing database query: {str(e)}"
+                    type="text", text=f"Error executing database query: {str(e)}"
                 )
             ]
-    
+
     else:
-        return [
-            TextContent(
-                type="text",
-                text=f"Unknown tool: {name}"
-            )
-        ]
+        return [TextContent(type="text", text=f"Unknown tool: {name}")]
 
 
 async def main():
