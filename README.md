@@ -6,6 +6,8 @@ A modular, async-friendly AI chatbot that demonstrates the integration of Model 
 
 Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
 
+![banner](media/banner.png)
+
 This project demonstrates how such an agent works behind the scenes, combining the power of local AI models with database tools through the Model Context Protocol.
 
 ## 🚀 Features
