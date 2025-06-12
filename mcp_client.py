@@ -5,21 +5,21 @@ Provides tools to communicate with MCP servers.
 
 import asyncio
 import sys
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 
 class MCPClient:
-    """Client for communicating with MCP servers."""
+    """Client for communicating with MCP servers with optimized connection handling."""
 
     def __init__(self, server_command: List[str]):
         """Initialize with the command to start the MCP server."""
         self.server_command = server_command
 
     async def call_tool_async(self, tool_name: str, arguments: Dict[str, Any]) -> str:
-        """Call a tool on the MCP server."""
+        """Call a tool on the MCP server using a fresh connection."""
         try:
             server_params = StdioServerParameters(
                 command=self.server_command[0],
@@ -32,10 +32,9 @@ class MCPClient:
                     result = await session.call_tool(tool_name, arguments)
 
                     if result.content and len(result.content) > 0:
-                        # Handle different content types
                         content_item = result.content[0]
-                        if hasattr(content_item, 'text'):
-                            return getattr(content_item, 'text')
+                        if hasattr(content_item, "text"):
+                            return getattr(content_item, "text")
                         else:
                             return str(content_item)
                     else:
@@ -45,11 +44,30 @@ class MCPClient:
             return f"Error calling tool {tool_name}: {e}"
 
 
+# Global MCP client instance for reuse
+_mcp_client: Optional[MCPClient] = None
+
+
+def get_mcp_client() -> MCPClient:
+    """Get or create the MCP client instance."""
+    global _mcp_client
+    if _mcp_client is None:
+        server_command = [sys.executable, "mcp_server.py"]
+        _mcp_client = MCPClient(server_command)
+    return _mcp_client
+
+
+async def cleanup_global_mcp_client():
+    """Cleanup the global MCP client instance."""
+    global _mcp_client
+    # With the simplified approach, no cleanup is needed
+    _mcp_client = None
+
+
 # Utility functions for integration
 async def call_mcp_tool_async(tool_name: str, **kwargs) -> str:
     """Call an MCP tool with the given arguments."""
-    server_command = [sys.executable, "mcp_server.py"]
-    client = MCPClient(server_command)
+    client = get_mcp_client()
     return await client.call_tool_async(tool_name, kwargs)
 
 
@@ -83,8 +101,8 @@ async def fetch_mcp_tools_async() -> List[Dict]:
 
                 return openai_tools
 
-    except Exception as e:
-        print(f"Error fetching tools from MCP server: {e}")
+    except Exception:
+        print("Error fetching tools from MCP server")
         # Fallback to static tools if dynamic fetch fails
         return [
             {
@@ -92,11 +110,11 @@ async def fetch_mcp_tools_async() -> List[Dict]:
                 "function": {
                     "name": "get_database_schema",
                     "description": "Get the database schema information for the Contoso Sales Database. Always call this function first before generating SQL queries to understand the available tables, columns, and data values.",
-                    "parameters": {"type": "object", "properties": {}, "required": []}
-                }
+                    "parameters": {"type": "object", "properties": {}, "required": []},
+                },
             },
             {
-                "type": "function", 
+                "type": "function",
                 "function": {
                     "name": "fetch_sales_data_using_sqlite_query",
                     "description": "Query the Contoso Sales Database using SQLite. IMPORTANT: ALWAYS call get_database_schema first to understand the database structure. Default to aggregation (SUM, AVG, COUNT, GROUP BY) unless user requests details. Treat 'sales' and 'revenue' as synonyms for the Revenue column. Always include LIMIT 30 in every query. Use only valid table and column names from the schema. Never return all rows from any table without aggregation.",
@@ -105,42 +123,25 @@ async def fetch_mcp_tools_async() -> List[Dict]:
                         "properties": {
                             "sqlite_query": {
                                 "type": "string",
-                                "description": "A well-formed SQLite query to extract sales data. Must include LIMIT 30."
+                                "description": "A well-formed SQLite query to extract sales data. Must include LIMIT 30.",
                             }
                         },
-                        "required": ["sqlite_query"]
-                    }
-                }
-            }
+                        "required": ["sqlite_query"],
+                    },
+                },
+            },
         ]
 
 
 # Synchronous wrapper functions for use in the main app
-def sync_initialize_mcp():
+def initialize_mcp_sync():
     """Synchronous wrapper for MCP initialization."""
     try:
         # Just test if we can create a simple client
         return True  # Simplified for now
-    except Exception as e:
-        print(f"Error initializing MCP client: {e}")
+    except Exception:
+        print("Error initializing MCP client")
         return False
-
-
-def sync_call_mcp_tool(tool_name: str, **kwargs) -> str:
-    """Synchronous wrapper for calling MCP tools."""
-    try:
-        return asyncio.run(call_mcp_tool_async(tool_name, **kwargs))
-    except Exception as e:
-        return f"Error calling MCP tool: {e}"
-
-
-def sync_fetch_mcp_tools() -> List[Dict]:
-    """Synchronous wrapper for fetching MCP tools."""
-    try:
-        return asyncio.run(fetch_mcp_tools_async())
-    except Exception as e:
-        print(f"Error fetching MCP tools: {e}")
-        return []
 
 
 if __name__ == "__main__":

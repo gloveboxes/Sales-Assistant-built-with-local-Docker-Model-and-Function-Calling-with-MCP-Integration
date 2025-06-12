@@ -18,8 +18,15 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Any
 
 from openai import OpenAI
-from mcp_client import sync_initialize_mcp, call_mcp_tool_async, fetch_mcp_tools_async
+from mcp_client import (
+    initialize_mcp_sync,
+    call_mcp_tool_async,
+    fetch_mcp_tools_async,
+    cleanup_global_mcp_client,
+)
 from terminal_colors import TerminalColors as tc
+
+SYSTEM_MSG_FILE = "system_msg.txt"
 
 
 @dataclass
@@ -45,7 +52,7 @@ class MCPToolManager:
         print("🔧 Initializing MCP server...")
 
         # Initialize MCP connection
-        mcp_success = sync_initialize_mcp()
+        mcp_success = initialize_mcp_sync()
         if not mcp_success:
             print(
                 "❌ Failed to connect to MCP server - database tools will not be available"
@@ -111,17 +118,17 @@ class ConversationManager:
         """Add initial system message with Contoso Sales Analysis Agent instructions."""
         try:
             # Read system message from file
-            with open("system_msg.txt", "r", encoding="utf-8") as f:
+            with open(SYSTEM_MSG_FILE, "r", encoding="utf-8") as f:
                 content = f.read().strip()
 
             system_message = {"role": "system", "content": content}
             self.history.append(system_message)
         except FileNotFoundError:
             print(
-                "⚠️  Warning: system_msg.txt not found - no system message will be added"
+                f"⚠️  Warning: {SYSTEM_MSG_FILE} not found - no system message will be added"
             )
         except Exception as e:
-            print(f"⚠️  Warning: Could not read system_msg.txt: {e}")
+            print(f"⚠️  Warning: Could not read {SYSTEM_MSG_FILE}: {e}")
 
     def add_user_message(self, content: str):
         """Add a user message to the conversation history."""
@@ -306,6 +313,9 @@ async def main():
     except Exception as e:
         print(f"❌ Fatal error: {e}")
         sys.exit(1)
+    finally:
+        # Cleanup MCP client
+        await cleanup_global_mcp_client()
 
 
 if __name__ == "__main__":
