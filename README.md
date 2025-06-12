@@ -248,14 +248,6 @@ The application includes comprehensive error handling:
 - Model response errors
 - Graceful degradation when tools are unavailable
 
-## 🔍 Debugging
-
-Enable debug logging by modifying the logging level in `sales_data.py`:
-
-```python
-logging.basicConfig(level=logging.DEBUG)
-```
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -276,15 +268,7 @@ This project is provided as an example implementation for educational purposes.
    - Ensure Docker Model Runner is running on port 12434
    - Verify the model `ai/phi4:14B-Q4_0` is loaded
 
-2. **Database Access**:
-   - Check that `shared/database/contoso-sales.db` exists
-   - Verify file permissions
-
-3. **MCP Server Startup**:
-   - Ensure all Python dependencies are installed
-   - Check for port conflicts
-
-4. **Function Calling Issues**:
+1. **Function Calling Issues**:
    - Verify the AI model supports function calling
    - Check tool schema formatting
 
