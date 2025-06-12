@@ -110,33 +110,16 @@ class ConversationManager:
             # Read system message from file
             with open("system_msg.txt", "r", encoding="utf-8") as f:
                 content = f.read().strip()
+                
+            system_message = {
+                "role": "system",
+                "content": content
+            }
+            self.history.append(system_message)
         except FileNotFoundError:
-            # Fallback to default message if file not found
-            content = """# Contoso Sales Analysis Agent
-
-## Role
-
-You are a **sales analysis agent** for **Contoso**, a retailer of outdoor, camping, and sports gear.
-
-- Help users by answering **sales-related questions** using a **polite, professional, and friendly tone**.
-- Use **only verified data sources**, which include:
-  - The **Contoso Sales Database**
-- Do **not generate unverified content** or make assumptions.
-
-## Response Formatting & Localization
-
-- **Tabular Data:** Format all multi-row results as **Markdown tables** with clear headers.
-- **Language:** Respond in the user's requested or inferred language (e.g., English, French, Chinese). Translate both data and explanations.
-- **Download Requests:** If the user asks to download data, state that `.csv` format is available and present the data as a Markdown table."""
+            print("⚠️  Warning: system_msg.txt not found - no system message will be added")
         except Exception as e:
             print(f"⚠️  Warning: Could not read system_msg.txt: {e}")
-            content = "You are a helpful AI assistant."
-        
-        system_message = {
-            "role": "system",
-            "content": content
-        }
-        self.history.append(system_message)
     
     def add_user_message(self, content: str):
         """Add a user message to the conversation history."""
@@ -146,7 +129,7 @@ You are a **sales analysis agent** for **Contoso**, a retailer of outdoor, campi
         """Add an assistant message to the conversation history."""
         message: Dict[str, Any] = {"role": "assistant", "content": content}
         if tool_calls:
-            message["tool_calls"] = tool_calls
+            message["tool_calls"] = tool_calls  # type: ignore
         self.history.append(message)
     
     def add_tool_result(self, tool_call_id: str, content: str):
@@ -244,11 +227,15 @@ class AIAssistant:
     
     def _get_ai_response(self):
         """Get response from the AI model."""
+        # Convert messages to proper format for OpenAI API
+        messages = self.conversation.get_history()
+        tools = self.tool_manager.tools if self.tool_manager.tools else None
+        
         return self.client.chat.completions.create(
-            messages=self.conversation.get_history(),
+            messages=messages,  # type: ignore
             model=self.config.model_name,
             max_tokens=self.config.max_tokens,
-            tools=self.tool_manager.tools,
+            tools=tools,  # type: ignore
             tool_choice="auto",
             stream=False,
         )
