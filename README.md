@@ -2,6 +2,12 @@
 
 A modular, async-friendly AI chatbot that demonstrates the integration of Model Context Protocol (MCP) tools with local AI models. This project showcases how to build a sales analysis agent for Contoso (a fictional outdoor gear retailer) using function calling capabilities with a locally hosted AI model.
 
+## 📊 Scenario
+
+Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
+
+This project demonstrates how such an agent works behind the scenes, combining the power of local AI models with database tools through the Model Context Protocol.
+
 ## 🚀 Features
 
 - **Local AI Model**: Uses the `ai/phi4:14B-Q4_0` model hosted with Docker Model Runner
