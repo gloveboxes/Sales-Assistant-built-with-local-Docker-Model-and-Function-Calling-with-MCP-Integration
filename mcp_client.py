@@ -104,33 +104,7 @@ async def fetch_mcp_tools_async() -> List[Dict]:
     except Exception:
         print("Error fetching tools from MCP server")
         # Fallback to static tools if dynamic fetch fails
-        return [
-            {
-                "type": "function",
-                "function": {
-                    "name": "get_database_schema",
-                    "description": "Get the database schema information for the Contoso Sales Database. Always call this function first before generating SQL queries to understand the available tables, columns, and data values.",
-                    "parameters": {"type": "object", "properties": {}, "required": []},
-                },
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "fetch_sales_data_using_sqlite_query",
-                    "description": "Query the Contoso Sales Database using SQLite. IMPORTANT: ALWAYS call get_database_schema first to understand the database structure. Default to aggregation (SUM, AVG, COUNT, GROUP BY) unless user requests details. Treat 'sales' and 'revenue' as synonyms for the Revenue column. Always include LIMIT 30 in every query. Use only valid table and column names from the schema. Never return all rows from any table without aggregation.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "sqlite_query": {
-                                "type": "string",
-                                "description": "A well-formed SQLite query to extract sales data. Must include LIMIT 30.",
-                            }
-                        },
-                        "required": ["sqlite_query"],
-                    },
-                },
-            },
-        ]
+        return []
 
 
 # Synchronous wrapper functions for use in the main app
