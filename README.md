@@ -101,14 +101,15 @@ This project demonstrates how such an agent works behind the scenes, combining t
    The project includes two SQLite databases:
    - `shared/database/contoso-sales.db`: Original sample sales data for Contoso
    - `shared/database/customer_sales.db`: Enhanced comprehensive sales database (50K customers, ~200K-400K orders)
-   
+
    **Optional: Generate New Database**:
    To create a fresh comprehensive database with realistic sales patterns:
+
    ```bash
    cd shared/database/data-generator
    python generate_customer_db.py
    ```
-   
+
    This generates a 100MB+ database with:
    - 50,000 customers across 7 regions
    - 294+ products in 7 categories
