@@ -100,7 +100,7 @@ This project demonstrates how such an agent works behind the scenes, combining t
 5. **Database Setup**:
    The project includes two SQLite databases:
    - `shared/database/contoso-sales.db`: Original sample sales data for Contoso
-   - `shared/database/customer_sales.db`: Enhanced comprehensive sales database (100K customers, ~895K orders)
+   - `shared/database/customer_sales.db`: Enhanced comprehensive sales database (50K customers, ~200K-400K orders)
    
    **Optional: Generate New Database**:
    To create a fresh comprehensive database with realistic sales patterns:
@@ -109,10 +109,10 @@ This project demonstrates how such an agent works behind the scenes, combining t
    python generate_customer_db.py
    ```
    
-   This generates a 230MB+ database with:
-   - 100,000 customers across 7 regions
+   This generates a 100MB+ database with:
+   - 50,000 customers across 7 regions
    - 294+ products in 7 categories
-   - ~895,000 orders with realistic business growth patterns
+   - ~200,000-400,000 orders with realistic business growth patterns
    - Performance-optimized indexes for fast queries
 
 ## 🚀 Usage
