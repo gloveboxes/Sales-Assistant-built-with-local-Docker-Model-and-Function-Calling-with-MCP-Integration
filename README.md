@@ -98,7 +98,22 @@ This project demonstrates how such an agent works behind the scenes, combining t
    > **Note**: The [Phi4 model](https://hub.docker.com/r/ai/phi4) is a 14B parameter model optimized for reasoning and requires significant system resources.
 
 5. **Database Setup**:
-   The SQLite database (`shared/database/contoso-sales.db`) contains sample sales data for Contoso. No additional setup is required as it's included in the repository.
+   The project includes two SQLite databases:
+   - `shared/database/contoso-sales.db`: Original sample sales data for Contoso
+   - `shared/database/customer_sales.db`: Enhanced comprehensive sales database (100K customers, ~895K orders)
+   
+   **Optional: Generate New Database**:
+   To create a fresh comprehensive database with realistic sales patterns:
+   ```bash
+   cd shared/database/data-generator
+   python generate_customer_db.py
+   ```
+   
+   This generates a 230MB+ database with:
+   - 100,000 customers across 7 regions
+   - 294+ products in 7 categories
+   - ~895,000 orders with realistic business growth patterns
+   - Performance-optimized indexes for fast queries
 
 ## 🚀 Usage
 
@@ -138,11 +153,14 @@ function_calling_and_mcp/
 ├── requirements.txt       # Python dependencies
 └── shared/
     └── database/
-        ├── contoso-sales.db          # SQLite database
+        ├── contoso-sales.db          # Original SQLite database
+        ├── customer_sales.db         # Enhanced comprehensive database
+        ├── PERFORMANCE_INTEGRATION.md # Performance optimization docs
         ├── sales_data.sqbpro         # Database project file
         └── data-generator/
-            ├── generate_sql.py       # Data generation script
-            └── populate_sales_data.sql # SQL for populating data
+            ├── generate_customer_db.py   # Comprehensive database generator
+            ├── generate_sql.py          # Legacy data generation script
+            └── populate_sales_data.sql  # Legacy SQL data file
 ```
 
 ## 🧩 Key Components
