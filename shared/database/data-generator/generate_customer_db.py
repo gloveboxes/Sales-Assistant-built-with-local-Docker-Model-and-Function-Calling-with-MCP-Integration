@@ -8,92 +8,92 @@ fake = Faker()
 
 main_categories = {  
     "APPAREL": {  
-        "JACKETS & VESTS": [50, 250],  
-        "OTHER": [10, 100],  
-        "PANTS & SHORTS": [30, 120],  
-        "SHIRTS": [20, 80],  
-        "TOPS": [15, 60],  
-        "UNDERWEAR & BASE LAYERS": [10, 50]  
+        "JACKETS & VESTS": [50, 250, "High-performance jackets and vests designed for outdoor adventures, featuring weather-resistant materials and insulation for all-season comfort"],  
+        "OTHER": [10, 100, "Miscellaneous apparel items including accessories, belts, and specialty outdoor clothing"],  
+        "PANTS & SHORTS": [30, 120, "Durable outdoor pants and shorts with moisture-wicking fabrics, reinforced knees, and articulated fit for active pursuits"],  
+        "SHIRTS": [20, 80, "Technical shirts and casual outdoor wear with UV protection, breathable fabrics, and quick-dry technology"],  
+        "TOPS": [15, 60, "Performance tops including fleece, sweaters, and layering pieces for temperature regulation during outdoor activities"],  
+        "UNDERWEAR & BASE LAYERS": [10, 50, "Moisture-wicking underwear and base layers designed for thermal regulation and comfort during extended outdoor activities"]  
     },  
     "CAMPING & HIKING": {  
-        "BACKPACKING TENTS": [100, 500],  
-        "BIVYS": [50, 200],  
-        "COOKWARE": [20, 150],  
-        "DAYPACKS": [30, 150],  
-        "EXTENDED TRIP PACKS": [150, 400],  
-        "FAMILY CAMPING TENTS": [200, 800],  
-        "FOOD & NUTRITION": [5, 50],  
-        "HAMMOCKS": [30, 150],  
-        "HYDRATION PACKS": [40, 120],  
-        "LINERS": [10, 60],  
-        "OTHER": [5, 100],  
-        "OVERNIGHT PACKS": [80, 250],  
-        "SHELTERS & TARPS": [40, 200],  
-        "SLEEPING BAGS": [60, 300],  
-        "SLEEPING PADS": [30, 150],  
-        "STOVES": [20, 150],  
-        "UTENSILS & ACCESSORIES": [5, 50]  
+        "BACKPACKING TENTS": [100, 500, "Lightweight, compact tents designed for multi-day backpacking trips with superior weather protection and easy setup"],  
+        "BIVYS": [50, 200, "Ultra-lightweight emergency shelters and bivy sacks for minimalist camping and emergency situations"],  
+        "COOKWARE": [20, 150, "Portable camping cookware including pots, pans, and cooking systems designed for outdoor meal preparation"],  
+        "DAYPACKS": [30, 150, "Comfortable day hiking packs with organizational features and hydration compatibility for single-day adventures"],  
+        "EXTENDED TRIP PACKS": [150, 400, "Large-capacity backpacks designed for multi-week expeditions with advanced suspension systems and durability"],  
+        "FAMILY CAMPING TENTS": [200, 800, "Spacious family tents with multiple rooms, easy setup, and weather protection for car camping and group adventures"],  
+        "FOOD & NUTRITION": [5, 50, "Outdoor nutrition including energy bars, dehydrated meals, and supplements for sustained energy during activities"],  
+        "HAMMOCKS": [30, 150, "Portable hammocks and suspension systems for comfortable outdoor relaxation and lightweight camping"],  
+        "HYDRATION PACKS": [40, 120, "Hands-free hydration systems with reservoir bladders and ergonomic designs for active pursuits"],  
+        "LINERS": [10, 60, "Sleeping bag liners and tent footprints for added comfort, warmth, and gear protection"],  
+        "OTHER": [5, 100, "Miscellaneous camping gear including tools, repair kits, and specialty outdoor equipment"],  
+        "OVERNIGHT PACKS": [80, 250, "Mid-size backpacks perfect for overnight trips and weekend adventures with balanced capacity and comfort"],  
+        "SHELTERS & TARPS": [40, 200, "Versatile tarps and shelters for weather protection, camp setup, and emergency situations"],  
+        "SLEEPING BAGS": [60, 300, "Insulated sleeping bags rated for various temperatures with compressible designs for outdoor sleeping comfort"],  
+        "SLEEPING PADS": [30, 150, "Insulated and self-inflating sleeping pads for comfort and thermal protection while camping"],  
+        "STOVES": [20, 150, "Portable camping stoves and fuel systems for efficient outdoor cooking and meal preparation"],  
+        "UTENSILS & ACCESSORIES": [5, 50, "Camping utensils, plates, cups, and accessories for outdoor dining and food preparation"]  
     },  
     "CLIMBING": {  
-        "AVALANCHE SAFETY": [100, 500],  
-        "CARABINERS & QUICKDRAWS": [5, 50],  
-        "CHALK & CHALK BAGS": [5, 30],  
-        "CLIMBING SHOES": [60, 200],  
-        "CRAMPONS": [100, 300],  
-        "HARNESSES": [50, 200],  
-        "HELMETS": [40, 150],  
-        "ICE AXES": [50, 300],  
-        "MOUNTAINEERING BOOTS": [150, 500],  
-        "OTHER": [10, 100],  
-        "ROPES & SLINGS": [30, 300],  
-        "TRAINING EQUIPMENT": [20, 150]  
+        "AVALANCHE SAFETY": [100, 500, "Essential avalanche safety equipment including beacons, probes, and shovels for backcountry snow travel"],  
+        "CARABINERS & QUICKDRAWS": [5, 50, "High-strength carabiners and quickdraws for rock climbing, mountaineering, and rope work applications"],  
+        "CHALK & CHALK BAGS": [5, 30, "Climbing chalk and chalk bags for improved grip and moisture management during climbing activities"],  
+        "CLIMBING SHOES": [60, 200, "Specialized climbing footwear with sticky rubber soles and precise fit for optimal performance on rock"],  
+        "CRAMPONS": [100, 300, "Steel and aluminum crampons for ice climbing and mountaineering with secure attachment systems"],  
+        "HARNESSES": [50, 200, "Climbing harnesses with gear loops and belay devices for safety and comfort during vertical adventures"],  
+        "HELMETS": [40, 150, "Lightweight climbing helmets with impact protection for rock climbing, mountaineering, and ice climbing"],  
+        "ICE AXES": [50, 300, "Technical ice axes and ice tools for mountaineering, ice climbing, and alpine adventures"],  
+        "MOUNTAINEERING BOOTS": [150, 500, "Insulated mountaineering boots with crampon compatibility for high-altitude and cold weather climbing"],  
+        "OTHER": [10, 100, "Miscellaneous climbing gear including approach shoes, gloves, and specialty climbing accessories"],  
+        "ROPES & SLINGS": [30, 300, "Dynamic climbing ropes, slings, and cordage for safety systems and rigging in climbing applications"],  
+        "TRAINING EQUIPMENT": [20, 150, "Climbing training tools including hangboards, resistance trainers, and technique development aids"]  
     },  
     "FOOTWEAR": {  
-        "HIKING BOOTS": [60, 250],  
-        "OTHER": [20, 100],  
-        "SANDALS": [20, 80],  
-        "TRAIL SHOES": [50, 150],  
-        "WINTER BOOTS": [60, 200]  
+        "HIKING BOOTS": [60, 250, "Sturdy hiking boots with ankle support, waterproof membranes, and aggressive tread for trail hiking"],  
+        "OTHER": [20, 100, "Miscellaneous outdoor footwear including casual shoes, slippers, and specialty athletic footwear"],  
+        "SANDALS": [20, 80, "Outdoor sandals with supportive footbeds and durable straps for water sports and casual outdoor wear"],  
+        "TRAIL SHOES": [50, 150, "Lightweight trail running shoes with grip and protection for fast-paced outdoor activities"],  
+        "WINTER BOOTS": [60, 200, "Insulated winter boots with waterproof construction and traction for cold weather outdoor activities"]  
     },  
     "TRAVEL": {  
-        "CARRY-ONS": [50, 200],  
-        "DUFFEL BAGS": [30, 150],  
-        "EYE MASKS": [5, 20],  
-        "OTHER": [5, 50],  
-        "PACKING ORGANIZERS": [10, 50],  
-        "SECURITY": [10, 100],  
-        "TRAVEL ACCESSORIES": [5, 80],  
-        "TRAVEL BACKPACKS": [30, 200],  
-        "TRAVEL PILLOWS": [10, 40]  
+        "CARRY-ONS": [50, 200, "Airline-compliant carry-on luggage with organizational features and durable construction for frequent travel"],  
+        "DUFFEL BAGS": [30, 150, "Versatile duffel bags in various sizes for travel, gym use, and gear transport with multiple carry options"],  
+        "EYE MASKS": [5, 20, "Comfortable sleep masks for travel rest and light blocking during transportation and accommodation"],  
+        "OTHER": [5, 50, "Miscellaneous travel accessories including adapters, organizers, and convenience items"],  
+        "PACKING ORGANIZERS": [10, 50, "Packing cubes and organizers for efficient luggage organization and space maximization"],  
+        "SECURITY": [10, 100, "Travel security items including locks, RFID wallets, and anti-theft devices for safe traveling"],  
+        "TRAVEL ACCESSORIES": [5, 80, "Essential travel accessories including adapters, chargers, and convenience items for global travel"],  
+        "TRAVEL BACKPACKS": [30, 200, "Travel-specific backpacks with organizational features and carry-on compatibility for adventure travel"],  
+        "TRAVEL PILLOWS": [10, 40, "Portable travel pillows and neck supports for comfortable rest during long journeys"]  
     },  
     "WATER SPORTS": {  
-        "ACCESSORIES": [10, 100],  
-        "CANOES": [300, 1200],  
-        "KAYAKS": [200, 1000],  
-        "OTHER": [10, 100],  
-        "PADDLES": [20, 150],  
-        "RASH GUARDS": [20, 80],  
-        "RODS & REELS": [30, 200],  
-        "SAFETY GEAR": [20, 100],  
-        "SURF ACCESSORIES": [10, 100],  
-        "SURFBOARDS": [200, 800],  
-        "TACKLE": [5, 50],  
-        "WADERS": [50, 200],  
-        "WETSUITS": [50, 300]  
+        "ACCESSORIES": [10, 100, "Water sports accessories including waterproof bags, boat fenders, and marine safety equipment"],  
+        "CANOES": [300, 1200, "High-quality canoes for recreational paddling, touring, and whitewater adventures with various hull designs"],  
+        "KAYAKS": [200, 1000, "Recreational and touring kayaks for flatwater and whitewater paddling with stability and performance features"],  
+        "OTHER": [10, 100, "Miscellaneous water sports equipment including flotation devices and specialty marine gear"],  
+        "PADDLES": [20, 150, "Lightweight paddles for kayaking and canoeing with ergonomic grips and efficient blade designs"],  
+        "RASH GUARDS": [20, 80, "UV-protective rash guards and swim shirts for sun protection during water sports activities"],  
+        "RODS & REELS": [30, 200, "Fishing rods and reels for freshwater and saltwater angling with various action and weight ratings"],  
+        "SAFETY GEAR": [20, 100, "Water safety equipment including life jackets, whistles, and emergency signaling devices"],  
+        "SURF ACCESSORIES": [10, 100, "Surfing accessories including wax, leashes, fins, and board care products"],  
+        "SURFBOARDS": [200, 800, "High-performance surfboards for various skill levels and wave conditions with modern shaping technology"],  
+        "TACKLE": [5, 50, "Fishing tackle including lures, hooks, sinkers, and terminal tackle for successful angling"],  
+        "WADERS": [50, 200, "Waterproof waders for fishing and water work with breathable materials and reinforced construction"],  
+        "WETSUITS": [50, 300, "Thermal protection wetsuits for diving, surfing, and water sports with flexible neoprene construction"]  
     },  
     "WINTER SPORTS": {  
-        "ACCESSORIES": [10, 100],  
-        "BINDINGS": [80, 300],  
-        "HELMETS": [40, 150],  
-        "OTHER": [10, 100],  
-        "POLES": [20, 100],  
-        "SKI BINDINGS": [100, 300],  
-        "SKI BOOTS": [150, 500],  
-        "SKI POLES": [30, 120],  
-        "SKIS": [200, 800],  
-        "SNOWBOARD BOOTS": [100, 300],  
-        "SNOWBOARDS": [200, 800],  
-        "SNOWSHOES": [50, 200]  
+        "ACCESSORIES": [10, 100, "Winter sports accessories including goggles, gloves, face masks, and gear maintenance items"],  
+        "BINDINGS": [80, 300, "Snowboard bindings with responsive performance and comfort features for all riding styles"],  
+        "HELMETS": [40, 150, "Winter sports helmets with impact protection and ventilation for skiing and snowboarding safety"],  
+        "OTHER": [10, 100, "Miscellaneous winter sports equipment including tuning tools and specialty snow gear"],  
+        "POLES": [20, 100, "Ski poles with ergonomic grips and lightweight construction for balance and propulsion"],  
+        "SKI BINDINGS": [100, 300, "Alpine ski bindings with safety release mechanisms and performance-oriented designs"],  
+        "SKI BOOTS": [150, 500, "Precision ski boots with custom fit options and responsive performance for various skiing styles"],  
+        "SKI POLES": [30, 120, "Lightweight ski poles with comfortable grips and durable construction for alpine and touring skiing"],  
+        "SKIS": [200, 800, "High-performance skis for various snow conditions and skiing styles with advanced construction technology"],  
+        "SNOWBOARD BOOTS": [100, 300, "Comfortable snowboard boots with heat-moldable liners and responsive flex patterns"],  
+        "SNOWBOARDS": [200, 800, "All-mountain and freestyle snowboards with versatile performance characteristics for various terrains"],  
+        "SNOWSHOES": [50, 200, "Lightweight snowshoes with efficient traction systems for winter hiking and backcountry exploration"]  
     }  
 }
 
@@ -187,7 +187,8 @@ def create_database_schema(conn):
             product_name TEXT NOT NULL,
             main_category TEXT NOT NULL,
             product_type TEXT NOT NULL,
-            base_price REAL NOT NULL
+            base_price REAL NOT NULL,
+            product_description TEXT NOT NULL
         )
     """)
     
@@ -296,18 +297,19 @@ def insert_products(conn):
     product_id = 1
     
     for main_category, subcategories in main_categories.items():
-        for product_type, price_range in subcategories.items():
-            # Generate 3-5 variations per product type
-            num_variations = random.randint(3, 5)
-            for variation in range(num_variations):
-                product_name = f"{product_type} - Model {chr(65 + variation)}"
-                base_price = random.randint(price_range[0], price_range[1])
-                
-                products_data.append((product_id, product_name, main_category, product_type, base_price))
-                product_id += 1
+        for product_type, product_info in subcategories.items():
+            price_range = product_info[:2]  # First two elements are min/max price
+            description = product_info[2]   # Third element is the description
+            
+            # Generate only one product per product type
+            product_name = product_type
+            base_price = random.randint(price_range[0], price_range[1])
+            
+            products_data.append((product_id, product_name, main_category, product_type, base_price, description))
+            product_id += 1
     
     cursor.executemany(
-        "INSERT INTO products (product_id, product_name, main_category, product_type, base_price) VALUES (?, ?, ?, ?, ?)",
+        "INSERT INTO products (product_id, product_name, main_category, product_type, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?)",
         products_data
     )
     
