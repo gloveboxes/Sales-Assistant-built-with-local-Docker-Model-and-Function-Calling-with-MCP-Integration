@@ -3,7 +3,9 @@
 AI-Friendly Database Schema Tool
 
 This script provides methods to query database table schemas in AI-friendly formats
-for dynamic query generation and AI model integration.
+for dynamic query genera        return schemas
+
+    def format_schema_metadata_for_ai(self, schema: Dict[str, Any]) -> str:I model integration.
 
 Usage:
     python test_sqlite.py
@@ -48,7 +50,11 @@ class DatabaseSchemaProvider:
         return [row[0] for row in await cursor.fetchall() if row[0]]
 
     def infer_relationship_type(self, references_table: str) -> str:
-        return "many_to_one" if references_table in {"customers", "products"} else "one_to_many"
+        return (
+            "many_to_one"
+            if references_table in {"customers", "products"}
+            else "one_to_many"
+        )
 
     async def get_table_schema(self, table_name: str) -> Dict[str, Any]:
         """
@@ -74,9 +80,7 @@ class DatabaseSchemaProvider:
         # Get table schema and foreign keys
         table_info_task = self.connection.execute(f"PRAGMA table_info({table_name})")
         fk_task = self.connection.execute(f"PRAGMA foreign_key_list({table_name})")
-        columns, foreign_keys = await asyncio.gather(
-            table_info_task, fk_task
-        )
+        columns, foreign_keys = await asyncio.gather(table_info_task, fk_task)
         columns = await columns.fetchall()
         foreign_keys = await foreign_keys.fetchall()
 
@@ -178,57 +182,86 @@ class DatabaseSchemaProvider:
 
     def format_schema_metadata_for_ai(self, schema: Dict[str, Any]) -> str:
         """
-        Convert a schema dictionary to an AI-optimized metadata string.
+        Convert a schema dictionary to an AI-optimized metadata string with markdown formatting.
         This format is specifically designed for AI model consumption with clear structure and context.
 
         Args:
             schema: Schema dictionary from get_all_schemas() or get_table_schema()
 
         Returns:
-            AI-optimized formatted string containing all schema metadata
+            AI-optimized formatted markdown string containing all schema metadata
         """
         if "error" in schema:
-            return f"ERROR: {schema['error']}"
+            return f"**ERROR:** {schema['error']}"
 
         lines = []
         table_name = schema.get("table_name", "Unknown")
 
-        # Header with clear table identification
-        lines.append(f"TABLE: {table_name}")
-        lines.append(f"PURPOSE: {schema.get('description', 'No description available')}")
+        # Header with clear table identification using markdown heading
+        lines.append(f"# Table: {table_name}")
+        lines.append("")
 
-        # Quick reference format for AI parsing
-        lines.append(f"SCHEMA: {schema.get('columns_format', 'N/A')}")
+        # Purpose section
+        lines.append(
+            f"**Purpose:** {schema.get('description', 'No description available')}"
+        )
+        lines.append("")
 
-        # Foreign key relationships with clear AI context
+        # Schema section with markdown heading
+        lines.append("## Schema")
+        lines.append(f"{schema.get('columns_format', 'N/A')}")
+        lines.append("")
+
+        # Foreign key relationships with markdown heading
         if "foreign_keys" in schema and schema["foreign_keys"]:
-            lines.append("RELATIONSHIPS:")
+            lines.append("## Relationships")
             for fk in schema["foreign_keys"]:
                 relationship = fk.get("relationship_type", "unknown").upper()
                 lines.append(
-                    f"  {fk['column']} -> {fk['references_table']}.{fk['references_column']} ({relationship})"
+                    f"- `{fk['column']}` → `{fk['references_table']}.{fk['references_column']}` ({relationship})"
                 )
+            lines.append("")
 
-        # Enumerated values for AI to understand valid options
+        # Enumerated values section with markdown heading
         enum_fields = [
-            ("available_regions", "VALID_REGIONS"),
-            ("available_product_types", "VALID_PRODUCT_TYPES"),
-            ("available_product_categories", "VALID_CATEGORIES"),
-            ("reporting_years", "AVAILABLE_YEARS"),
+            ("available_regions", "Valid Regions"),
+            ("available_product_types", "Valid Product Types"),
+            ("available_product_categories", "Valid Categories"),
+            ("reporting_years", "Available Years"),
         ]
 
+        enum_sections_added = False
         for field_key, field_label in enum_fields:
             if field_key in schema and schema[field_key]:
-                lines.append(self._format_enum_field(field_label, schema[field_key]))
+                if not enum_sections_added:
+                    lines.append("## Valid Values")
+                    enum_sections_added = True
 
-        # Add query hints for AI
-        lines.append("QUERY_HINTS:")
-        lines.append(f"  - Use {table_name} for queries about {table_name.replace('_', ' ')}")
+                values = schema[field_key]
+                if isinstance(values, list) and len(values) > 10:
+                    lines.append(
+                        f"**{field_label}:** {', '.join(str(v) for v in values[:10])}, ... [{len(values)} total options]"
+                    )
+                else:
+                    lines.append(
+                        f"**{field_label}:** {', '.join(str(v) for v in values) if isinstance(values, list) else values}"
+                    )
+
+        if enum_sections_added:
+            lines.append("")
+
+        # Query hints section with markdown heading
+        lines.append("## Query Hints")
+        lines.append(
+            f"- Use `{table_name}` for queries about {table_name.replace('_', ' ')}"
+        )
         if "foreign_keys" in schema and schema["foreign_keys"]:
             for fk in schema["foreign_keys"]:
-                lines.append(f"  - Join with {fk['references_table']} using {fk['column']}")
+                lines.append(
+                    f"- Join with `{fk['references_table']}` using `{fk['column']}`"
+                )
 
-        return "\n".join(lines)
+        return "\n".join(lines) + "\n"
 
     async def get_table_metadata_string(self, table_name: str) -> str:
         """
@@ -252,14 +285,14 @@ class DatabaseSchemaProvider:
         """
         Execute SQLite queries against the database and return results as JSON.
 
-        :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question. 
+        :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question.
                             The query result will be returned as a JSON object.
         :return: Return data in JSON serializable format.
         :rtype: str
         """
         if not self.connection:
             return json.dumps({"error": "Database connection not established"})
-        
+
         print(f"\n🔍 Executing SQLite query: {sqlite_query}\n")
 
         try:
@@ -269,14 +302,19 @@ class DatabaseSchemaProvider:
                 columns = [description[0] for description in cursor.description]
 
             if not rows:  # No need to create DataFrame if there are no rows
-                return json.dumps("The query returned no results. Try a different question.")
-            
+                return json.dumps(
+                    "The query returned no results. Try a different question."
+                )
+
             # Convert to pandas DataFrame and return as JSON
             data = pd.DataFrame(rows, columns=columns)
             return data.to_json(index=False, orient="split")
 
         except Exception as e:
-            return json.dumps({"SQLite query failed with error": str(e), "query": sqlite_query})
+            return json.dumps(
+                {"SQLite query failed with error": str(e), "query": sqlite_query}
+            )
+
 
 async def main():
     """Main function to demonstrate AI-friendly schema methods."""
@@ -304,14 +342,15 @@ async def main():
 
             # Test SQL query execution
             print("\n🧪 Testing SQL Query Execution:")
-            print("="*50)
-            
+            print("=" * 50)
+
             # Test 1: Simple count query
             print("\n📊 Test 1: Count all customers")
-            result = await provider.execute_query("SELECT COUNT(*) as total_customers FROM customers")
+            result = await provider.execute_query(
+                "SELECT COUNT(*) as total_customers FROM customers"
+            )
             print(f"Result: {result}")
-        
-            
+
             print("\n✅ SQL Query tests completed!")
 
             print("=" * 50)
