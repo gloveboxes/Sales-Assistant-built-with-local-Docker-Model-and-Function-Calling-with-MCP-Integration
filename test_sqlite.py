@@ -3,9 +3,7 @@
 AI-Friendly Database Schema Tool
 
 This script provides methods to query database table schemas in AI-friendly formats
-for dynamic query genera        return schemas
-
-    def format_schema_metadata_for_ai(self, schema: Dict[str, Any]) -> str:I model integration.
+for dynamic query generation and AI model integration.
 
 Usage:
     python test_sqlite.py
@@ -13,14 +11,25 @@ Usage:
 Requirements:
     - aiosqlite (async SQLite adapter)
     - asyncio (for async operations)
+    - pandas (for structured JSON output)
 """
 
 import asyncio
 import aiosqlite
 import json
+import logging
 import pandas as pd
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Union
+from typing import Dict, List, Any, Optional
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Constants
+CUSTOMERS_TABLE = "customers"
+PRODUCTS_TABLE = "products"
+ORDERS_TABLE = "orders"
 
 
 class DatabaseSchemaProvider:
@@ -32,91 +41,97 @@ class DatabaseSchemaProvider:
         self.all_schemas: Optional[Dict[str, Dict[str, Any]]] = None
 
     async def __aenter__(self):
-        """Async context manager entry."""
+        """Open SQLite connection and preload schemas."""
         self.connection = await aiosqlite.connect(self.db_path)
-        # Load all schemas when entering the context
         self.all_schemas = await self.get_all_schemas()
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
-        """Async context manager exit."""
+        """Close SQLite connection."""
         if self.connection:
             await self.connection.close()
 
+    async def table_exists(self, table: str) -> bool:
+        """Check if a table exists in the database."""
+        if not self.connection:
+            return False
+        async with self.connection.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name = ?", (table,)
+        ) as cursor:
+            return await cursor.fetchone() is not None
+
+    async def column_exists(self, table: str, column: str) -> bool:
+        """Check if a column exists in the given table."""
+        if not self.connection:
+            return False
+        async with self.connection.execute(f"PRAGMA table_info({table})") as cursor:
+            columns = [row[1] for row in await cursor.fetchall()]
+            return column in columns
+
     async def fetch_distinct_values(self, column: str, table: str) -> List[str]:
-        cursor = await self.connection.execute(
+        """Return sorted list of distinct values for a given column in a table, after validation."""
+        if not self.connection:
+            raise ValueError("Database connection not established")
+        if not await self.table_exists(table):
+            raise ValueError(f"Table '{table}' does not exist in the database")
+        if not await self.column_exists(table, column):
+            raise ValueError(f"Column '{column}' does not exist in table '{table}'")
+
+        async with self.connection.execute(
             f"SELECT DISTINCT {column} FROM {table} WHERE {column} IS NOT NULL ORDER BY {column}"
-        )
-        return [row[0] for row in await cursor.fetchall() if row[0]]
+        ) as cursor:
+            return [row[0] for row in await cursor.fetchall() if row[0]]
 
     def infer_relationship_type(self, references_table: str) -> str:
+        """Infer a relationship type based on the referenced table."""
         return (
             "many_to_one"
-            if references_table in {"customers", "products"}
+            if references_table in {CUSTOMERS_TABLE, PRODUCTS_TABLE}
             else "one_to_many"
         )
 
     async def get_table_schema(self, table_name: str) -> Dict[str, Any]:
-        """
-        Get table schema in AI-friendly format for dynamic query generation.
-
-        Args:
-            table_name: Name of the table to analyze
-
-        Returns:
-            Dictionary with table metadata optimized for AI model consumption
-        """
+        """Return schema information for a given table."""
         if not self.connection:
             return {"error": "Database connection not established"}
 
-        # Check if table exists
-        cursor = await self.connection.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name = ?",
-            (table_name,),
-        )
-        if not await cursor.fetchone():
+        if not await self.table_exists(table_name):
             return {"error": f"Table '{table_name}' not found"}
 
-        # Get table schema and foreign keys
-        table_info_task = self.connection.execute(f"PRAGMA table_info({table_name})")
-        fk_task = self.connection.execute(f"PRAGMA foreign_key_list({table_name})")
-        columns, foreign_keys = await asyncio.gather(table_info_task, fk_task)
-        columns = await columns.fetchall()
-        foreign_keys = await foreign_keys.fetchall()
+        async with self.connection.execute(f"PRAGMA table_info({table_name})") as columns_cursor:
+            columns = await columns_cursor.fetchall()
+        
+        async with self.connection.execute(f"PRAGMA foreign_key_list({table_name})") as foreign_keys_cursor:
+            foreign_keys = await foreign_keys_cursor.fetchall()
 
         columns_format = ", ".join(f"{col[1]}:{col[2]}" for col in columns)
         lower_table = table_name.lower()
 
-        available_regions = None
-        available_product_types = None
-        available_product_categories = None
-        reporting_years = None
-
         enum_queries = {
-            "customers": {"available_regions": ("region", "customers")},
-            "products": {
-                "available_product_types": ("product_type", "products"),
-                "available_product_categories": ("main_category", "products"),
+            CUSTOMERS_TABLE: {"available_regions": ("region", CUSTOMERS_TABLE)},
+            PRODUCTS_TABLE: {
+                "available_product_types": ("product_type", PRODUCTS_TABLE),
+                "available_product_categories": ("main_category", PRODUCTS_TABLE),
             },
         }
 
-        if lower_table in enum_queries:
-            for key, (column, table) in enum_queries[lower_table].items():
-                value = await self.fetch_distinct_values(column, table)
-                if key == "available_regions":
-                    available_regions = value
-                elif key == "available_product_types":
-                    available_product_types = value
-                elif key == "available_product_categories":
-                    available_product_categories = value
+        enum_data = {}
+        if lower_table in {CUSTOMERS_TABLE, PRODUCTS_TABLE}:
+            for key, (column, table) in enum_queries.get(lower_table, {}).items():
+                try:
+                    enum_data[key] = await self.fetch_distinct_values(column, table)
+                except Exception:
+                    enum_data[key] = []
 
-        if lower_table == "orders":
-            cursor = await self.connection.execute(
-                "SELECT DISTINCT strftime('%Y', order_date) as year FROM orders WHERE order_date IS NOT NULL ORDER BY year"
-            )
-            years = [row[0] for row in await cursor.fetchall() if row[0]]
-            if years:
-                reporting_years = ", ".join(years)
+        reporting_years = None
+        if lower_table == ORDERS_TABLE:
+            async with self.connection.execute(
+                "SELECT DISTINCT strftime('%Y', order_date) as year FROM orders "
+                "WHERE order_date IS NOT NULL ORDER BY year"
+            ) as cursor:
+                years = [row[0] for row in await cursor.fetchall() if row[0]]
+                if years:
+                    reporting_years = ", ".join(years)
 
         schema_data = {
             "table_name": table_name,
@@ -143,86 +158,49 @@ class DatabaseSchemaProvider:
                 for fk in foreign_keys
             ],
         }
-        if available_regions:
-            schema_data["available_regions"] = available_regions
-        if available_product_types:
-            schema_data["available_product_types"] = available_product_types
-        if available_product_categories:
-            schema_data["available_product_categories"] = available_product_categories
+
+        schema_data.update(enum_data)
         if reporting_years:
             schema_data["reporting_years"] = reporting_years
-        # Debug: print reporting_years for orders
-        if lower_table == "orders":
-            print(f"[DEBUG] reporting_years for orders: {reporting_years}")
+
         return schema_data
 
     async def get_all_table_names(self) -> List[str]:
-        """Get list of all user table names."""
+        """Get all user-defined table names in the database."""
         if not self.connection:
             return []
-        cursor = await self.connection.execute(
+        async with self.connection.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'"
-        )
-        return [table[0] for table in await cursor.fetchall()]
+        ) as cursor:
+            return [table[0] for table in await cursor.fetchall()]
 
     async def get_all_schemas(self) -> Dict[str, Dict[str, Any]]:
-        """Get all table schemas in AI-friendly format."""
+        """Get schema metadata for all tables."""
         table_names = await self.get_all_table_names()
-        schemas = {}
+        result = {}
         for table_name in table_names:
-            schemas[table_name] = await self.get_table_schema(table_name)
-        return schemas
-
-    def _format_enum_field(self, label: str, values: Union[List[str], str]) -> str:
-        if isinstance(values, list):
-            if len(values) > 10:
-                return f"{label}: {', '.join(values[:10])}, ... [{len(values)} total options]"
-            return f"{label}: {', '.join(values)}"
-        return f"{label}: {values}"
+            result[table_name] = await self.get_table_schema(table_name)
+        return result
 
     def format_schema_metadata_for_ai(self, schema: Dict[str, Any]) -> str:
-        """
-        Convert a schema dictionary to an AI-optimized metadata string with markdown formatting.
-        This format is specifically designed for AI model consumption with clear structure and context.
-
-        Args:
-            schema: Schema dictionary from get_all_schemas() or get_table_schema()
-
-        Returns:
-            AI-optimized formatted markdown string containing all schema metadata
-        """
+        """Format schema data into an AI-readable format."""
         if "error" in schema:
             return f"**ERROR:** {schema['error']}"
 
-        lines = []
-        table_name = schema.get("table_name", "Unknown")
-
-        # Header with clear table identification using markdown heading
-        lines.append(f"# Table: {table_name}")
-        lines.append("")
-
-        # Purpose section
+        lines = [f"# Table: {schema['table_name']}", ""]
         lines.append(
             f"**Purpose:** {schema.get('description', 'No description available')}"
         )
-        lines.append("")
+        lines.append("\n## Schema")
+        lines.append(schema.get("columns_format", "N/A"))
 
-        # Schema section with markdown heading
-        lines.append("## Schema")
-        lines.append(f"{schema.get('columns_format', 'N/A')}")
-        lines.append("")
-
-        # Foreign key relationships with markdown heading
-        if "foreign_keys" in schema and schema["foreign_keys"]:
-            lines.append("## Relationships")
+        if schema.get("foreign_keys"):
+            lines.append("\n## Relationships")
             for fk in schema["foreign_keys"]:
-                relationship = fk.get("relationship_type", "unknown").upper()
                 lines.append(
-                    f"- `{fk['column']}` → `{fk['references_table']}.{fk['references_column']}` ({relationship})"
+                    f"- `{fk['column']}` → `{fk['references_table']}.{fk['references_column']}` ({fk['relationship_type'].upper()})"
                 )
-            lines.append("")
 
-        # Enumerated values section with markdown heading
         enum_fields = [
             ("available_regions", "Valid Regions"),
             ("available_product_types", "Valid Product Types"),
@@ -230,32 +208,28 @@ class DatabaseSchemaProvider:
             ("reporting_years", "Available Years"),
         ]
 
-        enum_sections_added = False
-        for field_key, field_label in enum_fields:
+        enum_lines = []
+        for field_key, label in enum_fields:
             if field_key in schema and schema[field_key]:
-                if not enum_sections_added:
-                    lines.append("## Valid Values")
-                    enum_sections_added = True
-
                 values = schema[field_key]
                 if isinstance(values, list) and len(values) > 10:
-                    lines.append(
-                        f"**{field_label}:** {', '.join(str(v) for v in values[:10])}, ... [{len(values)} total options]"
+                    enum_lines.append(
+                        f"**{label}:** {', '.join(values[:10])}, ... [{len(values)} total options]"
                     )
                 else:
-                    lines.append(
-                        f"**{field_label}:** {', '.join(str(v) for v in values) if isinstance(values, list) else values}"
+                    enum_lines.append(
+                        f"**{label}:** {', '.join(values) if isinstance(values, list) else values}"
                     )
 
-        if enum_sections_added:
-            lines.append("")
+        if enum_lines:
+            lines.append("\n## Valid Values")
+            lines.extend(enum_lines)
 
-        # Query hints section with markdown heading
-        lines.append("## Query Hints")
+        lines.append("\n## Query Hints")
         lines.append(
-            f"- Use `{table_name}` for queries about {table_name.replace('_', ' ')}"
+            f"- Use `{schema['table_name']}` for queries about {schema['table_name'].replace('_', ' ')}"
         )
-        if "foreign_keys" in schema and schema["foreign_keys"]:
+        if schema.get("foreign_keys"):
             for fk in schema["foreign_keys"]:
                 lines.append(
                     f"- Join with `{fk['references_table']}` using `{fk['column']}`"
@@ -264,49 +238,29 @@ class DatabaseSchemaProvider:
         return "\n".join(lines) + "\n"
 
     async def get_table_metadata_string(self, table_name: str) -> str:
-        """
-        Get AI-formatted metadata string for a specific table by name.
-
-        Args:
-            table_name: Name of the table to get metadata for
-
-        Returns:
-            AI-optimized formatted metadata string for the table
-        """
+        """Return formatted schema metadata string for a single table."""
         if self.all_schemas and table_name in self.all_schemas:
-            schema = self.all_schemas[table_name]
-            return self.format_schema_metadata_for_ai(schema)
-        else:
-            # Fallback: get schema directly if not in preloaded schemas
-            schema = await self.get_table_schema(table_name)
-            return self.format_schema_metadata_for_ai(schema)
+            return self.format_schema_metadata_for_ai(self.all_schemas[table_name])
+        schema = await self.get_table_schema(table_name)
+        return self.format_schema_metadata_for_ai(schema)
 
     async def execute_query(self, sqlite_query: str) -> str:
-        """
-        Execute SQLite queries against the database and return results as JSON.
-
-        :param sqlite_query: The input should be a well-formed SQLite query to extract information based on the user's question.
-                            The query result will be returned as a JSON object.
-        :return: Return data in JSON serializable format.
-        :rtype: str
-        """
+        """Execute a SQL query and return results as JSON."""
         if not self.connection:
             return json.dumps({"error": "Database connection not established"})
 
-        print(f"\n🔍 Executing SQLite query: {sqlite_query}\n")
+        logger.info(f"\n🔍 Executing SQLite query: {sqlite_query}\n")
 
         try:
-            # Perform the query asynchronously
             async with self.connection.execute(sqlite_query) as cursor:
                 rows = await cursor.fetchall()
                 columns = [description[0] for description in cursor.description]
 
-            if not rows:  # No need to create DataFrame if there are no rows
+            if not rows:
                 return json.dumps(
                     "The query returned no results. Try a different question."
                 )
 
-            # Convert to pandas DataFrame and return as JSON
             data = pd.DataFrame(rows, columns=columns)
             return data.to_json(index=False, orient="split")
 
@@ -317,54 +271,47 @@ class DatabaseSchemaProvider:
 
 
 async def main():
-    """Main function to demonstrate AI-friendly schema methods."""
-    # Database path
+    """Main function to run the schema tool."""
     db_path = Path(__file__).parent / "shared" / "database" / "customer_sales.db"
 
     if not db_path.exists():
-        print(f"❌ Error: Database file not found at {db_path}")
-        print("   Please run the database generator first:")
-        print("   python shared/database/data-generator/generate_customer_db.py")
+        logger.error(f"❌ Error: Database file not found at {db_path}")
+        logger.error("   Please run the database generator first:")
+        logger.error("   python shared/database/data-generator/generate_customer_db.py")
         return
 
-    print("🤖 AI-Friendly Database Schema Tool")
-    print("=" * 50)
+    logger.info("🤖 AI-Friendly Database Schema Tool")
+    logger.info("=" * 50)
 
     try:
         async with DatabaseSchemaProvider(str(db_path)) as provider:
-            # Get all schemas (now pre-loaded in __aenter__)
-            print("\n📋 Getting all table schemas...")
-            all_schemas = provider.all_schemas
-
-            if not all_schemas:
-                print("❌ No schemas available")
+            logger.info("\n📋 Getting all table schemas...")
+            if not provider.all_schemas:
+                logger.warning("❌ No schemas available")
                 return
 
-            # Test SQL query execution
-            print("\n🧪 Testing SQL Query Execution:")
-            print("=" * 50)
+            logger.info("\n🧪 Testing SQL Query Execution:")
+            logger.info("=" * 50)
 
-            # Test 1: Simple count query
-            print("\n📊 Test 1: Count all customers")
+            logger.info("\n📊 Test 1: Count all customers")
             result = await provider.execute_query(
                 "SELECT COUNT(*) as total_customers FROM customers"
             )
-            print(f"Result: {result}")
+            logger.info(f"Result: {result}")
 
-            print("\n✅ SQL Query tests completed!")
+            logger.info("\n✅ SQL Query tests completed!")
+            logger.info("=" * 50)
 
-            print("=" * 50)
-            print(await provider.get_table_metadata_string("customers"))
-            print("=" * 50)
-            print(await provider.get_table_metadata_string("products"))
-            print("=" * 50)
-            print(await provider.get_table_metadata_string("orders"))
+            # --- Use print for clean, user-facing schema info ---
+            print(await provider.get_table_metadata_string(CUSTOMERS_TABLE))
+            print(await provider.get_table_metadata_string(PRODUCTS_TABLE))
+            print(await provider.get_table_metadata_string(ORDERS_TABLE))
+            print(await provider.get_table_metadata_string("non_existing_table"))
 
     except Exception as e:
-        print(f"❌ Error during analysis: {e}")
+        logger.error(f"❌ Error during analysis: {e}")
         raise
 
 
 if __name__ == "__main__":
-    # Run the schema analysis
     asyncio.run(main())
