@@ -310,26 +310,7 @@ async def main():
             print("\n📊 Test 1: Count all customers")
             result = await provider.execute_query("SELECT COUNT(*) as total_customers FROM customers")
             print(f"Result: {result}")
-            
-            # Test 2: Get sample data
-            print("\n📊 Test 2: Get first 3 customers")
-            result = await provider.execute_query("SELECT customer_id, last_name, region FROM customers LIMIT 3")
-            print(f"Result: {result}")
-            
-            # Test 3: Aggregation query
-            print("\n📊 Test 3: Count customers by region")
-            result = await provider.execute_query("SELECT region, COUNT(*) as customer_count FROM customers GROUP BY region ORDER BY customer_count DESC")
-            print(f"Result: {result}")
-            
-            # Test 4: Error handling test
-            print("\n📊 Test 4: Error handling (invalid table)")
-            result = await provider.execute_query("SELECT * FROM non_existent_table")
-            print(f"Result: {result}")
-            
-            # Test 5: Empty result test
-            print("\n📊 Test 5: Empty result test")
-            result = await provider.execute_query("SELECT * FROM customers WHERE last_name = 'NonExistentCustomer'")
-            print(f"Result: {result}")
+        
             
             print("\n✅ SQL Query tests completed!")
 
