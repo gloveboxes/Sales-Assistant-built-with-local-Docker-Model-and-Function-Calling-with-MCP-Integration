@@ -301,6 +301,7 @@ async def main():
 
             logger.info("\n✅ SQL Query tests completed!")
             logger.info("=" * 50)
+            print("\n📋 All table schemas:\n")
 
             # --- Use print for clean, user-facing schema info ---
             print(await provider.get_table_metadata_string(CUSTOMERS_TABLE))
