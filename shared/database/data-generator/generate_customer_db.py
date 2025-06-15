@@ -9,19 +9,32 @@ fake = Faker()
 main_categories = {  
     "APPAREL": {  
         "JACKETS & VESTS": ["Summit Pro Insulated Jacket", 50, 250, "High-performance jackets and vests designed for outdoor adventures, featuring weather-resistant materials and insulation for all-season comfort"],  
+        "RAIN JACKETS": ["StormShield Waterproof Jacket", 45, 180, "Lightweight waterproof jackets with breathable membranes for wet weather protection"],
+        "FLEECE JACKETS": ["CozyWarm Fleece Jacket", 35, 120, "Soft fleece jackets for mid-layer warmth and comfort in cool conditions"],
+        "SOFTSHELL JACKETS": ["FlexGuard Softshell Jacket", 60, 200, "Stretchy softshell jackets with wind and water resistance for active pursuits"],
         "OTHER": ["Trail Accessories Bundle", 10, 100, "Miscellaneous apparel items including accessories, belts, and specialty outdoor clothing"],  
         "PANTS & SHORTS": ["Adventure Flex Hiking Pants", 30, 120, "Durable outdoor pants and shorts with moisture-wicking fabrics, reinforced knees, and articulated fit for active pursuits"],  
+        "CARGO PANTS": ["Explorer Cargo Pants", 40, 130, "Multi-pocket cargo pants with reinforced construction for rugged outdoor use"],
+        "SHORTS": ["QuickDry Trail Shorts", 25, 90, "Lightweight trail shorts with moisture-wicking fabric and secure pockets"],
         "SHIRTS": ["Alpine Tech Performance Shirt", 20, 80, "Technical shirts and casual outdoor wear with UV protection, breathable fabrics, and quick-dry technology"],  
+        "POLO SHIRTS": ["Outdoor Explorer Polo", 30, 70, "Casual polo shirts with UV protection and moisture management for outdoor lifestyle"],
         "TOPS": ["Mountain Thermal Fleece", 15, 60, "Performance tops including fleece, sweaters, and layering pieces for temperature regulation during outdoor activities"],  
-        "UNDERWEAR & BASE LAYERS": ["Merino Base Layer Set", 10, 50, "Moisture-wicking underwear and base layers designed for thermal regulation and comfort during extended outdoor activities"]  
+        "UNDERWEAR & BASE LAYERS": ["Merino Base Layer Set", 10, 50, "Moisture-wicking underwear and base layers designed for thermal regulation and comfort during extended outdoor activities"],
+        "SOCKS": ["Performance Trail Socks", 8, 25, "Cushioned hiking socks with moisture management and blister prevention"],
+        "HATS & CAPS": ["Adventure Sun Hat", 15, 45, "Wide-brim sun hats and caps for UV protection during outdoor activities"],
+        "GLOVES": ["Multi-Sport Outdoor Gloves", 12, 60, "Versatile outdoor gloves with grip and dexterity for various activities"],
+        "BELTS": ["Adventure Utility Belt", 18, 50, "Durable outdoor belts with quick-release buckles and utility features"]  
     },  
     "CAMPING & HIKING": {  
         "BACKPACKING TENTS": ["Ultralight Summit 2P Tent", 100, 500, "Lightweight, compact tents designed for multi-day backpacking trips with superior weather protection and easy setup"],  
         "BIVYS": ["Alpine Emergency Shelter", 50, 200, "Ultra-lightweight emergency shelters and bivy sacks for minimalist camping and emergency situations"],  
         "COOKWARE": ["Trail Chef Titanium Set", 20, 150, "Portable camping cookware including pots, pans, and cooking systems designed for outdoor meal preparation"],  
+        "WATER BOTTLES": ["HydroTrail Insulated Bottle", 15, 60, "Insulated water bottles with leak-proof design for hydration on the trail"],
+        "HEADLAMPS": ["NightVision Pro Headlamp", 25, 120, "Bright LED headlamps with multiple modes and long battery life for hands-free illumination"],
         "DAYPACKS": ["Explorer 25L Daypack", 30, 150, "Comfortable day hiking packs with organizational features and hydration compatibility for single-day adventures"],  
         "EXTENDED TRIP PACKS": ["Expedition 75L Backpack", 150, 400, "Large-capacity backpacks designed for multi-week expeditions with advanced suspension systems and durability"],  
         "FAMILY CAMPING TENTS": ["Family Base Camp 6P Tent", 200, 800, "Spacious family tents with multiple rooms, easy setup, and weather protection for car camping and group adventures"],  
+        "CAMPING CHAIRS": ["ComfortBase Camp Chair", 40, 120, "Portable camping chairs with cup holders and sturdy construction for outdoor relaxation"],
         "FOOD & NUTRITION": ["Trail Energy Pack", 5, 50, "Outdoor nutrition including energy bars, dehydrated meals, and supplements for sustained energy during activities"],  
         "HAMMOCKS": ["Comfort Sleep Hammock System", 30, 150, "Portable hammocks and suspension systems for comfortable outdoor relaxation and lightweight camping"],  
         "HYDRATION PACKS": ["HydroFlow 3L System", 40, 120, "Hands-free hydration systems with reservoir bladders and ergonomic designs for active pursuits"],  
@@ -32,35 +45,44 @@ main_categories = {
         "SLEEPING BAGS": ["Four Season Sleep System", 60, 300, "Insulated sleeping bags rated for various temperatures with compressible designs for outdoor sleeping comfort"],  
         "SLEEPING PADS": ["ComfortPro Inflatable Pad", 30, 150, "Insulated and self-inflating sleeping pads for comfort and thermal protection while camping"],  
         "STOVES": ["Efficient Flame Stove", 20, 150, "Portable camping stoves and fuel systems for efficient outdoor cooking and meal preparation"],  
-        "UTENSILS & ACCESSORIES": ["Camp Kitchen Essentials", 5, 50, "Camping utensils, plates, cups, and accessories for outdoor dining and food preparation"]  
+        "UTENSILS & ACCESSORIES": ["Camp Kitchen Essentials", 5, 50, "Camping utensils, plates, cups, and accessories for outdoor dining and food preparation"],
+        "LANTERNS": ["BaseCamp LED Lantern", 18, 80, "Bright LED lanterns with multiple modes and long battery life for campsite illumination"]  
     },  
     "CLIMBING": {  
         "AVALANCHE SAFETY": ["Backcountry Safety Pro Kit", 100, 500, "Essential avalanche safety equipment including beacons, probes, and shovels for backcountry snow travel"],  
         "CARABINERS & QUICKDRAWS": ["Pro Climbing Hardware Set", 5, 50, "High-strength carabiners and quickdraws for rock climbing, mountaineering, and rope work applications"],  
         "CHALK & CHALK BAGS": ["Grip Master Chalk System", 5, 30, "Climbing chalk and chalk bags for improved grip and moisture management during climbing activities"],  
         "CLIMBING SHOES": ["Precision Climb Shoes", 60, 200, "Specialized climbing footwear with sticky rubber soles and precise fit for optimal performance on rock"],  
+        "APPROACH SHOES": ["RockWalk Approach Shoes", 80, 180, "Versatile approach shoes with climbing rubber and hiking comfort for technical terrain"],
         "CRAMPONS": ["Ice Master Pro Crampons", 100, 300, "Steel and aluminum crampons for ice climbing and mountaineering with secure attachment systems"],  
         "HARNESSES": ["Safety First Climbing Harness", 50, 200, "Climbing harnesses with gear loops and belay devices for safety and comfort during vertical adventures"],  
         "HELMETS": ["Impact Shield Helmet", 40, 150, "Lightweight climbing helmets with impact protection for rock climbing, mountaineering, and ice climbing"],  
         "ICE AXES": ["Alpine Master Ice Axe", 50, 300, "Technical ice axes and ice tools for mountaineering, ice climbing, and alpine adventures"],  
         "MOUNTAINEERING BOOTS": ["Summit Pro Mountaineering Boots", 150, 500, "Insulated mountaineering boots with crampon compatibility for high-altitude and cold weather climbing"],  
+        "BELAY DEVICES": ["SecureGrip Belay Device", 25, 80, "Advanced belay devices with assisted braking for enhanced climbing safety"],
         "OTHER": ["Climbing Essentials Pack", 10, 100, "Miscellaneous climbing gear including approach shoes, gloves, and specialty climbing accessories"],  
         "ROPES & SLINGS": ["Dynamic Safety Rope System", 30, 300, "Dynamic climbing ropes, slings, and cordage for safety systems and rigging in climbing applications"],  
         "TRAINING EQUIPMENT": ["Strength Builder Training Kit", 20, 150, "Climbing training tools including hangboards, resistance trainers, and technique development aids"]  
     },  
     "FOOTWEAR": {  
         "HIKING BOOTS": ["TrailMaster Hiking Boots", 60, 250, "Sturdy hiking boots with ankle support, waterproof membranes, and aggressive tread for trail hiking"],  
+        "LIGHTWEIGHT BOOTS": ["FeatherStep Hiking Boots", 70, 220, "Lightweight hiking boots with modern materials for comfort and performance on long trails"],
         "OTHER": ["Outdoor Footwear Collection", 20, 100, "Miscellaneous outdoor footwear including casual shoes, slippers, and specialty athletic footwear"],  
         "SANDALS": ["Adventure Sport Sandals", 20, 80, "Outdoor sandals with supportive footbeds and durable straps for water sports and casual outdoor wear"],  
+        "WATER SHOES": ["AquaGrip Water Shoes", 25, 70, "Quick-dry water shoes with drainage and grip for water activities and beach walking"],
         "TRAIL SHOES": ["Swift Trail Running Shoes", 50, 150, "Lightweight trail running shoes with grip and protection for fast-paced outdoor activities"],  
+        "CASUAL SHOES": ["Urban Explorer Shoes", 40, 120, "Casual outdoor lifestyle shoes with comfort and style for everyday adventures"],
         "WINTER BOOTS": ["Arctic Pro Winter Boots", 60, 200, "Insulated winter boots with waterproof construction and traction for cold weather outdoor activities"]  
     },  
     "TRAVEL": {  
         "CARRY-ONS": ["Journey Pro Carry-On", 50, 200, "Airline-compliant carry-on luggage with organizational features and durable construction for frequent travel"],  
+        "CHECKED LUGGAGE": ["Voyager Large Suitcase", 80, 300, "Spacious checked luggage with spinner wheels and TSA-approved locks for extended travel"],
         "DUFFEL BAGS": ["Adventure Duffel Collection", 30, 150, "Versatile duffel bags in various sizes for travel, gym use, and gear transport with multiple carry options"],  
+        "ROLLING DUFFELS": ["Expedition Wheeled Duffel", 60, 220, "Large wheeled duffel bags for gear transport with rugged construction and smooth-rolling wheels"],
         "EYE MASKS": ["Rest Easy Sleep Mask", 5, 20, "Comfortable sleep masks for travel rest and light blocking during transportation and accommodation"],  
         "OTHER": ["Travel Essentials Kit", 5, 50, "Miscellaneous travel accessories including adapters, organizers, and convenience items"],  
         "PACKING ORGANIZERS": ["Smart Pack Organizer Set", 10, 50, "Packing cubes and organizers for efficient luggage organization and space maximization"],  
+        "COMPRESSION SACKS": ["SpaceSaver Compression Bag", 15, 40, "Compression bags for reducing bulk and organizing gear efficiently in luggage"],
         "SECURITY": ["SafeGuard Travel Security", 10, 100, "Travel security items including locks, RFID wallets, and anti-theft devices for safe traveling"],  
         "TRAVEL ACCESSORIES": ["Global Travel Accessory Kit", 5, 80, "Essential travel accessories including adapters, chargers, and convenience items for global travel"],  
         "TRAVEL BACKPACKS": ["Nomad Adventure Backpack", 30, 200, "Travel-specific backpacks with organizational features and carry-on compatibility for adventure travel"],  
@@ -68,21 +90,27 @@ main_categories = {
     },  
     "WATER SPORTS": {  
         "ACCESSORIES": ["Marine Adventure Accessories", 10, 100, "Water sports accessories including waterproof bags, boat fenders, and marine safety equipment"],  
+        "DRY BAGS": ["WaterShield Dry Bag Set", 20, 80, "Waterproof dry bags in multiple sizes for protecting gear during water activities"],
         "CANOES": ["Explorer Classic Canoe", 300, 1200, "High-quality canoes for recreational paddling, touring, and whitewater adventures with various hull designs"],  
         "KAYAKS": ["River Runner Kayak", 200, 1000, "Recreational and touring kayaks for flatwater and whitewater paddling with stability and performance features"],  
+        "INFLATABLE KAYAKS": ["PackRaft Explorer Kayak", 150, 600, "Portable inflatable kayaks for easy transport and storage with reliable performance"],
         "OTHER": ["Water Sports Gear Pack", 10, 100, "Miscellaneous water sports equipment including flotation devices and specialty marine gear"],  
         "PADDLES": ["Precision Paddle Pro", 20, 150, "Lightweight paddles for kayaking and canoeing with ergonomic grips and efficient blade designs"],  
         "RASH GUARDS": ["Sun Shield Rash Guard", 20, 80, "UV-protective rash guards and swim shirts for sun protection during water sports activities"],  
         "RODS & REELS": ["AngleMaster Rod & Reel", 30, 200, "Fishing rods and reels for freshwater and saltwater angling with various action and weight ratings"],  
+        "FLY FISHING GEAR": ["StreamCast Fly Fishing Kit", 80, 300, "Complete fly fishing setup with rods, reels, and tackle for freshwater and saltwater fly fishing"],
         "SAFETY GEAR": ["AquaSafe Safety Kit", 20, 100, "Water safety equipment including life jackets, whistles, and emergency signaling devices"],  
         "SURF ACCESSORIES": ["Wave Rider Accessory Kit", 10, 100, "Surfing accessories including wax, leashes, fins, and board care products"],  
         "SURFBOARDS": ["Storm Rider Surfboard", 200, 800, "High-performance surfboards for various skill levels and wave conditions with modern shaping technology"],  
+        "STAND-UP PADDLEBOARDS": ["Balance Master SUP Board", 250, 700, "Stable stand-up paddleboards for recreational paddling and fitness on calm waters"],
         "TACKLE": ["Pro Angler Tackle Box", 5, 50, "Fishing tackle including lures, hooks, sinkers, and terminal tackle for successful angling"],  
         "WADERS": ["StreamWalk Pro Waders", 50, 200, "Waterproof waders for fishing and water work with breathable materials and reinforced construction"],  
         "WETSUITS": ["ThermalFlex Wetsuit", 50, 300, "Thermal protection wetsuits for diving, surfing, and water sports with flexible neoprene construction"]  
     },  
     "WINTER SPORTS": {  
         "ACCESSORIES": ["Winter Sport Essentials", 10, 100, "Winter sports accessories including goggles, gloves, face masks, and gear maintenance items"],  
+        "GOGGLES": ["ClearVision Snow Goggles", 30, 150, "Anti-fog snow goggles with UV protection and interchangeable lenses for varying conditions"],
+        "GLOVES": ["ThermalGrip Winter Gloves", 20, 80, "Insulated winter gloves with dexterity and warmth for skiing and snowboarding"],
         "BINDINGS": ["FlexRide Snowboard Bindings", 80, 300, "Snowboard bindings with responsive performance and comfort features for all riding styles"],  
         "HELMETS": ["Snow Guardian Helmet", 40, 150, "Winter sports helmets with impact protection and ventilation for skiing and snowboarding safety"],  
         "OTHER": ["Snow Sports Gear Kit", 10, 100, "Miscellaneous winter sports equipment including tuning tools and specialty snow gear"],  
@@ -91,8 +119,10 @@ main_categories = {
         "SKI BOOTS": ["Alpine Control Ski Boots", 150, 500, "Precision ski boots with custom fit options and responsive performance for various skiing styles"],  
         "SKI POLES": ["Carbon Elite Ski Poles", 30, 120, "Lightweight ski poles with comfortable grips and durable construction for alpine and touring skiing"],  
         "SKIS": ["Mountain Master Skis", 200, 800, "High-performance skis for various snow conditions and skiing styles with advanced construction technology"],  
+        "ALL-MOUNTAIN SKIS": ["Versatile Peak Skis", 250, 700, "All-mountain skis designed for versatile performance across various terrain and snow conditions"],
         "SNOWBOARD BOOTS": ["BoardRide Pro Boots", 100, 300, "Comfortable snowboard boots with heat-moldable liners and responsive flex patterns"],  
         "SNOWBOARDS": ["Freestyle Terrain Board", 200, 800, "All-mountain and freestyle snowboards with versatile performance characteristics for various terrains"],  
+        "SPLITBOARDS": ["Backcountry Split Board", 300, 900, "Splitboards for backcountry snowboarding with touring capability and downhill performance"],
         "SNOWSHOES": ["Backcountry Trek Snowshoes", 50, 200, "Lightweight snowshoes with efficient traction systems for winter hiking and backcountry exploration"]  
     }  
 }
@@ -393,7 +423,7 @@ def insert_orders(conn, num_customers=100000, max_product_id=1):
             unit_price = base_unit_price * multipliers['value']
             
             discount_percent = random.randint(0, 15)  # 0-15% discount
-            discount_amount = (unit_price * quantity * discount_percent) / 100
+            discount_amount = round((unit_price * quantity * discount_percent) / 100, 2)
             
             # Generate weighted year and random date within that year
             order_year = weighted_year_choice()
