@@ -83,7 +83,7 @@ This project demonstrates how such an agent works behind the scenes, combining t
 4. **Set up Docker Model Runner**:
 
    **Enable Docker Model Runner** ([full documentation](https://docs.docker.com/ai/model-runner/)):
-   - **Docker Desktop**: Go to Settings → Beta features → Enable "Docker Model Runner"
+   - **Docker Desktop**: Go to Settings → Beta features → Enable "Docker Model Runner" and "Enable host-side TCP support" 
    - **Docker Engine**: Install the plugin with `sudo apt-get install docker-model-plugin` (Ubuntu/Debian)
 
    **Pull and run the Phi4 model**:
