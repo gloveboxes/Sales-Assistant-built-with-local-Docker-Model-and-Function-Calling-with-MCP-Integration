@@ -1,0 +1,6 @@
+openai
+mcp
+numpy
+aiosqlite
+pandas
+python-dotenv
