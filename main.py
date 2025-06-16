@@ -17,7 +17,7 @@ import sys
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Any
 
-from openai import OpenAI
+from openai import AzureOpenAI as OpenAI
 from mcp_client import (
     initialize_mcp_sync,
     call_mcp_tool_async,
@@ -33,10 +33,11 @@ SYSTEM_MSG_FILE = "system_msg.txt"
 class ModelConfig:
     """Configuration for the AI model."""
 
-    base_url: str = "http://localhost:12434/engines/llama.cpp/v1"
-    api_key: str = "docker"
-    model_name: str = "ai/phi4:14B-Q4_0"
-    max_tokens: int = 4096
+    azure_endpoint: str = "https://ai-aitourmaasfy25204458739647.openai.azure.com/"
+    api_key: str = "2LCbJyvnO73520ukCiX0kY7ZCGMnFKHL81yL7pHEb9Puo3w51aWbJQQJ99BAACYeBjFXJ3w3AAAAACOG7IsK"
+    model_name: str = "gpt-4o"
+    max_tokens: int = 10240
+    api_version: str = "2024-12-01-preview"
 
 
 class MCPToolManager:
@@ -164,8 +165,9 @@ class AIAssistant:
     def __init__(self, config: ModelConfig):
         self.config = config
         self.client = OpenAI(
-            base_url=config.base_url,
+            azure_endpoint=config.azure_endpoint,
             api_key=config.api_key,
+            api_version=config.api_version
         )
         self.tool_manager = MCPToolManager()
         self.conversation = ConversationManager()
@@ -271,7 +273,7 @@ class AIAssistant:
     async def _execute_tool_call(self, tool_call):
         """Execute a single tool call."""
         function_name = tool_call.function.name
-        print(f"\n🔧 [Function call: {function_name}]")
+        # print(f"\n🔧 [Function call: {function_name}]")
 
         try:
             # Parse arguments
@@ -280,7 +282,8 @@ class AIAssistant:
             # Execute the tool
             result = await self.tool_manager.execute_tool(function_name, args)
 
-            print(f"📊 Result: {result}")
+            print(f"{tc.BG_BRIGHT_BLUE}Tool {function_name} {args} executed successfully{tc.RESET}")
+            print(f"{tc.BG_GREEN}Result: {result}{tc.RESET}")
 
             # Add result to conversation history
             self.conversation.add_tool_result(tool_call.id, result)

@@ -23,7 +23,7 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger(__name__)
 
 # Constants
@@ -249,7 +249,7 @@ class DatabaseSchemaProvider:
         if not self.connection:
             return json.dumps({"error": "Database connection not established"})
 
-        logger.info(f"\n🔍 Executing SQLite query: {sqlite_query}\n")
+        # logger.info(f"\n🔍 Executing SQLite query: {sqlite_query}\n")
 
         try:
             async with self.connection.execute(sqlite_query) as cursor:
