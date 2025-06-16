@@ -412,9 +412,18 @@ def insert_orders(conn, num_customers=100000, max_product_id=1):
             product_id = random.randint(1, max_product_id)
             quantity = random.randint(1, 5)
             
-            # Get product category to determine price range
-            main_category = random.choice(list(main_categories.keys()))
-            product_type = random.choice(list(main_categories[main_category].keys()))
+            # Generate weighted year and random date within that year
+            order_year = weighted_year_choice()
+            start_of_year = datetime.date(order_year, 1, 1)
+            end_of_year = datetime.date(order_year, 12, 31)
+            days_in_year = (end_of_year - start_of_year).days
+            random_days = random.randint(0, days_in_year)
+            order_date = start_of_year + datetime.timedelta(days=random_days)
+            
+            # Use seasonal selection based on order date and customer region
+            order_month = order_date.month
+            main_category = choose_seasonal_category(order_month, region)
+            product_type = choose_seasonal_product_type(main_category, order_month, region)
             product_info = main_categories[main_category][product_type]
             price_range = product_info[1:3]  # Second and third elements are min/max price
             
@@ -424,14 +433,6 @@ def insert_orders(conn, num_customers=100000, max_product_id=1):
             
             discount_percent = random.randint(0, 15)  # 0-15% discount
             discount_amount = round((unit_price * quantity * discount_percent) / 100, 2)
-            
-            # Generate weighted year and random date within that year
-            order_year = weighted_year_choice()
-            start_of_year = datetime.date(order_year, 1, 1)
-            end_of_year = datetime.date(order_year, 12, 31)
-            days_in_year = (end_of_year - start_of_year).days
-            random_days = random.randint(0, days_in_year)
-            order_date = start_of_year + datetime.timedelta(days=random_days)
             
             total_amount = (unit_price * quantity) - discount_amount
             
@@ -770,6 +771,191 @@ def test_query_performance(db_path="../customer_sales.db"):
     print("• Use SUBSTR(order_date, 1, 7) for year-month queries")
     print("• Join on indexed foreign keys (customer_id, product_id)")
 
+def get_seasonal_category_weights(month, region):
+    """Get category weights based on season and region"""
+    # Define seasons by month (Northern Hemisphere for most regions)
+    if region in ['AFRICA']:
+        # Southern Hemisphere - opposite seasons
+        if month in [12, 1, 2]:  # Summer
+            season = 'summer'
+        elif month in [3, 4, 5]:  # Autumn
+            season = 'autumn'
+        elif month in [6, 7, 8]:  # Winter
+            season = 'winter'
+        else:  # Spring
+            season = 'spring'
+    else:
+        # Northern Hemisphere
+        if month in [6, 7, 8]:  # Summer
+            season = 'summer'
+        elif month in [9, 10, 11]:  # Autumn
+            season = 'autumn'
+        elif month in [12, 1, 2]:  # Winter
+            season = 'winter'
+        else:  # Spring
+            season = 'spring'
+    
+    # Base weights (equal distribution)
+    base_weights = {
+        "APPAREL": 1.0,
+        "CAMPING & HIKING": 1.0,
+        "CLIMBING": 1.0,
+        "FOOTWEAR": 1.0,
+        "TRAVEL": 1.0,
+        "WATER SPORTS": 1.0,
+        "WINTER SPORTS": 1.0
+    }
+    
+    # Seasonal modifiers by region
+    seasonal_modifiers = {
+        'NORTH AMERICA': {
+            'winter': {"WINTER SPORTS": 2.5, "APPAREL": 1.5, "CLIMBING": 0.7, "WATER SPORTS": 0.3, "CAMPING & HIKING": 0.5},
+            'spring': {"CAMPING & HIKING": 1.8, "FOOTWEAR": 1.5, "CLIMBING": 1.4, "TRAVEL": 1.3, "WINTER SPORTS": 0.6},
+            'summer': {"WATER SPORTS": 2.2, "CAMPING & HIKING": 2.0, "TRAVEL": 1.8, "FOOTWEAR": 1.3, "WINTER SPORTS": 0.2},
+            'autumn': {"APPAREL": 1.6, "FOOTWEAR": 1.5, "CLIMBING": 1.3, "CAMPING & HIKING": 1.2, "WINTER SPORTS": 0.8}
+        },
+        'EUROPE': {
+            'winter': {"WINTER SPORTS": 3.0, "APPAREL": 1.6, "CLIMBING": 0.8, "WATER SPORTS": 0.2, "CAMPING & HIKING": 0.4},
+            'spring': {"CAMPING & HIKING": 1.9, "FOOTWEAR": 1.6, "CLIMBING": 1.5, "TRAVEL": 1.4, "WINTER SPORTS": 0.5},
+            'summer': {"WATER SPORTS": 2.0, "CAMPING & HIKING": 2.2, "TRAVEL": 2.0, "FOOTWEAR": 1.4, "WINTER SPORTS": 0.1},
+            'autumn': {"APPAREL": 1.7, "FOOTWEAR": 1.6, "CLIMBING": 1.4, "CAMPING & HIKING": 1.1, "WINTER SPORTS": 0.7}
+        },
+        'CHINA': {
+            'winter': {"WINTER SPORTS": 2.0, "APPAREL": 1.4, "CLIMBING": 0.9, "WATER SPORTS": 0.4, "CAMPING & HIKING": 0.6},
+            'spring': {"CAMPING & HIKING": 1.7, "FOOTWEAR": 1.4, "CLIMBING": 1.3, "TRAVEL": 1.3, "WINTER SPORTS": 0.7},
+            'summer': {"WATER SPORTS": 1.8, "CAMPING & HIKING": 1.9, "TRAVEL": 1.7, "FOOTWEAR": 1.2, "WINTER SPORTS": 0.3},
+            'autumn': {"APPAREL": 1.5, "FOOTWEAR": 1.4, "CLIMBING": 1.2, "CAMPING & HIKING": 1.1, "WINTER SPORTS": 0.8}
+        },
+        'ASIA-PACIFIC': {
+            'winter': {"WINTER SPORTS": 1.5, "APPAREL": 1.3, "WATER SPORTS": 0.6, "CAMPING & HIKING": 0.8},
+            'spring': {"CAMPING & HIKING": 1.6, "FOOTWEAR": 1.3, "CLIMBING": 1.2, "TRAVEL": 1.4},
+            'summer': {"WATER SPORTS": 2.5, "CAMPING & HIKING": 1.8, "TRAVEL": 1.6, "FOOTWEAR": 1.2, "WINTER SPORTS": 0.2},
+            'autumn': {"APPAREL": 1.4, "FOOTWEAR": 1.3, "CLIMBING": 1.1, "TRAVEL": 1.2}
+        },
+        'LATIN AMERICA': {
+            'winter': {"WINTER SPORTS": 0.8, "APPAREL": 1.2, "WATER SPORTS": 1.4, "CAMPING & HIKING": 1.1},
+            'spring': {"CAMPING & HIKING": 1.5, "FOOTWEAR": 1.3, "CLIMBING": 1.2, "TRAVEL": 1.3},
+            'summer': {"WATER SPORTS": 2.0, "CAMPING & HIKING": 1.7, "TRAVEL": 1.5, "FOOTWEAR": 1.2},
+            'autumn': {"APPAREL": 1.3, "FOOTWEAR": 1.2, "CLIMBING": 1.1, "TRAVEL": 1.1}
+        },
+        'MIDDLE EAST': {
+            'winter': {"WINTER SPORTS": 0.5, "APPAREL": 1.3, "WATER SPORTS": 0.8, "CAMPING & HIKING": 1.2},
+            'spring': {"CAMPING & HIKING": 1.6, "FOOTWEAR": 1.4, "CLIMBING": 1.3, "TRAVEL": 1.4},
+            'summer': {"WATER SPORTS": 1.8, "CAMPING & HIKING": 1.2, "TRAVEL": 1.6, "APPAREL": 0.8},
+            'autumn': {"APPAREL": 1.4, "FOOTWEAR": 1.3, "CLIMBING": 1.2, "TRAVEL": 1.2}
+        },
+        'AFRICA': {
+            # Southern Hemisphere - seasons are opposite
+            'winter': {"WINTER SPORTS": 0.3, "APPAREL": 1.4, "WATER SPORTS": 0.9, "CAMPING & HIKING": 1.3},
+            'spring': {"CAMPING & HIKING": 1.4, "FOOTWEAR": 1.2, "CLIMBING": 1.1, "TRAVEL": 1.2},
+            'summer': {"WATER SPORTS": 2.2, "CAMPING & HIKING": 1.8, "TRAVEL": 1.5, "FOOTWEAR": 1.3},
+            'autumn': {"APPAREL": 1.3, "FOOTWEAR": 1.2, "CLIMBING": 1.1, "TRAVEL": 1.1}
+        }
+    }
+    
+    # Apply seasonal modifiers
+    weights = base_weights.copy()
+    if region in seasonal_modifiers and season in seasonal_modifiers[region]:
+        for category, modifier in seasonal_modifiers[region][season].items():
+            if category in weights:
+                weights[category] *= modifier
+    
+    return weights
+
+def get_seasonal_product_type_weights(main_category, month, region):
+    """Get product type weights within a category based on season and region"""
+    # Define season
+    if region in ['AFRICA']:
+        if month in [12, 1, 2]:
+            season = 'summer'
+        elif month in [3, 4, 5]:
+            season = 'autumn'
+        elif month in [6, 7, 8]:
+            season = 'winter'
+        else:
+            season = 'spring'
+    else:
+        if month in [6, 7, 8]:
+            season = 'summer'
+        elif month in [9, 10, 11]:
+            season = 'autumn'
+        elif month in [12, 1, 2]:
+            season = 'winter'
+        else:
+            season = 'spring'
+    
+    # Product type seasonal preferences
+    seasonal_product_preferences = {
+        "APPAREL": {
+            'winter': {"JACKETS & VESTS": 2.0, "FLEECE JACKETS": 1.8, "SOFTSHELL JACKETS": 1.5, "UNDERWEAR & BASE LAYERS": 1.6, "GLOVES": 2.0, "HATS & CAPS": 1.8},
+            'summer': {"SHORTS": 2.2, "SHIRTS": 1.8, "POLO SHIRTS": 1.6, "RAIN JACKETS": 0.6, "FLEECE JACKETS": 0.4},
+            'spring': {"RAIN JACKETS": 1.8, "SOFTSHELL JACKETS": 1.5, "PANTS & SHORTS": 1.4},
+            'autumn': {"JACKETS & VESTS": 1.6, "FLEECE JACKETS": 1.5, "PANTS & SHORTS": 1.3}
+        },
+        "FOOTWEAR": {
+            'winter': {"WINTER BOOTS": 2.5, "HIKING BOOTS": 1.2, "SANDALS": 0.3, "WATER SHOES": 0.2},
+            'summer': {"SANDALS": 2.0, "WATER SHOES": 1.8, "TRAIL SHOES": 1.5, "WINTER BOOTS": 0.2},
+            'spring': {"HIKING BOOTS": 1.6, "TRAIL SHOES": 1.4, "LIGHTWEIGHT BOOTS": 1.3},
+            'autumn': {"HIKING BOOTS": 1.5, "CASUAL SHOES": 1.3, "WINTER BOOTS": 1.2}
+        },
+        "WINTER SPORTS": {
+            'winter': {"SKIS": 2.5, "SNOWBOARDS": 2.3, "SKI BOOTS": 2.2, "SNOWBOARD BOOTS": 2.0, "GOGGLES": 2.0, "GLOVES": 1.8, "HELMETS": 1.6},
+            'summer': {"SKIS": 0.3, "SNOWBOARDS": 0.3, "SKI BOOTS": 0.2, "SNOWBOARD BOOTS": 0.2},
+            'spring': {"SPLITBOARDS": 1.4, "ALL-MOUNTAIN SKIS": 1.2},
+            'autumn': {"SKIS": 1.2, "SNOWBOARDS": 1.1, "ACCESSORIES": 1.3}
+        },
+        "WATER SPORTS": {
+            'summer': {"SURFBOARDS": 2.0, "KAYAKS": 1.8, "CANOES": 1.7, "STAND-UP PADDLEBOARDS": 1.9, "WETSUITS": 1.6, "RASH GUARDS": 2.2},
+            'winter': {"SURFBOARDS": 0.6, "KAYAKS": 0.7, "RASH GUARDS": 0.4, "STAND-UP PADDLEBOARDS": 0.5},
+            'spring': {"KAYAKS": 1.4, "CANOES": 1.3, "INFLATABLE KAYAKS": 1.2},
+            'autumn': {"WETSUITS": 1.3, "DRY BAGS": 1.2}
+        },
+        "CAMPING & HIKING": {
+            'summer': {"FAMILY CAMPING TENTS": 2.2, "BACKPACKING TENTS": 1.8, "SLEEPING BAGS": 1.6, "CAMPING CHAIRS": 2.0, "STOVES": 1.7},
+            'winter': {"FAMILY CAMPING TENTS": 0.5, "SLEEPING BAGS": 1.2, "STOVES": 1.3, "LANTERNS": 1.5},
+            'spring': {"BACKPACKING TENTS": 1.5, "DAYPACKS": 1.4, "SLEEPING PADS": 1.3, "HEADLAMPS": 1.2},
+            'autumn': {"SLEEPING BAGS": 1.4, "SHELTERS & TARPS": 1.3, "OVERNIGHT PACKS": 1.2}
+        },
+        "CLIMBING": {
+            'summer': {"CLIMBING SHOES": 1.6, "HARNESSES": 1.5, "ROPES & SLINGS": 1.4, "HELMETS": 1.3},
+            'winter': {"CRAMPONS": 2.5, "ICE AXES": 2.2, "MOUNTAINEERING BOOTS": 2.0, "AVALANCHE SAFETY": 2.8},
+            'spring': {"CLIMBING SHOES": 1.3, "APPROACH SHOES": 1.4, "TRAINING EQUIPMENT": 1.2},
+            'autumn': {"MOUNTAINEERING BOOTS": 1.4, "HELMETS": 1.2}
+        },
+        "TRAVEL": {
+            'summer': {"CARRY-ONS": 1.8, "TRAVEL BACKPACKS": 1.6, "PACKING ORGANIZERS": 1.5, "TRAVEL ACCESSORIES": 1.4},
+            'winter': {"CHECKED LUGGAGE": 1.3, "ROLLING DUFFELS": 1.2},
+            'spring': {"TRAVEL BACKPACKS": 1.4, "COMPRESSION SACKS": 1.2},
+            'autumn': {"DUFFEL BAGS": 1.3, "SECURITY": 1.2}
+        }
+    }
+    
+    # Get base weights (equal for all product types in category)
+    product_types = list(main_categories[main_category].keys())
+    weights = {product_type: 1.0 for product_type in product_types}
+    
+    # Apply seasonal modifiers
+    if main_category in seasonal_product_preferences and season in seasonal_product_preferences[main_category]:
+        for product_type, modifier in seasonal_product_preferences[main_category][season].items():
+            if product_type in weights:
+                weights[product_type] *= modifier
+    
+    return weights
+
+def choose_seasonal_category(month, region):
+    """Choose a category based on seasonal preferences"""
+    weights = get_seasonal_category_weights(month, region)
+    categories = list(weights.keys())
+    weight_values = list(weights.values())
+    return random.choices(categories, weights=weight_values, k=1)[0]
+
+def choose_seasonal_product_type(main_category, month, region):
+    """Choose a product type within a category based on seasonal preferences"""
+    weights = get_seasonal_product_type_weights(main_category, month, region)
+    product_types = list(weights.keys())
+    weight_values = list(weights.values())
+    return random.choices(product_types, weights=weight_values, k=1)[0]
+
 if __name__ == "__main__":
     # Check if faker is available
     try:
@@ -801,8 +987,9 @@ if __name__ == "__main__":
         print(f"To test query performance: python {sys.argv[0]} --test-performance")
         print("\nThe database includes:")
         print("✅ 50,000 customers with realistic regional distribution")
-        print("✅ ~294 products across 7 categories")
+        print("✅ 104 products across 7 categories with seasonal preferences")
         print("✅ ~200,000-400,000 orders with year-over-year growth patterns")
+        print("✅ Seasonal ordering patterns by region (winter sports in winter, etc.)")
         print("✅ Comprehensive performance indexes for fast queries")
         print("✅ Regional sales hierarchy (North America > Europe > China)")
         print("✅ Business growth pattern: 10% YoY except 2023 (-5%)")
