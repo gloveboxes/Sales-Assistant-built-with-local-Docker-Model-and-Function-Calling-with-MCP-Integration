@@ -28,7 +28,7 @@ class AppContext:
 async def app_lifespan(server: FastMCP) -> AsyncIterator[AppContext]:
     """Manage application lifecycle with type-safe context"""
     # Initialize on startup
-    print(f"🚀 Starting MCP server with database: {db_path}")
+    # print(f"🚀 Starting MCP server with database: {db_path}")
     
     # Check if database file exists
     if not db_path.exists():
