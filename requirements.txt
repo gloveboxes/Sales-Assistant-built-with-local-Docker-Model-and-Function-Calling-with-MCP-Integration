@@ -1,6 +1,6 @@
-openai
-mcp
-numpy
+openai==1.76.2
+mcp==1.9.3
+numpy==1.26.4
 aiosqlite
-pandas
+pandas==2.2.3
 python-dotenv
