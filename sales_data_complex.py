@@ -53,7 +53,7 @@ class DatabaseSchemaProvider:
         if self.connection is None:
             self.connection = await aiosqlite.connect(self.db_path)
             self.all_schemas = await self.get_all_schemas()
-            print(f"✅ Database connection opened: {self.db_path}")
+            # print(f"✅ Database connection opened: {self.db_path}")
 
     async def close_connection(self):
         """Close SQLite connection and cleanup."""

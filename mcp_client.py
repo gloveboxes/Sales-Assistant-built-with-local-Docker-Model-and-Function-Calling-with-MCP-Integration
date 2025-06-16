@@ -21,62 +21,89 @@ class MCPClient:
             command=self.server_command[0],
             args=self.server_command[1:] if len(self.server_command) > 1 else [],
         )
+        self._session: Optional[ClientSession] = None
+        self._read = None
+        self._write = None
+        self._client_context = None
+
+    async def _ensure_session(self):
+        """Ensure we have an active session, creating one if necessary."""
+        if self._session is None:
+            self._client_context = stdio_client(self.server_params)
+            self._read, self._write = await self._client_context.__aenter__()
+            self._session = ClientSession(self._read, self._write)
+            await self._session.__aenter__()
+            await self._session.initialize()
+
+    async def close_session(self):
+        """Close the current session and cleanup resources."""
+        if self._session is not None:
+            try:
+                await self._session.__aexit__(None, None, None)
+            except Exception:
+                pass
+            self._session = None
+        
+        if self._client_context is not None:
+            try:
+                await self._client_context.__aexit__(None, None, None)
+            except Exception:
+                pass
+            self._client_context = None
+            self._read = None
+            self._write = None
 
     async def call_tool_async(self, tool_name: str, arguments: Dict[str, Any]) -> str:
-        """Call a tool on the MCP server using a fresh connection."""
+        """Call a tool on the MCP server using the persistent session."""
         try:
-            # server_params = StdioServerParameters(
-            #     command=self.server_command[0],
-            #     args=self.server_command[1:] if len(self.server_command) > 1 else [],
-            # )
+            await self._ensure_session()
+            if self._session is None:
+                return "Error: Could not establish session"
+            
+            result = await self._session.call_tool(tool_name, arguments)
 
-            async with stdio_client(self.server_params) as (read, write):
-                async with ClientSession(read, write) as session:
-                    await session.initialize()
-                    result = await session.call_tool(tool_name, arguments)
-
-                    if result.content and len(result.content) > 0:
-                        content_item = result.content[0]
-                        if hasattr(content_item, "text"):
-                            return getattr(content_item, "text")
-                        else:
-                            return str(content_item)
-                    else:
-                        return "No result returned from tool"
+            if result.content and len(result.content) > 0:
+                content_item = result.content[0]
+                if hasattr(content_item, "text"):
+                    return getattr(content_item, "text")
+                else:
+                    return str(content_item)
+            else:
+                return "No result returned from tool"
 
         except Exception as e:
+            # If there's an error, try to close and recreate the session
+            await self.close_session()
             return f"Error calling tool {tool_name}: {e}"
 
     async def fetch_tools_async(self) -> List[Dict]:
-        """Fetch tool schemas from MCP server in OpenAI function format."""
+        """Fetch tool schemas from MCP server using the persistent session."""
         try:
-            # server_params = StdioServerParameters(
-            #     command=self.server_command[0],
-            #     args=self.server_command[1:] if len(self.server_command) > 1 else [],
-            # )
+            await self._ensure_session()
+            if self._session is None:
+                return []
+            
+            tools_result = await self._session.list_tools()
 
-            async with stdio_client(self.server_params) as (read, write):
-                async with ClientSession(read, write) as session:
-                    await session.initialize()
-                    tools_result = await session.list_tools()
+            # Convert MCP Tool objects to OpenAI function format
+            openai_tools = []
+            for tool in tools_result.tools:
+                openai_tool = {
+                    "type": "function",
+                    "function": {
+                        "name": tool.name,
+                        "description": tool.description,
+                        "parameters": tool.inputSchema,
+                    },
+                }
+                openai_tools.append(openai_tool)
 
-                    # Convert MCP Tool objects to OpenAI function format
-                    openai_tools = []
-                    for tool in tools_result.tools:
-                        openai_tool = {
-                            "type": "function",
-                            "function": {
-                                "name": tool.name,
-                                "description": tool.description,
-                                "parameters": tool.inputSchema,
-                            },
-                        }
-                        openai_tools.append(openai_tool)
-
-                    return openai_tools
+            return openai_tools
 
         except Exception:
             print("Error fetching tools from MCP server")
+            # If there's an error, try to close and recreate the session
+            await self.close_session()
             # Fallback to static tools if dynamic fetch fails
             return []
 
@@ -97,7 +124,8 @@ def get_mcp_client() -> MCPClient:
 async def cleanup_global_mcp_client():
     """Cleanup the global MCP client instance."""
     global _mcp_client
-    # With the simplified approach, no cleanup is needed
+    if _mcp_client is not None:
+        await _mcp_client.close_session()
     _mcp_client = None
 
 
