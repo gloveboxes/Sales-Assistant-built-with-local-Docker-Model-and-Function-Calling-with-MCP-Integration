@@ -61,7 +61,7 @@ class DatabaseSchemaProvider:
             await self.connection.close()
             self.connection = None
             self.all_schemas = None
-            print("✅ Database connection closed")
+            # print("✅ Database connection closed")
 
     async def table_exists(self, table: str) -> bool:
         """Check if a table exists in the database."""
