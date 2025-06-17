@@ -1,6 +1,13 @@
 {
     "servers": {
-        "my-mcp-server-fb279fd4": {
+        "my-mcp-server-contoso-sales-windows": {
+            "type": "stdio",
+            "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "args": [
+                "${workspaceFolder}/mcp_server.py"
+            ]
+        },
+        "my-mcp-server-contoso-sales-linux-macos": {
             "type": "stdio",
             "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
