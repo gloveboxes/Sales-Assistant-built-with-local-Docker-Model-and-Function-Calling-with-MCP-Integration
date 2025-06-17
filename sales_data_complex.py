@@ -53,7 +53,7 @@ class DatabaseSchemaProvider:
         if self.connection is None:
             self.connection = await aiosqlite.connect(self.db_path)
             self.all_schemas = await self.get_all_schemas()
-            # print(f"✅ Database connection opened: {self.db_path}")
+            logger.info(f"✅ Database connection opened: {self.db_path}")
 
     async def close_connection(self):
         """Close SQLite connection and cleanup."""
@@ -61,7 +61,7 @@ class DatabaseSchemaProvider:
             await self.connection.close()
             self.connection = None
             self.all_schemas = None
-            # print("✅ Database connection closed")
+            logger.info("✅ Database connection closed")
 
     async def table_exists(self, table: str) -> bool:
         """Check if a table exists in the database."""
