@@ -1,0 +1,2461 @@
+{
+  "main_categories": {
+    "HAND TOOLS": {
+      "washington_seasonal_multipliers": [1.0, 1.0, 1.2, 1.4, 1.6, 1.5, 1.5, 1.4, 1.2, 1.1, 1.0, 0.9],
+      "HAMMERS": [
+        {
+          "name": "Professional Claw Hammer 16oz",
+          "price": 28,
+          "description": "High-quality steel claw hammer with comfortable fiberglass handle, perfect for framing and general construction work."
+        },
+        {
+          "name": "Dead Blow Hammer 2lb",
+          "price": 35,
+          "description": "Non-rebounding dead blow hammer with shot-filled head for precision striking without bounce-back."
+        },
+        {
+          "name": "Ball Peen Hammer 12oz",
+          "price": 18,
+          "description": "Classic ball peen hammer for metalworking, riveting, and shaping metal with hardened striking surfaces."
+        },
+        {
+          "name": "Finishing Hammer 13oz",
+          "price": 25,
+          "description": "Lightweight finishing hammer with smooth face for trim work and delicate construction tasks."
+        },
+        {
+          "name": "Sledge Hammer 3lb",
+          "price": 42,
+          "description": "Heavy-duty sledge hammer for demolition, driving stakes, and breaking concrete with steel handle."
+        }
+      ],
+      "SCREWDRIVERS": [
+        {
+          "name": "Phillips Screwdriver Set",
+          "price": 16,
+          "description": "Complete Phillips head screwdriver set with magnetic tips and comfortable cushion grips in multiple sizes."
+        },
+        {
+          "name": "Flathead Screwdriver Set",
+          "price": 14,
+          "description": "Professional flathead screwdrivers with precision-machined tips and ergonomic handles for various applications."
+        },
+        {
+          "name": "Precision Screwdriver Kit",
+          "price": 22,
+          "description": "Micro precision screwdriver set for electronics, eyeglasses, and small appliance repair work."
+        },
+        {
+          "name": "Insulated Screwdriver Set",
+          "price": 32,
+          "description": "Electrician's insulated screwdrivers rated for 1000V with dual-material handles for electrical safety."
+        },
+        {
+          "name": "Ratcheting Screwdriver",
+          "price": 26,
+          "description": "Multi-bit ratcheting screwdriver with reversible mechanism and magnetic bit storage in handle."
+        }
+      ],
+      "WRENCHES": [
+        {
+          "name": "Combination Wrench Set SAE",
+          "price": 45,
+          "description": "Standard SAE combination wrenches from 1/4-inch to 1-inch with chrome-vanadium steel construction."
+        },
+        {
+          "name": "Metric Wrench Set",
+          "price": 49,
+          "description": "Complete metric combination wrench set from 8mm to 24mm with polished chrome finish."
+        },
+        {
+          "name": "Adjustable Wrench 10-inch",
+          "price": 21,
+          "description": "Professional adjustable wrench with parallel jaws and comfortable grip for versatile applications."
+        },
+        {
+          "name": "Pipe Wrench Set",
+          "price": 60,
+          "description": "Heavy-duty pipe wrenches for plumbing work with serrated jaws and cast iron construction."
+        },
+        {
+          "name": "Torque Wrench 1/2-drive",
+          "price": 108,
+          "description": "Calibrated torque wrench with click mechanism for precise bolt tightening to specifications."
+        }
+      ],
+      "PLIERS": [
+        {
+          "name": "Needle-Nose Pliers 6-inch",
+          "price": 15,
+          "description": "Long-nose pliers with serrated jaws for gripping small objects and working in tight spaces."
+        },
+        {
+          "name": "Lineman's Pliers 9-inch",
+          "price": 25,
+          "description": "Heavy-duty lineman's pliers with cutting edges and insulated grips for electrical work."
+        },
+        {
+          "name": "Locking Pliers 10-inch",
+          "price": 20,
+          "description": "Vise-grip locking pliers with adjustable jaw and release lever for secure clamping action."
+        },
+        {
+          "name": "Wire Stripping Pliers",
+          "price": 29,
+          "description": "Precision wire strippers with multiple gauge settings and comfortable spring-loaded handles."
+        },
+        {
+          "name": "Diagonal Cutting Pliers",
+          "price": 17,
+          "description": "Sharp diagonal cutters for clean wire cutting with induction-hardened cutting edges."
+        }
+      ],
+      "HAND SAWS": [
+        {
+          "name": "Crosscut Hand Saw 20-inch",
+          "price": 35,
+          "description": "Traditional crosscut saw with aggressive tooth pattern for cutting across wood grain efficiently."
+        },
+        {
+          "name": "Back Saw 12-inch",
+          "price": 42,
+          "description": "Precision back saw with fine teeth and reinforced spine for accurate joinery and trim work."
+        },
+        {
+          "name": "Coping Saw",
+          "price": 13,
+          "description": "Fine-blade coping saw with adjustable frame for intricate curves and detailed woodworking cuts."
+        },
+        {
+          "name": "Folding Saw 7-inch",
+          "price": 24,
+          "description": "Compact folding saw with razor-sharp blade for pruning and camping applications."
+        },
+        {
+          "name": "Japanese Pull Saw",
+          "price": 60,
+          "description": "Traditional Japanese pull saw with thin kerf blade for smooth, precise cuts on the pull stroke."
+        }
+      ],
+      "CHISELS": [
+        {
+          "name": "Wood Chisel Set 4-piece",
+          "price": 32,
+          "description": "High-carbon steel wood chisels in 1/4, 1/2, 3/4, and 1-inch sizes with durable handles."
+        },
+        {
+          "name": "Mortise Chisel 1/2-inch",
+          "price": 25,
+          "description": "Heavy-duty mortise chisel with thick blade and leather handle for chopping deep mortises."
+        },
+        {
+          "name": "Paring Chisel Set",
+          "price": 38,
+          "description": "Thin-blade paring chisels for precise trimming and detailed woodworking with razor-sharp edges."
+        },
+        {
+          "name": "Cold Chisel Set",
+          "price": 21,
+          "description": "Hardened steel cold chisels for cutting metal, masonry, and removing rivets or bolts."
+        },
+        {
+          "name": "Carving Chisel Kit",
+          "price": 45,
+          "description": "Specialized wood carving chisels with various profiles for sculptural and decorative work."
+        }
+      ],
+      "FILES & RASPS": [
+        {
+          "name": "Metal File Set 6-piece",
+          "price": 17,
+          "description": "Assorted metal files including flat, round, and half-round profiles for metalworking applications."
+        },
+        {
+          "name": "Wood Rasp Set",
+          "price": 14,
+          "description": "Coarse wood rasps for rapid material removal and shaping of wood surfaces."
+        },
+        {
+          "name": "Needle File Set",
+          "price": 21,
+          "description": "Precision needle files for detailed work on small parts and intricate metalworking tasks."
+        },
+        {
+          "name": "Riffler File Set",
+          "price": 27,
+          "description": "Curved riffler files with various profiles for sculptural work and hard-to-reach areas."
+        },
+        {
+          "name": "Diamond File Set",
+          "price": 31,
+          "description": "Diamond-coated files for sharpening carbide tools and working hardened materials."
+        }
+      ],
+      "MEASURING TOOLS": [
+        {
+          "name": "Tape Measure 25-foot",
+          "price": 14,
+          "description": "Heavy-duty tape measure with standout blade and magnetic tip for one-person measuring."
+        },
+        {
+          "name": "Speed Square 7-inch",
+          "price": 10,
+          "description": "Aluminum speed square for quick angle cuts and layout work with degree markings."
+        },
+        {
+          "name": "Level 24-inch",
+          "price": 27,
+          "description": "Precision aluminum level with three vials for accurate horizontal and vertical alignment."
+        },
+        {
+          "name": "Folding Rule 6-foot",
+          "price": 17,
+          "description": "Traditional wooden folding rule with brass hinges for precise inside measurements."
+        },
+        {
+          "name": "Digital Caliper 6-inch",
+          "price": 42,
+          "description": "Electronic digital caliper for precise measurements to 0.001-inch accuracy with LCD display."
+        }
+      ],
+      "UTILITY KNIVES": [
+        {
+          "name": "Retractable Utility Knife",
+          "price": 10,
+          "description": "Standard utility knife with retractable blade and comfortable grip for general cutting tasks."
+        },
+        {
+          "name": "Fixed Blade Utility Knife",
+          "price": 14,
+          "description": "Heavy-duty fixed blade utility knife with exposed blade for demanding cutting applications."
+        },
+        {
+          "name": "Breakaway Blade Knife",
+          "price": 8,
+          "description": "Snap-off blade utility knife with segmented blade for always-sharp cutting edge."
+        },
+        {
+          "name": "Safety Utility Knife",
+          "price": 20,
+          "description": "Self-retracting safety knife that automatically retracts blade when not in contact with material."
+        },
+        {
+          "name": "Multi-Tool Knife",
+          "price": 25,
+          "description": "Versatile utility knife with multiple blade types and built-in screwdriver and awl."
+        }
+      ],
+      "ALLEN KEYS": [
+        {
+          "name": "Metric Hex Key Set",
+          "price": 12,
+          "description": "Complete metric hex key set from 1.5mm to 10mm in convenient folding case."
+        },
+        {
+          "name": "SAE Hex Key Set",
+          "price": 12,
+          "description": "Standard SAE hex key set from 1/16-inch to 3/8-inch with chrome-vanadium steel construction."
+        },
+        {
+          "name": "Ball-End Hex Set",
+          "price": 17,
+          "description": "Ball-end hex keys allowing angled access up to 25 degrees for hard-to-reach fasteners."
+        },
+        {
+          "name": "T-Handle Hex Set",
+          "price": 27,
+          "description": "T-handle hex keys with comfortable grips for high-torque applications and ease of use."
+        },
+        {
+          "name": "Long Arm Hex Set",
+          "price": 15,
+          "description": "Extra-long hex keys for reaching recessed bolts and deep socket applications."
+        }
+      ]
+    },
+    "POWER TOOLS": {
+      "washington_seasonal_multipliers": [0.9, 0.9, 1.1, 1.5, 1.8, 2.0, 2.1, 1.9, 1.4, 1.2, 1.0, 0.8],
+      "DRILLS": [
+        {
+          "name": "Cordless Drill 18V Li-Ion",
+          "price": 115,
+          "description": "Professional cordless drill with lithium-ion battery, variable speed control, and LED work light."
+        },
+        {
+          "name": "Hammer Drill 1/2-inch",
+          "price": 160,
+          "description": "Corded hammer drill with percussion action for drilling into concrete and masonry materials."
+        },
+        {
+          "name": "Right Angle Drill",
+          "price": 138,
+          "description": "Compact right-angle drill for tight spaces with 3/8-inch chuck and reversible motor."
+        },
+        {
+          "name": "Impact Drill 20V",
+          "price": 122,
+          "description": "High-torque impact drill with brushless motor for efficient drilling and driving applications."
+        },
+        {
+          "name": "Benchtop Drill Press",
+          "price": 265,
+          "description": "Stationary drill press with adjustable table and depth stop for precision drilling operations."
+        }
+      ],
+      "CIRCULAR SAWS": [
+        {
+          "name": "Circular Saw 7-1/4 inch",
+          "price": 170,
+          "description": "Powerful circular saw with carbide-tipped blade for cutting lumber and sheet materials."
+        },
+        {
+          "name": "Cordless Circular Saw 6-1/2",
+          "price": 210,
+          "description": "Battery-powered circular saw with lightweight design and laser guide for portable cutting."
+        },
+        {
+          "name": "Worm Drive Saw",
+          "price": 250,
+          "description": "Heavy-duty worm drive saw with superior torque for demanding construction applications."
+        },
+        {
+          "name": "Track Saw",
+          "price": 350,
+          "description": "Precision track saw system for perfectly straight cuts in plywood and large panels."
+        },
+        {
+          "name": "Mini Circular Saw 4-1/2",
+          "price": 90,
+          "description": "Compact circular saw for detailed work and cutting in confined spaces."
+        }
+      ],
+      "SANDERS": [
+        {
+          "name": "Orbital Sander 1/4 Sheet",
+          "price": 67,
+          "description": "Variable-speed orbital sander with dust collection system for smooth wood finishing."
+        },
+        {
+          "name": "Random Orbit Sander 5-inch",
+          "price": 92,
+          "description": "Random orbital action sander with hook-and-loop pad system for swirl-free finishes."
+        },
+        {
+          "name": "Palm Sander",
+          "price": 52,
+          "description": "Compact palm sander with ergonomic design for detail work and tight corners."
+        },
+        {
+          "name": "Mouse Sander",
+          "price": 40,
+          "description": "Detail mouse sander with triangular pad for sanding in corners and intricate shapes."
+        },
+        {
+          "name": "Drywall Sander",
+          "price": 122,
+          "description": "Long-reach drywall sander with vacuum attachment for dust-free wall preparation."
+        }
+      ],
+      "JIGSAWS": [
+        {
+          "name": "Variable Speed Jigsaw",
+          "price": 92,
+          "description": "Precision jigsaw with orbital action and variable speed control for curved and straight cuts."
+        },
+        {
+          "name": "Cordless Jigsaw 20V",
+          "price": 107,
+          "description": "Battery-powered jigsaw with tool-free blade change and LED light for portable cutting."
+        },
+        {
+          "name": "Barrel Grip Jigsaw",
+          "price": 77,
+          "description": "Compact barrel grip jigsaw for one-handed operation and improved maneuverability."
+        },
+        {
+          "name": "Heavy Duty Jigsaw",
+          "price": 117,
+          "description": "Professional-grade jigsaw with powerful motor for cutting thick materials and metal."
+        },
+        {
+          "name": "Scrolling Jigsaw",
+          "price": 137,
+          "description": "Precision scrolling jigsaw with rotating barrel for intricate cuts without turning workpiece."
+        }
+      ],
+      "ANGLE GRINDERS": [
+        {
+          "name": "Angle Grinder 4-1/2 inch",
+          "price": 82,
+          "description": "Compact angle grinder for cutting, grinding, and polishing metal and masonry."
+        },
+        {
+          "name": "Large Angle Grinder 7-inch",
+          "price": 112,
+          "description": "Heavy-duty 7-inch angle grinder for aggressive material removal and cutting."
+        },
+        {
+          "name": "Cordless Angle Grinder",
+          "price": 127,
+          "description": "Battery-powered angle grinder with brushless motor for extended runtime and power."
+        },
+        {
+          "name": "Variable Speed Grinder",
+          "price": 102,
+          "description": "Electronic angle grinder with variable speed control for different materials and applications."
+        },
+        {
+          "name": "Cut-Off Tool 3-inch",
+          "price": 52,
+          "description": "Compact cut-off tool for precision cutting in tight spaces and detail work."
+        }
+      ],
+      "RECIPROCATING SAWS": [
+        {
+          "name": "Reciprocating Saw Corded",
+          "price": 107,
+          "description": "Powerful corded reciprocating saw for demolition and rough cutting applications."
+        },
+        {
+          "name": "Cordless Recip Saw 18V",
+          "price": 132,
+          "description": "Battery-powered reciprocating saw with tool-free blade change and variable speed."
+        },
+        {
+          "name": "Compact Recip Saw",
+          "price": 92,
+          "description": "Lightweight compact reciprocating saw for overhead work and tight access cutting."
+        },
+        {
+          "name": "One-Handed Recip Saw",
+          "price": 100,
+          "description": "Ergonomic one-handed reciprocating saw for precision cutting and control."
+        },
+        {
+          "name": "Multi-Tool Oscillating",
+          "price": 85,
+          "description": "Oscillating multi-tool with various attachments for cutting, sanding, and scraping."
+        }
+      ],
+      "ROUTERS": [
+        {
+          "name": "Fixed Base Router 1-3/4 HP",
+          "price": 135,
+          "description": "Precision fixed base router with micro-adjustment and dust collection for edge work."
+        },
+        {
+          "name": "Plunge Router 2-1/4 HP",
+          "price": 170,
+          "description": "Variable-speed plunge router with depth adjustment for dadoes and mortises."
+        },
+        {
+          "name": "Trim Router 1 HP",
+          "price": 90,
+          "description": "Compact trim router with comfortable grip for edge profiling and laminate trimming."
+        },
+        {
+          "name": "Router Table Combo",
+          "price": 265,
+          "description": "Complete router table system with fence and miter gauge for stationary routing."
+        },
+        {
+          "name": "Cordless Router 18V",
+          "price": 195,
+          "description": "Battery-powered router with LED light and variable speed for portable woodworking."
+        }
+      ],
+      "IMPACT DRIVERS": [
+        {
+          "name": "Impact Driver 18V",
+          "price": 100,
+          "description": "High-torque impact driver with hex chuck for driving screws and bolts efficiently."
+        },
+        {
+          "name": "Brushless Impact Driver",
+          "price": 122,
+          "description": "Brushless motor impact driver with extended battery life and reduced maintenance."
+        },
+        {
+          "name": "Compact Impact Driver",
+          "price": 87,
+          "description": "Lightweight compact impact driver for overhead work and tight spaces."
+        },
+        {
+          "name": "Impact Wrench 1/2-inch",
+          "price": 137,
+          "description": "Powerful impact wrench with square drive for automotive and heavy-duty applications."
+        },
+        {
+          "name": "Right Angle Impact",
+          "price": 115,
+          "description": "Right-angle impact driver for driving fasteners in confined spaces and corners."
+        }
+      ],
+      "BELT SANDERS": [
+        {
+          "name": "Belt Sander 3x21 inch",
+          "price": 122,
+          "description": "Professional belt sander for aggressive material removal and surface preparation."
+        },
+        {
+          "name": "Variable Speed Belt Sander",
+          "price": 137,
+          "description": "Electronic belt sander with variable speed control for different materials."
+        },
+        {
+          "name": "Compact Belt Sander 3x18",
+          "price": 100,
+          "description": "Lightweight belt sander with front handle for improved control and comfort."
+        },
+        {
+          "name": "File Belt Sander",
+          "price": 155,
+          "description": "Narrow belt sander for detailed work and sanding in grooves and contours."
+        },
+        {
+          "name": "Stationary Belt Sander",
+          "price": 225,
+          "description": "Benchtop belt sander with tilting table for precision edge sanding and sharpening."
+        }
+      ],
+      "MITER SAWS": [
+        {
+          "name": "Compound Miter Saw 10-inch",
+          "price": 275,
+          "description": "Precision compound miter saw for accurate crosscuts and miter cuts with laser guide."
+        },
+        {
+          "name": "Sliding Miter Saw 12-inch",
+          "price": 475,
+          "description": "Dual-bevel sliding compound miter saw for cutting wide boards and crown molding."
+        },
+        {
+          "name": "Cordless Miter Saw 10-inch",
+          "price": 365,
+          "description": "Battery-powered miter saw for portable precision cutting without power cords."
+        },
+        {
+          "name": "Basic Miter Saw 10-inch",
+          "price": 200,
+          "description": "Simple miter saw with manual miter adjustment and fence system for basic cuts."
+        },
+        {
+          "name": "Miter Saw Stand",
+          "price": 115,
+          "description": "Universal miter saw stand with extensions and folding legs for portable work setup."
+        }
+      ]
+    },
+    "PAINT & FINISHES": {
+      "washington_seasonal_multipliers": [1.2, 1.1, 1.8, 2.2, 2.0, 1.9, 1.8, 1.6, 1.3, 1.1, 1.0, 1.2],
+      "INTERIOR PAINT": [
+        {
+          "name": "Premium Interior Latex Flat",
+          "price": 40,
+          "description": "High-quality flat interior paint with excellent coverage and hide, perfect for ceilings and low-traffic areas."
+        },
+        {
+          "name": "Interior Eggshell Paint",
+          "price": 44,
+          "description": "Durable eggshell finish paint with subtle sheen, ideal for living rooms and bedrooms with easy cleanup."
+        },
+        {
+          "name": "Interior Semi-Gloss Paint",
+          "price": 47,
+          "description": "Washable semi-gloss interior paint for kitchens, bathrooms, and trim work with moisture resistance."
+        },
+        {
+          "name": "Zero VOC Interior Paint",
+          "price": 52,
+          "description": "Environmentally friendly zero-VOC paint for healthy indoor air quality in all living spaces."
+        },
+        {
+          "name": "One-Coat Interior Paint",
+          "price": 50,
+          "description": "High-hide one-coat paint formula that covers most colors in a single application for time savings."
+        }
+      ],
+      "EXTERIOR PAINT": [
+        {
+          "name": "Exterior Latex Paint Satin",
+          "price": 50,
+          "description": "Weather-resistant exterior paint with satin finish for siding, trim, and outdoor surfaces."
+        },
+        {
+          "name": "Exterior Acrylic Paint",
+          "price": 57,
+          "description": "Premium acrylic exterior paint with fade resistance and superior adhesion for long-lasting protection."
+        },
+        {
+          "name": "Exterior Primer-Paint Combo",
+          "price": 53,
+          "description": "All-in-one primer and paint system for bare wood and previously painted exterior surfaces."
+        },
+        {
+          "name": "Elastomeric Exterior Paint",
+          "price": 65,
+          "description": "Flexible elastomeric paint for stucco and masonry that bridges hairline cracks and prevents water penetration."
+        },
+        {
+          "name": "Deck and Fence Stain",
+          "price": 42,
+          "description": "Penetrating wood stain with UV protection for decks, fences, and outdoor wood structures."
+        }
+      ],
+      "PRIMER": [
+        {
+          "name": "Universal Bonding Primer",
+          "price": 32,
+          "description": "High-adhesion primer for all surfaces including wood, metal, drywall, and previously painted surfaces."
+        },
+        {
+          "name": "Stain-Blocking Primer",
+          "price": 40,
+          "description": "Heavy-duty primer that blocks water stains, crayon marks, and other discoloration from bleeding through."
+        },
+        {
+          "name": "Metal Primer",
+          "price": 36,
+          "description": "Rust-inhibitive primer specifically formulated for ferrous and non-ferrous metal surfaces."
+        },
+        {
+          "name": "Drywall Primer",
+          "price": 29,
+          "description": "Fast-drying primer designed for new drywall with excellent sealing properties and quick recoat time."
+        },
+        {
+          "name": "Masonry Primer",
+          "price": 38,
+          "description": "Alkali-resistant primer for concrete, stucco, and other alkaline masonry surfaces."
+        }
+      ],
+      "BRUSHES": [
+        {
+          "name": "Synthetic Brush Set",
+          "price": 16,
+          "description": "Professional synthetic bristle brushes for latex paints with excellent paint pickup and smooth finish."
+        },
+        {
+          "name": "Natural Bristle Brush Set",
+          "price": 23,
+          "description": "Traditional natural bristle brushes for oil-based paints and stains with superior flow and leveling."
+        },
+        {
+          "name": "Angled Brush Set",
+          "price": 20,
+          "description": "Precision angled brushes for cutting in edges and detail work with comfortable ergonomic handles."
+        },
+        {
+          "name": "Foam Brush Set",
+          "price": 9,
+          "description": "Disposable foam brushes for small projects, touch-ups, and applying stains and polyurethane."
+        },
+        {
+          "name": "Artist Detail Brush Set",
+          "price": 13,
+          "description": "Fine detail brushes for decorative painting, trim work, and artistic applications with precise control."
+        }
+      ],
+      "ROLLERS": [
+        {
+          "name": "Roller Frame 9-inch",
+          "price": 10,
+          "description": "Heavy-duty roller frame with threaded handle attachment and cage design for various cover types."
+        },
+        {
+          "name": "Microfiber Roller Covers",
+          "price": 14,
+          "description": "High-quality microfiber roller covers for smooth finishes with minimal lint and excellent paint capacity."
+        },
+        {
+          "name": "Nap Roller Cover Set",
+          "price": 12,
+          "description": "Assorted nap roller covers from 1/4-inch to 1-inch for different surface textures and paint types."
+        },
+        {
+          "name": "Mini Roller Kit 4-inch",
+          "price": 8,
+          "description": "Compact roller kit for small areas, touch-ups, and detail work with frame and covers included."
+        },
+        {
+          "name": "Extension Pole 4-foot",
+          "price": 15,
+          "description": "Telescoping extension pole for reaching high areas and reducing ladder use during painting projects."
+        }
+      ],
+      "SPRAY PAINT": [
+        {
+          "name": "Aerosol Primer Spray",
+          "price": 7,
+          "description": "Fast-drying spray primer for metal, wood, and plastic with excellent adhesion and coverage."
+        },
+        {
+          "name": "Gloss Spray Paint",
+          "price": 8,
+          "description": "High-gloss aerosol paint in various colors for furniture, crafts, and small metal projects."
+        },
+        {
+          "name": "Matte Finish Spray Paint",
+          "price": 7,
+          "description": "Flat matte spray paint for decorative items and surfaces requiring a non-reflective finish."
+        },
+        {
+          "name": "Rust Prevention Spray",
+          "price": 10,
+          "description": "Rust-inhibitive spray paint for direct application over rust with long-lasting protection."
+        },
+        {
+          "name": "Textured Spray Paint",
+          "price": 9,
+          "description": "Specialty textured spray paint creating stone, hammered, or wrinkle finishes on various surfaces."
+        }
+      ],
+      "WOOD STAIN": [
+        {
+          "name": "Oil-Based Wood Stain",
+          "price": 29,
+          "description": "Penetrating oil-based stain that enhances wood grain with rich, deep color and natural look."
+        },
+        {
+          "name": "Water-Based Wood Stain",
+          "price": 27,
+          "description": "Fast-drying water-based stain with low odor and easy cleanup while maintaining wood beauty."
+        },
+        {
+          "name": "Gel Stain",
+          "price": 32,
+          "description": "Thick gel stain that won't drip or run, perfect for vertical surfaces and blotchy woods."
+        },
+        {
+          "name": "Semi-Transparent Deck Stain",
+          "price": 36,
+          "description": "Outdoor deck stain with UV protection that allows wood grain to show through natural finish."
+        },
+        {
+          "name": "Solid Color Deck Stain",
+          "price": 38,
+          "description": "Opaque deck stain that provides full color coverage while still allowing wood texture to show."
+        }
+      ],
+      "POLYURETHANE": [
+        {
+          "name": "Clear Polyurethane Satin",
+          "price": 36,
+          "description": "Durable polyurethane finish with satin sheen for wood floors, furniture, and cabinets."
+        },
+        {
+          "name": "Gloss Polyurethane",
+          "price": 39,
+          "description": "High-gloss polyurethane for maximum durability and shine on high-traffic wood surfaces."
+        },
+        {
+          "name": "Water-Based Polyurethane",
+          "price": 43,
+          "description": "Fast-drying water-based polyurethane with low odor and excellent clarity for interior wood."
+        },
+        {
+          "name": "Oil-Based Polyurethane",
+          "price": 34,
+          "description": "Traditional oil-based polyurethane with amber tone and superior durability for classic wood finish."
+        },
+        {
+          "name": "Floor Polyurethane",
+          "price": 46,
+          "description": "Commercial-grade floor polyurethane designed for heavy traffic areas with maximum wear resistance."
+        }
+      ],
+      "PAINT TRAYS": [
+        {
+          "name": "Disposable Paint Tray Set",
+          "price": 6,
+          "description": "Lightweight disposable paint trays with liners for easy cleanup and multiple project use."
+        },
+        {
+          "name": "Metal Paint Tray 9-inch",
+          "price": 10,
+          "description": "Durable metal paint tray with deep well and ribbed ramp for proper roller loading."
+        },
+        {
+          "name": "Paint Tray Liner Set",
+          "price": 5,
+          "description": "Disposable plastic liners that fit standard paint trays for quick cleanup and color changes."
+        },
+        {
+          "name": "Rolling Tray with Grid",
+          "price": 13,
+          "description": "Professional rolling tray with built-in grid for removing excess paint and even coverage."
+        },
+        {
+          "name": "Paint Bucket Grid",
+          "price": 8,
+          "description": "Wire grid insert for paint buckets to remove excess paint from brushes and rollers."
+        }
+      ],
+      "DROP CLOTHS": [
+        {
+          "name": "Canvas Drop Cloth 9x12",
+          "price": 20,
+          "description": "Heavy-duty canvas drop cloth for floor protection during painting with absorbent cotton material."
+        },
+        {
+          "name": "Plastic Drop Cloth",
+          "price": 5,
+          "description": "Lightweight plastic sheeting for furniture and floor protection with easy disposal after use."
+        },
+        {
+          "name": "Paper Drop Cloth",
+          "price": 7,
+          "description": "Absorbent paper drop cloth for light protection and easy cleanup on small painting projects."
+        },
+        {
+          "name": "Canvas Runner 4x15",
+          "price": 14,
+          "description": "Long canvas runner for hallway and narrow area protection during interior painting projects."
+        },
+        {
+          "name": "Pre-Taped Masking Film",
+          "price": 10,
+          "description": "Plastic film with pre-applied masking tape for quick coverage of windows and trim work."
+        }
+      ]
+    },
+    "HARDWARE": {
+      "washington_seasonal_multipliers": [1.0, 1.0, 1.1, 1.3, 1.2, 1.1, 1.0, 1.0, 1.4, 1.8, 1.6, 1.2],
+      "SCREWS": [
+        {
+          "name": "Wood Screw Assortment",
+          "price": 12,
+          "description": "Comprehensive collection of wood screws in various lengths from 1/2-inch to 3-inch with Phillips and Robertson drives."
+        },
+        {
+          "name": "Drywall Screws 1-5/8 inch",
+          "price": 8,
+          "description": "Fine-thread drywall screws with sharp points for quick penetration and secure attachment to metal studs."
+        },
+        {
+          "name": "Deck Screws 2-1/2 inch",
+          "price": 15,
+          "description": "Exterior-rated deck screws with corrosion-resistant coating for outdoor construction projects."
+        },
+        {
+          "name": "Machine Screws Kit",
+          "price": 13,
+          "description": "Precision machine screws with hex, Phillips, and slotted drives in metric and standard thread pitches."
+        },
+        {
+          "name": "Self-Tapping Screws",
+          "price": 10,
+          "description": "Hardened self-tapping screws for metal applications with drilling and threading action in one step."
+        }
+      ],
+      "NAILS": [
+        {
+          "name": "Common Nail Assortment",
+          "price": 16,
+          "description": "Traditional common nails from 6d to 16d for general construction and framing applications."
+        },
+        {
+          "name": "Finish Nails 2-inch",
+          "price": 12,
+          "description": "Small-head finish nails for trim work and cabinetry where nail heads will be countersunk and filled."
+        },
+        {
+          "name": "Roofing Nails 1-1/4 inch",
+          "price": 14,
+          "description": "Galvanized roofing nails with large heads for securing shingles and roofing materials."
+        },
+        {
+          "name": "Masonry Nails",
+          "price": 10,
+          "description": "Hardened masonry nails for fastening into concrete, brick, and block with fluted shanks for holding power."
+        },
+        {
+          "name": "Brad Nails 18-gauge",
+          "price": 9,
+          "description": "Thin brad nails for delicate trim work and attaching thin materials without splitting."
+        }
+      ],
+      "BOLTS": [
+        {
+          "name": "Hex Bolt Kit Grade 5",
+          "price": 24,
+          "description": "High-strength Grade 5 hex bolts with matching nuts and washers in popular sizes from 1/4-inch to 1/2-inch."
+        },
+        {
+          "name": "Carriage Bolt Set",
+          "price": 19,
+          "description": "Smooth-head carriage bolts with square necks for wood applications and matching hex nuts."
+        },
+        {
+          "name": "Eye Bolts Assorted",
+          "price": 16,
+          "description": "Forged eye bolts for hanging applications and rigging with thimbles and hardware included."
+        },
+        {
+          "name": "Lag Bolts 1/2 x 6-inch",
+          "price": 28,
+          "description": "Heavy-duty lag bolts with hex heads for securing large timbers and structural connections."
+        },
+        {
+          "name": "Toggle Bolt Set",
+          "price": 13,
+          "description": "Spring-loaded toggle bolts for hollow wall applications with various lengths and thread sizes."
+        }
+      ],
+      "WASHERS": [
+        {
+          "name": "Flat Washer Assortment SAE",
+          "price": 8,
+          "description": "Standard flat washers in SAE sizes to distribute load and prevent bolt head pull-through."
+        },
+        {
+          "name": "Lock Washer Set",
+          "price": 10,
+          "description": "Split ring lock washers that prevent loosening of bolted connections under vibration."
+        },
+        {
+          "name": "Fender Washer Kit",
+          "price": 12,
+          "description": "Large-diameter fender washers for distributing loads over larger areas and soft materials."
+        },
+        {
+          "name": "Rubber Washer Set",
+          "price": 6,
+          "description": "Flexible rubber washers for sealing applications and preventing metal-to-metal contact."
+        },
+        {
+          "name": "Metric Washer Assortment",
+          "price": 8,
+          "description": "Complete metric flat washer set for European and Asian equipment and machinery."
+        }
+      ],
+      "HINGES": [
+        {
+          "name": "Butt Hinge 3-1/2 inch",
+          "price": 16,
+          "description": "Standard door butt hinges with removable pins and screw holes for interior door hanging."
+        },
+        {
+          "name": "Piano Hinge 2-foot",
+          "price": 24,
+          "description": "Continuous piano hinge for cabinet doors, lids, and long applications requiring full-length support."
+        },
+        {
+          "name": "Strap Hinge Heavy Duty",
+          "price": 20,
+          "description": "Heavy-duty strap hinges for gates, shutters, and outdoor applications with rust-resistant finish."
+        },
+        {
+          "name": "Spring Hinge Self-Closing",
+          "price": 28,
+          "description": "Self-closing spring hinges that automatically return doors to closed position for screen doors."
+        },
+        {
+          "name": "Concealed Cabinet Hinge",
+          "price": 13,
+          "description": "European-style concealed hinges for modern cabinet doors with adjustable mounting plates."
+        }
+      ],
+      "HANDLES & KNOBS": [
+        {
+          "name": "Cabinet Knob Set Brushed Nickel",
+          "price": 30,
+          "description": "Modern cabinet knobs in brushed nickel finish with matching screws and mounting hardware."
+        },
+        {
+          "name": "Cabinet Pull 4-inch Centers",
+          "price": 36,
+          "description": "Contemporary cabinet pulls with 4-inch hole spacing in various finishes and styles."
+        },
+        {
+          "name": "Door Handle Lever Set",
+          "price": 48,
+          "description": "Interior door lever handle set with latch and strike plate for modern door hardware."
+        },
+        {
+          "name": "Drawer Pull 5-inch",
+          "price": 24,
+          "description": "Traditional drawer pulls with antique brass finish for classic furniture and cabinetry."
+        },
+        {
+          "name": "T-Handle Cabinet Hardware",
+          "price": 16,
+          "description": "Functional T-handle pulls for workshop cabinets and utility storage with secure grip."
+        }
+      ],
+      "LOCKS": [
+        {
+          "name": "Deadbolt Lock Keyed",
+          "price": 45,
+          "description": "Single-cylinder deadbolt lock with pick-resistant pins and hardened steel bolt for security."
+        },
+        {
+          "name": "Door Knob Lock Set",
+          "price": 35,
+          "description": "Entry door knob lock set with key-in-knob design and matching interior and exterior finishes."
+        },
+        {
+          "name": "Padlock Set Keyed Alike",
+          "price": 28,
+          "description": "Weather-resistant padlocks keyed alike for multiple applications with hardened steel shackles."
+        },
+        {
+          "name": "Cabinet Lock Cam Type",
+          "price": 15,
+          "description": "Cam lock for cabinets and drawers with 90-degree turn action and removable key feature."
+        },
+        {
+          "name": "Chain Lock Door Security",
+          "price": 12,
+          "description": "Door chain lock for additional security allowing partial door opening while maintaining control."
+        }
+      ],
+      "HASPS & LATCHES": [
+        {
+          "name": "Security Hasp 6-inch",
+          "price": 12,
+          "description": "Heavy-duty hasp and staple set for padlock security on gates, sheds, and storage areas."
+        },
+        {
+          "name": "Barrel Latch 4-inch",
+          "price": 8,
+          "description": "Spring-loaded barrel latch for gates and doors with automatic latching action."
+        },
+        {
+          "name": "Thumb Latch Galvanized",
+          "price": 15,
+          "description": "Traditional thumb latch for gates with galvanized finish for outdoor weather resistance."
+        },
+        {
+          "name": "Slide Bolt Latch",
+          "price": 10,
+          "description": "Surface-mount slide bolt latch for doors and gates with smooth sliding action."
+        },
+        {
+          "name": "Hook and Eye Latch",
+          "price": 6,
+          "description": "Simple hook and eye latch for lightweight doors and gate applications with various sizes."
+        }
+      ],
+      "BRACKETS": [
+        {
+          "name": "Shelf Bracket 8-inch",
+          "price": 10,
+          "description": "Heavy-duty steel shelf brackets with decorative scrollwork and powder-coated finish."
+        },
+        {
+          "name": "Angle Bracket 4-inch",
+          "price": 8,
+          "description": "Right-angle corner brackets for reinforcing joints and connecting perpendicular members."
+        },
+        {
+          "name": "L-Bracket Galvanized",
+          "price": 5,
+          "description": "Simple L-brackets in galvanized steel for basic corner reinforcement and light-duty connections."
+        },
+        {
+          "name": "Floating Shelf Bracket",
+          "price": 13,
+          "description": "Concealed floating shelf brackets that create the appearance of unsupported shelving."
+        },
+        {
+          "name": "Countertop Support Bracket",
+          "price": 16,
+          "description": "Heavy-duty brackets designed to support overhanging countertops and work surfaces."
+        }
+      ],
+      "CASTERS": [
+        {
+          "name": "Swivel Caster 2-inch",
+          "price": 15,
+          "description": "Heavy-duty swivel casters with ball bearing races for smooth rolling and 360-degree rotation."
+        },
+        {
+          "name": "Fixed Caster 3-inch",
+          "price": 12,
+          "description": "Rigid fixed casters for straight-line movement with polyurethane wheels for floor protection."
+        },
+        {
+          "name": "Locking Caster Set",
+          "price": 21,
+          "description": "Swivel casters with foot-operated locks for both wheel rotation and swivel action."
+        },
+        {
+          "name": "Pneumatic Caster 4-inch",
+          "price": 28,
+          "description": "Air-filled pneumatic casters for smooth rolling over rough surfaces and outdoor use."
+        },
+        {
+          "name": "Furniture Caster Set",
+          "price": 10,
+          "description": "Small furniture casters with soft wheels for hardwood floor protection and quiet operation."
+        }
+      ]
+    },
+    "LUMBER & BUILDING MATERIALS": {
+      "washington_seasonal_multipliers": [0.8, 0.7, 1.2, 1.6, 2.0, 2.2, 2.1, 1.8, 1.3, 1.0, 0.8, 0.7],
+      "DIMENSIONAL LUMBER": [
+        {
+          "name": "Pressure Treated 2x4x8",
+          "price": 8,
+          "description": "Kiln-dried pressure-treated lumber for structural framing and outdoor construction projects."
+        },
+        {
+          "name": "Douglas Fir 2x6x10",
+          "price": 13,
+          "description": "Premium Douglas fir dimensional lumber for structural applications with excellent strength-to-weight ratio."
+        },
+        {
+          "name": "Cedar 2x4x8",
+          "price": 18,
+          "description": "Natural cedar lumber with built-in insect and decay resistance for outdoor construction."
+        },
+        {
+          "name": "Pine Stud 2x4x8",
+          "price": 6,
+          "description": "Kiln-dried pine construction studs for interior framing with straight grain and minimal defects."
+        },
+        {
+          "name": "Treated 2x8x12 Joist",
+          "price": 22,
+          "description": "Heavy-duty pressure-treated joists for deck framing and structural support applications."
+        }
+      ],
+      "PLYWOOD": [
+        {
+          "name": "CDX Plywood 4x8x3/4",
+          "price": 45,
+          "description": "Construction-grade CDX plywood with C-face and D-back for structural sheathing and subflooring."
+        },
+        {
+          "name": "Birch Plywood 4x8x1/2",
+          "price": 58,
+          "description": "High-grade birch plywood with smooth surface for cabinet making and furniture construction."
+        },
+        {
+          "name": "Marine Plywood 4x8x3/4",
+          "price": 82,
+          "description": "Waterproof marine-grade plywood with void-free core for boat building and exterior applications."
+        },
+        {
+          "name": "OSB Sheathing 4x8x7/16",
+          "price": 32,
+          "description": "Oriented strand board sheathing for wall and roof sheathing with moisture resistance."
+        },
+        {
+          "name": "Pressure Treated Plywood",
+          "price": 65,
+          "description": "Exterior-grade pressure-treated plywood for outdoor applications and ground contact use."
+        }
+      ],
+      "DRYWALL": [
+        {
+          "name": "Standard Drywall 4x8x1/2",
+          "price": 16,
+          "description": "Regular gypsum drywall for interior walls and ceilings in dry locations."
+        },
+        {
+          "name": "Moisture Resistant Drywall",
+          "price": 20,
+          "description": "Green board drywall for bathrooms and high-humidity areas with moisture-resistant core."
+        },
+        {
+          "name": "Fire Resistant Drywall",
+          "price": 24,
+          "description": "Type X fire-rated drywall for enhanced fire protection in commercial and residential applications."
+        },
+        {
+          "name": "Lightweight Drywall 4x8",
+          "price": 18,
+          "description": "Ultra-light drywall that's 25% lighter than standard board for easier handling and installation."
+        },
+        {
+          "name": "Soundproof Drywall 4x8",
+          "price": 35,
+          "description": "Sound-dampening drywall with enhanced acoustic properties for noise reduction between rooms."
+        }
+      ],
+      "INSULATION": [
+        {
+          "name": "Fiberglass Batts R-13",
+          "price": 32,
+          "description": "Standard fiberglass insulation batts for 2x4 wall construction with moisture barrier."
+        },
+        {
+          "name": "Blown-In Insulation R-30",
+          "price": 48,
+          "description": "Loose-fill fiberglass insulation for attics and hard-to-reach areas with higher R-value."
+        },
+        {
+          "name": "Foam Board Insulation",
+          "price": 35,
+          "description": "Rigid foam insulation board for continuous insulation and thermal bridging reduction."
+        },
+        {
+          "name": "Spray Foam Kit",
+          "price": 65,
+          "description": "Two-component spray foam insulation kit for air sealing and insulating irregular spaces."
+        },
+        {
+          "name": "Reflective Insulation",
+          "price": 25,
+          "description": "Radiant barrier insulation with reflective surface for reducing heat transfer in attics."
+        }
+      ],
+      "OSB": [
+        {
+          "name": "OSB Sheathing 4x8x7/16",
+          "price": 29,
+          "description": "Standard OSB sheathing for roof and wall construction with moisture-resistant adhesive."
+        },
+        {
+          "name": "OSB Subflooring 4x8x3/4",
+          "price": 35,
+          "description": "Tongue-and-groove OSB subflooring with engineered strength for floor systems."
+        },
+        {
+          "name": "Advantech Subflooring",
+          "price": 50,
+          "description": "Premium engineered subflooring with superior moisture resistance and dimensional stability."
+        },
+        {
+          "name": "ZIP System Sheathing",
+          "price": 58,
+          "description": "Integrated sheathing and weather barrier system with built-in moisture protection."
+        },
+        {
+          "name": "OSB Siding Panel",
+          "price": 42,
+          "description": "Textured OSB siding panels for exterior wall cladding with weather-resistant coating."
+        }
+      ],
+      "MOLDING": [
+        {
+          "name": "Crown Molding Pine 8ft",
+          "price": 16,
+          "description": "Traditional crown molding in clear pine for elegant interior trim applications."
+        },
+        {
+          "name": "Baseboard Molding 8ft",
+          "price": 12,
+          "description": "Classic baseboard molding for finishing floor-to-wall transitions with smooth profile."
+        },
+        {
+          "name": "Chair Rail Molding",
+          "price": 10,
+          "description": "Decorative chair rail molding for protecting walls and adding architectural interest."
+        },
+        {
+          "name": "Quarter Round 8ft",
+          "price": 6,
+          "description": "Small quarter-round molding for covering gaps between flooring and baseboards."
+        },
+        {
+          "name": "Window Casing Set",
+          "price": 21,
+          "description": "Complete window casing set including head and side casings for professional window trim."
+        }
+      ],
+      "TRIM BOARDS": [
+        {
+          "name": "Pine Board 1x4x8",
+          "price": 10,
+          "description": "Clear pine boards for interior trim, shelving, and general construction applications."
+        },
+        {
+          "name": "Poplar Board 1x6x8",
+          "price": 14,
+          "description": "Premium poplar lumber with fine grain for painting and high-quality trim work."
+        },
+        {
+          "name": "Cedar Board 1x8x10",
+          "price": 20,
+          "description": "Natural cedar boards for exterior trim and siding with built-in weather resistance."
+        },
+        {
+          "name": "MDF Trim Board 1x4",
+          "price": 8,
+          "description": "Medium-density fiberboard trim with smooth surface perfect for painted applications."
+        },
+        {
+          "name": "PVC Trim Board 1x6",
+          "price": 25,
+          "description": "Cellular PVC trim board that won't rot, warp, or require painting for exterior use."
+        }
+      ],
+      "CONCRETE MIX": [
+        {
+          "name": "Quikrete Mix 80lb",
+          "price": 7,
+          "description": "Fast-setting concrete mix for fence posts, mailboxes, and small concrete projects."
+        },
+        {
+          "name": "Ready Mix Concrete 60lb",
+          "price": 6,
+          "description": "Standard concrete mix for sidewalks, driveways, and general concrete construction."
+        },
+        {
+          "name": "High Strength Mix 80lb",
+          "price": 8,
+          "description": "High-strength concrete mix for structural applications requiring superior compressive strength."
+        },
+        {
+          "name": "Crack Resistant Mix",
+          "price": 10,
+          "description": "Fiber-reinforced concrete mix with enhanced crack resistance for durable installations."
+        },
+        {
+          "name": "Fast-Set Concrete 50lb",
+          "price": 8,
+          "description": "Rapid-setting concrete that sets in 20 minutes for quick project completion."
+        }
+      ],
+      "CEMENT BOARD": [
+        {
+          "name": "Hardiebacker 3x5x1/4",
+          "price": 25,
+          "description": "Fiber cement backer board for tile underlayment in wet areas with mold resistance."
+        },
+        {
+          "name": "Durock Cement Board",
+          "price": 29,
+          "description": "Glass mesh reinforced cement board for heavy tile installations and shower surrounds."
+        },
+        {
+          "name": "Permabase Board 4x8",
+          "price": 32,
+          "description": "Cement fiber board with moisture barrier for waterproof tile installations."
+        },
+        {
+          "name": "WonderBoard Lite",
+          "price": 20,
+          "description": "Lightweight cement board that's easier to cut and handle while maintaining strength."
+        },
+        {
+          "name": "Exterior Cement Board",
+          "price": 40,
+          "description": "Weather-resistant cement board for exterior tile and stone veneer applications."
+        }
+      ],
+      "TREATED POSTS": [
+        {
+          "name": "PT Post 4x4x8",
+          "price": 13,
+          "description": "Pressure-treated fence post with .40 retention for ground contact applications."
+        },
+        {
+          "name": "Cedar Post 6x6x8",
+          "price": 25,
+          "description": "Natural cedar post with built-in decay resistance for premium fence construction."
+        },
+        {
+          "name": "PT Landscape Timber",
+          "price": 10,
+          "description": "Pressure-treated landscape timber for retaining walls and garden bed construction."
+        },
+        {
+          "name": "Round Fence Post 8ft",
+          "price": 18,
+          "description": "Pressure-treated round fence post with pointed end for easy installation."
+        },
+        {
+          "name": "Deck Post 6x6x10",
+          "price": 32,
+          "description": "Heavy-duty pressure-treated post for deck construction and structural support applications."
+        }
+      ]
+    },
+    "ELECTRICAL": {
+      "washington_seasonal_multipliers": [1.2, 1.1, 1.0, 1.1, 1.2, 1.3, 1.2, 1.1, 1.2, 1.4, 1.6, 1.5],
+      "WIRE": [
+        {
+          "name": "Romex Wire 14-2 250ft",
+          "price": 50,
+          "description": "14-gauge Romex cable for 15-amp circuits with ground wire for residential electrical installations."
+        },
+        {
+          "name": "Romex Wire 12-2 250ft",
+          "price": 65,
+          "description": "12-gauge Romex cable for 20-amp circuits including kitchen outlets and bathroom circuits."
+        },
+        {
+          "name": "THHN Wire 12 AWG",
+          "price": 40,
+          "description": "Single conductor THHN wire for conduit applications with heat and moisture resistance."
+        },
+        {
+          "name": "Underground Wire 12-2",
+          "price": 75,
+          "description": "Direct burial electrical cable for outdoor lighting and underground electrical runs."
+        },
+        {
+          "name": "Armored Cable BX 12-2",
+          "price": 85,
+          "description": "Metal-clad cable with flexible armor for commercial and industrial electrical applications."
+        }
+      ],
+      "OUTLETS": [
+        {
+          "name": "Standard Outlet 15-Amp",
+          "price": 5,
+          "description": "Basic duplex outlet with grounding for general household electrical applications."
+        },
+        {
+          "name": "GFCI Outlet 20-Amp",
+          "price": 18,
+          "description": "Ground fault circuit interrupter outlet for wet locations with test and reset buttons."
+        },
+        {
+          "name": "USB Outlet with Charging",
+          "price": 25,
+          "description": "Combination outlet with USB ports for convenient device charging without adapters."
+        },
+        {
+          "name": "AFCI Outlet 15-Amp",
+          "price": 29,
+          "description": "Arc fault circuit interrupter outlet for enhanced electrical fire protection."
+        },
+        {
+          "name": "Weather Resistant Outlet",
+          "price": 14,
+          "description": "Outdoor outlet with weather-resistant cover for exterior electrical installations."
+        }
+      ],
+      "SWITCHES": [
+        {
+          "name": "Single Pole Switch",
+          "price": 6,
+          "description": "Basic single pole light switch for controlling lights from one location."
+        },
+        {
+          "name": "Dimmer Switch LED",
+          "price": 15,
+          "description": "Electronic dimmer compatible with LED and CFL bulbs with smooth dimming control."
+        },
+        {
+          "name": "Three-Way Switch",
+          "price": 8,
+          "description": "Three-way switch for controlling lights from two different locations."
+        },
+        {
+          "name": "Motion Sensor Switch",
+          "price": 25,
+          "description": "Automatic switch with motion detection for hands-free lighting control."
+        },
+        {
+          "name": "Timer Switch",
+          "price": 20,
+          "description": "Programmable timer switch for automatic lighting and fan control with multiple settings."
+        }
+      ],
+      "CIRCUIT BREAKERS": [
+        {
+          "name": "Single Pole Breaker 15A",
+          "price": 18,
+          "description": "Standard single pole circuit breaker for 120V residential electrical panels."
+        },
+        {
+          "name": "Single Pole Breaker 20A",
+          "price": 22,
+          "description": "20-amp single pole breaker for kitchen and bathroom circuit protection."
+        },
+        {
+          "name": "Double Pole Breaker 30A",
+          "price": 38,
+          "description": "Double pole breaker for 240V appliances like electric dryers and water heaters."
+        },
+        {
+          "name": "GFCI Breaker 20-Amp",
+          "price": 52,
+          "description": "Ground fault circuit interrupter breaker for wet location protection at panel level."
+        },
+        {
+          "name": "AFCI Breaker 15-Amp",
+          "price": 48,
+          "description": "Arc fault circuit interrupter breaker for bedroom and living area fire protection."
+        }
+      ],
+      "CONDUIT": [
+        {
+          "name": "EMT Conduit 1/2-inch",
+          "price": 6,
+          "description": "Electrical metallic tubing for protecting wiring in commercial applications."
+        },
+        {
+          "name": "PVC Conduit 3/4-inch",
+          "price": 8,
+          "description": "PVC electrical conduit for underground and wet location wire protection."
+        },
+        {
+          "name": "Flexible Conduit 1/2-inch",
+          "price": 12,
+          "description": "Flexible metal conduit for connections to motors and vibrating equipment."
+        },
+        {
+          "name": "Rigid Conduit 1-inch",
+          "price": 16,
+          "description": "Heavy-duty rigid metal conduit for industrial and outdoor electrical installations."
+        },
+        {
+          "name": "Liquid-Tight Conduit",
+          "price": 20,
+          "description": "Waterproof flexible conduit for outdoor and wet location electrical connections."
+        }
+      ],
+      "JUNCTION BOXES": [
+        {
+          "name": "Outlet Box Single Gang",
+          "price": 4,
+          "description": "Standard single gang electrical box for switches and outlets in wall installations."
+        },
+        {
+          "name": "Junction Box 4x4",
+          "price": 6,
+          "description": "Square junction box for wire splicing and electrical connections with knockouts."
+        },
+        {
+          "name": "Ceiling Box with Bracket",
+          "price": 8,
+          "description": "Ceiling electrical box with adjustable bracket for light fixture mounting."
+        },
+        {
+          "name": "Old Work Box",
+          "price": 6,
+          "description": "Retrofit electrical box for adding outlets to existing walls without wall removal."
+        },
+        {
+          "name": "Weatherproof Box",
+          "price": 14,
+          "description": "Outdoor electrical box with gasket seal for weather protection in exterior applications."
+        }
+      ],
+      "WIRE NUTS": [
+        {
+          "name": "Wire Nut Assortment",
+          "price": 8,
+          "description": "Color-coded wire nuts in multiple sizes for various wire gauge combinations."
+        },
+        {
+          "name": "Twist-On Connectors",
+          "price": 6,
+          "description": "Standard twist-on wire connectors for joining 2-3 wires in electrical boxes."
+        },
+        {
+          "name": "Push-In Connectors",
+          "price": 10,
+          "description": "Lever-operated wire connectors for quick and secure electrical connections."
+        },
+        {
+          "name": "Grease Cap Wire Nuts",
+          "price": 10,
+          "description": "Waterproof wire nuts with silicone grease for outdoor electrical connections."
+        },
+        {
+          "name": "Large Wire Nuts",
+          "price": 7,
+          "description": "Heavy-duty wire nuts for connecting larger gauge wires and multiple conductors."
+        }
+      ],
+      "EXTENSION CORDS": [
+        {
+          "name": "Indoor Extension Cord 25ft",
+          "price": 18,
+          "description": "16-gauge indoor extension cord for household appliances and electronics."
+        },
+        {
+          "name": "Outdoor Extension Cord 50ft",
+          "price": 38,
+          "description": "12-gauge outdoor cord with weather-resistant jacket for power tools and equipment."
+        },
+        {
+          "name": "Heavy Duty Cord 100ft",
+          "price": 65,
+          "description": "Professional-grade extension cord for construction and industrial applications."
+        },
+        {
+          "name": "Retractable Cord Reel",
+          "price": 52,
+          "description": "Automatic retractable extension cord reel for workshop and garage organization."
+        },
+        {
+          "name": "Multi-Outlet Power Strip",
+          "price": 25,
+          "description": "Power strip with surge protection and multiple outlets for electronics protection."
+        }
+      ],
+      "LIGHT FIXTURES": [
+        {
+          "name": "LED Flush Mount Ceiling",
+          "price": 40,
+          "description": "Energy-efficient LED ceiling fixture with modern design and long bulb life."
+        },
+        {
+          "name": "Pendant Light Kitchen",
+          "price": 58,
+          "description": "Decorative pendant light for kitchen islands and dining areas with adjustable height."
+        },
+        {
+          "name": "Vanity Light 3-Bulb",
+          "price": 50,
+          "description": "Bathroom vanity light with multiple bulbs for even illumination and style."
+        },
+        {
+          "name": "Track Lighting Kit",
+          "price": 70,
+          "description": "Adjustable track lighting system with multiple spotlights for accent lighting."
+        },
+        {
+          "name": "Outdoor Flood Light LED",
+          "price": 32,
+          "description": "Weather-resistant LED flood light with motion sensor for security lighting."
+        }
+      ],
+      "ELECTRICAL TAPE": [
+        {
+          "name": "Vinyl Electrical Tape",
+          "price": 4,
+          "description": "Standard black electrical tape for insulating wire connections and splices."
+        },
+        {
+          "name": "High-Temp Electrical Tape",
+          "price": 7,
+          "description": "Heat-resistant electrical tape for high-temperature electrical applications."
+        },
+        {
+          "name": "Color-Coded Tape Set",
+          "price": 10,
+          "description": "Assorted colored electrical tape for wire identification and phase marking."
+        },
+        {
+          "name": "Self-Fusing Silicone Tape",
+          "price": 13,
+          "description": "Self-amalgamating tape that bonds to itself for waterproof electrical connections."
+        },
+        {
+          "name": "Friction Tape",
+          "price": 6,
+          "description": "Cotton friction tape for mechanical protection and insulation of electrical connections."
+        }
+      ]
+    },
+    "PLUMBING": {
+      "washington_seasonal_multipliers": [1.1, 1.0, 1.2, 1.4, 1.3, 1.2, 1.1, 1.0, 1.3, 1.6, 1.4, 1.2],
+      "PVC PIPE": [
+        {
+          "name": "PVC Pipe 3-inch x 10ft",
+          "price": 18,
+          "description": "Schedule 40 PVC pipe for main drain lines and sewer connections."
+        },
+        {
+          "name": "PVC Pipe 4-inch x 10ft",
+          "price": 21,
+          "description": "Large diameter PVC pipe for building drains and main waste lines."
+        },
+        {
+          "name": "PVC Pipe 1-1/2 inch x 10ft",
+          "price": 12,
+          "description": "Standard PVC pipe for sink and bathroom drain connections."
+        },
+        {
+          "name": "PVC Pipe 2-inch x 10ft",
+          "price": 15,
+          "description": "Medium PVC pipe for vent stacks and larger drain applications."
+        },
+        {
+          "name": "Flexible PVC Pipe",
+          "price": 25,
+          "description": "Flexible PVC for tight spaces and curved pipe runs with standard fittings."
+        }
+      ],
+      "COPPER PIPE": [
+        {
+          "name": "Copper Pipe 1/2-inch Type L",
+          "price": 38,
+          "description": "Type L copper tubing for hot and cold water supply lines with medium wall thickness."
+        },
+        {
+          "name": "Copper Pipe 3/4-inch Type L",
+          "price": 52,
+          "description": "Larger copper pipe for main water lines and high-flow applications."
+        },
+        {
+          "name": "Copper Pipe 1-inch Type L",
+          "price": 68,
+          "description": "Heavy-duty copper pipe for main service lines and commercial applications."
+        },
+        {
+          "name": "Soft Copper Coil 1/2-inch",
+          "price": 48,
+          "description": "Flexible soft copper in coil form for easy installation around obstacles."
+        },
+        {
+          "name": "Pre-Insulated Copper Pipe",
+          "price": 60,
+          "description": "Copper pipe with foam insulation for energy efficiency and condensation control."
+        }
+      ],
+      "PIPE FITTINGS": [
+        {
+          "name": "PVC Elbow Assortment",
+          "price": 14,
+          "description": "90-degree PVC elbows in various sizes for changing pipe direction."
+        },
+        {
+          "name": "PVC Tee Fitting Set",
+          "price": 18,
+          "description": "PVC tee fittings for branch connections in drain and vent systems."
+        },
+        {
+          "name": "Copper Fitting Kit",
+          "price": 28,
+          "description": "Solder-type copper fittings including elbows, tees, and couplings."
+        },
+        {
+          "name": "Push-Fit Connectors",
+          "price": 21,
+          "description": "No-solder push-fit fittings for quick copper and PEX pipe connections."
+        },
+        {
+          "name": "Compression Fittings",
+          "price": 32,
+          "description": "Compression fittings for connecting copper pipe without soldering."
+        }
+      ],
+      "VALVES": [
+        {
+          "name": "Ball Valve 1/2-inch",
+          "price": 14,
+          "description": "Quarter-turn ball valve for water shut-off with full-port design."
+        },
+        {
+          "name": "Gate Valve 3/4-inch",
+          "price": 20,
+          "description": "Traditional gate valve for main water line shut-off applications."
+        },
+        {
+          "name": "Check Valve 1-inch",
+          "price": 25,
+          "description": "One-way check valve to prevent backflow in plumbing systems."
+        },
+        {
+          "name": "Pressure Relief Valve",
+          "price": 40,
+          "description": "Safety pressure relief valve for water heaters and pressure systems."
+        },
+        {
+          "name": "Angle Stop Valve",
+          "price": 12,
+          "description": "Angle stop valve for connecting toilet and sink supply lines to wall outlets."
+        }
+      ],
+      "FAUCETS": [
+        {
+          "name": "Kitchen Sink Faucet",
+          "price": 82,
+          "description": "Single-handle kitchen faucet with pull-out spray and ceramic disc cartridge."
+        },
+        {
+          "name": "Bathroom Lavatory Faucet",
+          "price": 60,
+          "description": "Two-handle bathroom faucet with pop-up drain assembly and chrome finish."
+        },
+        {
+          "name": "Utility Sink Faucet",
+          "price": 42,
+          "description": "Heavy-duty utility faucet with high spout for laundry and workshop sinks."
+        },
+        {
+          "name": "Shower Faucet Trim Kit",
+          "price": 98,
+          "description": "Complete shower trim kit with valve, handle, and showerhead."
+        },
+        {
+          "name": "Outdoor Spigot Faucet",
+          "price": 32,
+          "description": "Frost-free outdoor faucet with anti-siphon protection for yard connections."
+        }
+      ],
+      "TOILET PARTS": [
+        {
+          "name": "Toilet Flapper Universal",
+          "price": 8,
+          "description": "Universal toilet flapper that fits most standard toilet tanks."
+        },
+        {
+          "name": "Fill Valve Assembly",
+          "price": 14,
+          "description": "Complete fill valve assembly for toilet tank water refill control."
+        },
+        {
+          "name": "Toilet Wax Ring",
+          "price": 6,
+          "description": "Wax ring seal for toilet installation with plastic horn for proper sealing."
+        },
+        {
+          "name": "Toilet Repair Kit Complete",
+          "price": 20,
+          "description": "Complete toilet repair kit with flapper, chain, and fill valve components."
+        },
+        {
+          "name": "Toilet Seat Standard",
+          "price": 28,
+          "description": "Standard toilet seat with slow-close hinges and easy installation hardware."
+        }
+      ],
+      "DRAIN CLEANING": [
+        {
+          "name": "Drain Snake 25-foot",
+          "price": 25,
+          "description": "Flexible steel drain snake for clearing sink and tub drain clogs."
+        },
+        {
+          "name": "Toilet Auger",
+          "price": 32,
+          "description": "Specialized toilet auger with protective coating to prevent scratching."
+        },
+        {
+          "name": "Drain Cleaning Chemical",
+          "price": 10,
+          "description": "Safe drain cleaner for dissolving organic clogs in pipes and drains."
+        },
+        {
+          "name": "Plunger Set",
+          "price": 14,
+          "description": "Toilet and sink plunger set for basic drain clearing and blockage removal."
+        },
+        {
+          "name": "Hydro Jet Drain Cleaner",
+          "price": 42,
+          "description": "High-pressure water jet attachment for clearing stubborn drain clogs."
+        }
+      ],
+      "PIPE INSULATION": [
+        {
+          "name": "Foam Pipe Insulation 1/2",
+          "price": 6,
+          "description": "Self-sealing foam insulation for 1/2-inch pipes to prevent freezing."
+        },
+        {
+          "name": "Pipe Insulation 3/4-inch",
+          "price": 7,
+          "description": "Foam pipe insulation with adhesive seam for larger diameter pipes."
+        },
+        {
+          "name": "Pipe Heat Tape",
+          "price": 21,
+          "description": "Electric heat tape for preventing frozen pipes in extreme cold conditions."
+        },
+        {
+          "name": "Fiberglass Pipe Insulation",
+          "price": 14,
+          "description": "High-temperature fiberglass insulation for hot water pipes and steam lines."
+        },
+        {
+          "name": "Pipe Insulation Tape",
+          "price": 10,
+          "description": "Reflective tape insulation for additional thermal protection of pipes."
+        }
+      ],
+      "PLUMBER'S PUTTY": [
+        {
+          "name": "Plumber's Putty 14oz",
+          "price": 6,
+          "description": "Traditional plumber's putty for sealing drain flanges and faucet bases."
+        },
+        {
+          "name": "Silicone Plumber's Putty",
+          "price": 7,
+          "description": "Silicone-based putty that won't dry out or crack over time."
+        },
+        {
+          "name": "Pipe Joint Compound",
+          "price": 8,
+          "description": "Thread sealing compound for threaded pipe connections and fittings."
+        },
+        {
+          "name": "Plumber's Grease",
+          "price": 6,
+          "description": "Waterproof grease for lubricating O-rings and valve stems."
+        },
+        {
+          "name": "Pipe Dope Stick",
+          "price": 5,
+          "description": "Solid pipe thread sealant in convenient stick form for field applications."
+        }
+      ],
+      "TEFLON TAPE": [
+        {
+          "name": "PTFE Thread Tape White",
+          "price": 2,
+          "description": "Standard white PTFE tape for sealing water pipe threads."
+        },
+        {
+          "name": "Heavy Duty Teflon Tape",
+          "price": 4,
+          "description": "Thick PTFE tape for high-pressure and gas line applications."
+        },
+        {
+          "name": "Yellow Gas Line Tape",
+          "price": 4,
+          "description": "Yellow PTFE tape specifically designed for natural gas connections."
+        },
+        {
+          "name": "Pink Plumber's Tape",
+          "price": 4,
+          "description": "Pink PTFE tape for potable water systems with NSF certification."
+        },
+        {
+          "name": "Pipe Thread Sealant Paste",
+          "price": 7,
+          "description": "Brush-on thread sealant for large pipe connections and difficult applications."
+        }
+      ]
+    },
+    "GARDEN & OUTDOOR": {
+      "washington_seasonal_multipliers": [0.6, 0.5, 1.5, 2.5, 2.2, 1.8, 1.6, 1.4, 1.3, 1.0, 0.7, 0.5],
+      "HAND TOOLS": [
+        {
+          "name": "Garden Spade Long Handle",
+          "price": 38,
+          "description": "Heavy-duty garden spade with long handle for digging and edging with comfortable grip."
+        },
+        {
+          "name": "Garden Rake Steel Tines",
+          "price": 29,
+          "description": "Steel-tined garden rake for leveling soil and gathering leaves with durable construction."
+        },
+        {
+          "name": "Garden Hoe 6-inch Blade",
+          "price": 25,
+          "description": "Sharp garden hoe for weeding and cultivating soil with lightweight design."
+        },
+        {
+          "name": "Hand Trowel Set",
+          "price": 14,
+          "description": "Precision hand trowels for planting and transplanting with ergonomic handles."
+        },
+        {
+          "name": "Pruning Loppers 28-inch",
+          "price": 38,
+          "description": "Long-reach pruning loppers for cutting thick branches with leverage and sharp blades."
+        }
+      ],
+      "HOSES": [
+        {
+          "name": "Garden Hose 50-foot",
+          "price": 32,
+          "description": "Heavy-duty garden hose with brass fittings and kink-resistant construction."
+        },
+        {
+          "name": "Soaker Hose 25-foot",
+          "price": 25,
+          "description": "Porous soaker hose for efficient water delivery directly to plant roots."
+        },
+        {
+          "name": "Expandable Hose 100-foot",
+          "price": 50,
+          "description": "Lightweight expandable hose that extends when water flows and contracts when empty."
+        },
+        {
+          "name": "Drinking Water Safe Hose",
+          "price": 40,
+          "description": "Lead-free garden hose safe for drinking water and filling pools."
+        },
+        {
+          "name": "Heavy Duty Hose 75-foot",
+          "price": 58,
+          "description": "Commercial-grade garden hose for heavy use with reinforced construction."
+        }
+      ],
+      "SPRINKLERS": [
+        {
+          "name": "Oscillating Sprinkler",
+          "price": 20,
+          "description": "Adjustable oscillating sprinkler covering up to 3,000 square feet with even coverage."
+        },
+        {
+          "name": "Impact Sprinkler",
+          "price": 15,
+          "description": "Metal impact sprinkler with adjustable spray pattern and durable construction."
+        },
+        {
+          "name": "Rotary Sprinkler 3-Arm",
+          "price": 18,
+          "description": "Three-arm rotary sprinkler for circular coverage with adjustable spray radius."
+        },
+        {
+          "name": "Misting Sprinkler Kit",
+          "price": 28,
+          "description": "Complete misting system for cooling and plant watering with multiple nozzles."
+        },
+        {
+          "name": "In-Ground Sprinkler Head",
+          "price": 12,
+          "description": "Pop-up sprinkler head for permanent irrigation systems with adjustable arc."
+        }
+      ],
+      "FERTILIZER": [
+        {
+          "name": "All-Purpose Fertilizer 50lb",
+          "price": 25,
+          "description": "Balanced 10-10-10 fertilizer for general garden and lawn applications."
+        },
+        {
+          "name": "Organic Compost 40lb",
+          "price": 20,
+          "description": "Rich organic compost for soil improvement and natural plant nutrition."
+        },
+        {
+          "name": "Lawn Fertilizer Spring",
+          "price": 30,
+          "description": "High-nitrogen spring fertilizer for promoting green lawn growth after winter."
+        },
+        {
+          "name": "Tomato Plant Food",
+          "price": 14,
+          "description": "Specialized fertilizer formulated for tomatoes and other fruiting plants."
+        },
+        {
+          "name": "Slow Release Granules",
+          "price": 34,
+          "description": "Time-release fertilizer granules providing nutrition for up to 3 months."
+        }
+      ],
+      "MULCH": [
+        {
+          "name": "Hardwood Mulch 2 Cu Ft",
+          "price": 7,
+          "description": "Natural hardwood mulch for garden beds and landscaping applications."
+        },
+        {
+          "name": "Rubber Mulch Black",
+          "price": 10,
+          "description": "Recycled rubber mulch that doesn't decompose and provides long-lasting coverage."
+        },
+        {
+          "name": "Pine Bark Mulch",
+          "price": 8,
+          "description": "Decorative pine bark mulch with natural appearance and weed suppression."
+        },
+        {
+          "name": "Cedar Mulch 3 Cu Ft",
+          "price": 12,
+          "description": "Aromatic cedar mulch that naturally repels insects while enriching soil."
+        },
+        {
+          "name": "Straw Mulch Bale",
+          "price": 14,
+          "description": "Natural straw mulch bale for vegetable gardens and erosion control."
+        }
+      ],
+      "PLANTERS": [
+        {
+          "name": "Ceramic Planter 12-inch",
+          "price": 32,
+          "description": "Decorative ceramic planter with drainage holes and matching saucer."
+        },
+        {
+          "name": "Plastic Planter Set",
+          "price": 21,
+          "description": "Lightweight plastic planters in multiple sizes with UV resistance."
+        },
+        {
+          "name": "Wooden Barrel Planter",
+          "price": 42,
+          "description": "Rustic wooden barrel planter for herbs and small plants with natural appearance."
+        },
+        {
+          "name": "Hanging Basket Planter",
+          "price": 15,
+          "description": "Hanging basket with coco liner for flowers and trailing plants."
+        },
+        {
+          "name": "Self-Watering Planter",
+          "price": 35,
+          "description": "Smart planter with built-in water reservoir for consistent plant hydration."
+        }
+      ],
+      "SEEDS": [
+        {
+          "name": "Vegetable Seed Starter Kit",
+          "price": 14,
+          "description": "Complete vegetable seed collection with growing instructions and tips."
+        },
+        {
+          "name": "Flower Seed Mix Wildflower",
+          "price": 10,
+          "description": "Native wildflower seed mix for natural landscapes and pollinator gardens."
+        },
+        {
+          "name": "Herb Garden Seed Set",
+          "price": 12,
+          "description": "Popular culinary herbs including basil, oregano, and parsley seeds."
+        },
+        {
+          "name": "Grass Seed Sun & Shade",
+          "price": 21,
+          "description": "Premium grass seed blend for areas with mixed sun and shade conditions."
+        },
+        {
+          "name": "Organic Heirloom Seeds",
+          "price": 18,
+          "description": "Non-GMO heirloom vegetable seeds for traditional varieties and seed saving."
+        }
+      ],
+      "SOIL": [
+        {
+          "name": "Potting Mix Premium 40lb",
+          "price": 10,
+          "description": "High-quality potting soil with perlite and peat for container gardening."
+        },
+        {
+          "name": "Garden Soil Enriched",
+          "price": 14,
+          "description": "Nutrient-rich garden soil blend for planting beds and landscaping."
+        },
+        {
+          "name": "Topsoil Screened 40lb",
+          "price": 8,
+          "description": "Clean screened topsoil for lawn repair and general landscaping use."
+        },
+        {
+          "name": "Cactus Potting Mix",
+          "price": 10,
+          "description": "Well-draining soil mix specifically formulated for cacti and succulents."
+        },
+        {
+          "name": "Seed Starting Mix",
+          "price": 12,
+          "description": "Fine-textured soil mix designed for starting seeds and young plant growth."
+        }
+      ],
+      "PRUNING TOOLS": [
+        {
+          "name": "Bypass Pruning Shears",
+          "price": 25,
+          "description": "Sharp bypass pruning shears for clean cuts on live branches and stems."
+        },
+        {
+          "name": "Anvil Pruners Heavy Duty",
+          "price": 20,
+          "description": "Anvil-style pruners for cutting dead wood and tough branches with power."
+        },
+        {
+          "name": "Pole Saw Pruner 8-foot",
+          "price": 58,
+          "description": "Telescoping pole saw for reaching high branches safely from the ground."
+        },
+        {
+          "name": "Hedge Shears 10-inch",
+          "price": 32,
+          "description": "Long-blade hedge shears for trimming bushes and creating shaped hedges."
+        },
+        {
+          "name": "Hand Pruners Ergonomic",
+          "price": 29,
+          "description": "Comfortable ergonomic hand pruners with cushioned grips and sharp blades."
+        }
+      ],
+      "OUTDOOR LIGHTING": [
+        {
+          "name": "Solar Path Light Set",
+          "price": 35,
+          "description": "Solar-powered pathway lights with automatic dusk-to-dawn operation."
+        },
+        {
+          "name": "LED Flood Light 30W",
+          "price": 42,
+          "description": "Bright LED flood light for security and area illumination with motion sensor."
+        },
+        {
+          "name": "String Lights 48-foot",
+          "price": 28,
+          "description": "Weather-resistant string lights for patios and outdoor entertaining."
+        },
+        {
+          "name": "Landscape Spotlight Kit",
+          "price": 52,
+          "description": "Low-voltage landscape lighting kit for highlighting plants and features."
+        },
+        {
+          "name": "Solar Deck Light Set",
+          "price": 32,
+          "description": "Solar deck lights for stairs and railings with easy installation and no wiring."
+        }
+      ]
+    },
+    "STORAGE & ORGANIZATION": {
+      "washington_seasonal_multipliers": [1.4, 1.6, 1.2, 1.0, 0.9, 0.8, 0.8, 0.9, 1.1, 1.2, 1.3, 1.8],
+      "TOOL BOXES": [
+        {
+          "name": "Rolling Tool Chest 26-inch",
+          "price": 130,
+          "description": "Heavy-duty rolling tool chest with multiple drawers and ball-bearing slides."
+        },
+        {
+          "name": "Portable Tool Box 20-inch",
+          "price": 42,
+          "description": "Compact tool box with removable tray and comfortable carrying handle."
+        },
+        {
+          "name": "Metal Tool Cabinet",
+          "price": 200,
+          "description": "Stationary tool cabinet with locking drawers and full-extension slides."
+        },
+        {
+          "name": "Plastic Tool Box Set",
+          "price": 28,
+          "description": "Lightweight plastic tool boxes in multiple sizes for basic tool storage."
+        },
+        {
+          "name": "Tool Bag Canvas 18-inch",
+          "price": 35,
+          "description": "Heavy-duty canvas tool bag with multiple pockets and reinforced bottom."
+        }
+      ],
+      "SHELVING": [
+        {
+          "name": "Steel Shelving 5-Tier",
+          "price": 72,
+          "description": "Adjustable steel shelving unit holding up to 3,000 pounds with powder coating."
+        },
+        {
+          "name": "Wire Shelving Chrome",
+          "price": 58,
+          "description": "Chrome wire shelving with adjustable shelves for versatile storage solutions."
+        },
+        {
+          "name": "Wooden Storage Shelves",
+          "price": 100,
+          "description": "Solid wood shelving unit with natural finish for workshop and garage."
+        },
+        {
+          "name": "Heavy Duty Rack System",
+          "price": 140,
+          "description": "Industrial-strength shelving for maximum weight capacity and durability."
+        },
+        {
+          "name": "Corner Shelf Unit",
+          "price": 65,
+          "description": "Space-saving corner shelving unit for maximizing storage in tight spaces."
+        }
+      ],
+      "PEGBOARD": [
+        {
+          "name": "Pegboard Panel 4x8",
+          "price": 40,
+          "description": "Large pegboard panel with holes for hanging tools and accessories."
+        },
+        {
+          "name": "Pegboard Hook Set 50-piece",
+          "price": 25,
+          "description": "Comprehensive pegboard hook set with various sizes and styles."
+        },
+        {
+          "name": "Metal Pegboard Gray",
+          "price": 32,
+          "description": "Steel pegboard with gray finish for heavy-duty tool organization."
+        },
+        {
+          "name": "Pegboard Storage Bins",
+          "price": 18,
+          "description": "Plastic bins that hang on pegboard for small parts storage."
+        },
+        {
+          "name": "Pegboard Tool Holder Set",
+          "price": 21,
+          "description": "Specialized tool holders for common workshop tools on pegboard systems."
+        }
+      ],
+      "STORAGE BINS": [
+        {
+          "name": "Clear Storage Bin 27-Quart",
+          "price": 14,
+          "description": "Transparent storage bin with secure lid for easy identification of contents."
+        },
+        {
+          "name": "Stackable Bin Set",
+          "price": 21,
+          "description": "Set of stackable bins in multiple sizes for modular storage solutions."
+        },
+        {
+          "name": "Heavy Duty Tote 35-Gallon",
+          "price": 28,
+          "description": "Large capacity storage tote with reinforced handles and secure latching lid."
+        },
+        {
+          "name": "Small Parts Organizer",
+          "price": 12,
+          "description": "Multi-compartment organizer for screws, bolts, and small hardware."
+        },
+        {
+          "name": "Weatherproof Storage Box",
+          "price": 35,
+          "description": "Outdoor storage box with weather seals for protecting items from elements."
+        }
+      ],
+      "CABINETS": [
+        {
+          "name": "Metal Storage Cabinet 72-inch",
+          "price": 185,
+          "description": "Tall metal cabinet with adjustable shelves and locking doors for security."
+        },
+        {
+          "name": "Wall Mount Cabinet",
+          "price": 100,
+          "description": "Space-saving wall-mounted cabinet for tools and supplies with key lock."
+        },
+        {
+          "name": "Base Cabinet with Drawers",
+          "price": 160,
+          "description": "Workshop base cabinet with combination of drawers and doors for versatile storage."
+        },
+        {
+          "name": "Chemical Storage Cabinet",
+          "price": 290,
+          "description": "Safety cabinet for storing flammable chemicals and hazardous materials."
+        },
+        {
+          "name": "Modular Cabinet System",
+          "price": 250,
+          "description": "Expandable modular cabinet system that grows with storage needs."
+        }
+      ],
+      "WORKBENCHES": [
+        {
+          "name": "Heavy Duty Workbench 6-foot",
+          "price": 325,
+          "description": "Solid wood workbench with steel legs and built-in vise for heavy work."
+        },
+        {
+          "name": "Folding Workbench Portable",
+          "price": 130,
+          "description": "Portable folding workbench with clamps and adjustable height."
+        },
+        {
+          "name": "Mobile Work Cart",
+          "price": 200,
+          "description": "Rolling work cart with multiple shelves and locking casters."
+        },
+        {
+          "name": "Garage Workbench Kit",
+          "price": 250,
+          "description": "Complete workbench kit with pegboard back and storage drawers."
+        },
+        {
+          "name": "Adjustable Height Workbench",
+          "price": 290,
+          "description": "Ergonomic workbench with electric height adjustment for comfort."
+        }
+      ],
+      "HOOKS & HANGERS": [
+        {
+          "name": "Heavy Duty Wall Hook Set",
+          "price": 18,
+          "description": "Steel wall hooks for hanging tools, bikes, and heavy equipment."
+        },
+        {
+          "name": "Magnetic Tool Holder",
+          "price": 14,
+          "description": "Magnetic strip for holding metal tools on workshop walls and toolboxes."
+        },
+        {
+          "name": "Ceiling Hook Kit",
+          "price": 21,
+          "description": "Ceiling-mounted hooks for overhead storage of ladders and long items."
+        },
+        {
+          "name": "Rubber Coated Hooks",
+          "price": 12,
+          "description": "Protective rubber-coated hooks that won't scratch or damage equipment."
+        },
+        {
+          "name": "Retractable Hose Hanger",
+          "price": 28,
+          "description": "Wall-mounted hose reel that automatically retracts garden hoses."
+        }
+      ],
+      "PLASTIC DRAWERS": [
+        {
+          "name": "Rolling Drawer Cart",
+          "price": 55,
+          "description": "Mobile cart with clear plastic drawers for organizing small parts and tools."
+        },
+        {
+          "name": "Desktop Organizer Drawers",
+          "price": 25,
+          "description": "Compact drawer unit for desktop organization and small item storage."
+        },
+        {
+          "name": "Large Drawer Unit 10-Drawer",
+          "price": 85,
+          "description": "Large capacity drawer organizer with deep drawers for bigger items."
+        },
+        {
+          "name": "Stackable Drawer Set",
+          "price": 35,
+          "description": "Individual drawers that stack and interlock for custom storage solutions."
+        },
+        {
+          "name": "Craft Storage Drawers",
+          "price": 42,
+          "description": "Specialized drawer unit with adjustable dividers for craft and hobby supplies."
+        }
+      ],
+      "OVERHEAD STORAGE": [
+        {
+          "name": "Ceiling Storage Rack 4x8",
+          "price": 100,
+          "description": "Heavy-duty overhead rack for seasonal items and rarely used equipment."
+        },
+        {
+          "name": "Garage Ceiling Hoist",
+          "price": 130,
+          "description": "Pulley system for lifting bikes, kayaks, and heavy items to ceiling storage."
+        },
+        {
+          "name": "Overhead Storage Platform",
+          "price": 78,
+          "description": "Suspended platform for creating additional storage space above vehicles."
+        },
+        {
+          "name": "Ceiling Track System",
+          "price": 165,
+          "description": "Adjustable track system for hanging multiple items from garage ceiling."
+        },
+        {
+          "name": "Safety Net for Storage",
+          "price": 35,
+          "description": "Protective net to prevent stored items from falling from overhead areas."
+        }
+      ],
+      "LOCKER SYSTEMS": [
+        {
+          "name": "Metal Locker 2-Door",
+          "price": 225,
+          "description": "Ventilated metal locker with individual compartments and key locks."
+        },
+        {
+          "name": "Gym Style Locker Bank",
+          "price": 325,
+          "description": "Multi-unit locker system for family storage with separate compartments."
+        },
+        {
+          "name": "Wooden Locker Bench",
+          "price": 200,
+          "description": "Combination locker and bench for mudroom and entryway organization."
+        },
+        {
+          "name": "Wire Mesh Locker",
+          "price": 130,
+          "description": "Open wire mesh locker for ventilation and visibility of stored items."
+        },
+        {
+          "name": "Personal Storage Locker",
+          "price": 100,
+          "description": "Compact personal locker for individual use in workshops and garages."
+        }
+      ]
+    }
+  }
+}

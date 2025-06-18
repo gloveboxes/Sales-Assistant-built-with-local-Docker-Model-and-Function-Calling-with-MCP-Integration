@@ -3,31 +3,20 @@ Customer Sales Database Generator
 
 This script generates a comprehensive customer sales database with optimized indexing.
 
-INDEX OPTIMIZATION NOTES (Updated June 2025):
-- Removed redundant single-column indexes that are covered by composite indexes
-- Eliminated low-selectivity indexes (quantity, unit_price, discount)
-- Removed computed column indexes (year, year_month) in favor of date range queries
-- Kept essential composite indexes for common query patterns
-- Estimated size reduction: 15-20% compared to previous version
-
-Removed indexes for optimization:
-- idx_orders_customer (covered by idx_orders_customer_date)
-- idx_orders_product (covered by idx_orders_product_date) 
-- idx_orders_date (covered by multiple composite indexes)
-- idx_orders_quantity (low selectivity)
-- idx_orders_unit_price (low selectivity)
-- idx_orders_discount (low selectivity)
-- idx_orders_year (computed column, use date ranges instead)
-- idx_orders_year_month (computed column, use date ranges instead)
+DATA FILE STRUCTURE:
+- product_data.json: Contains all product information (main_categories with products)
+- reference_data.json: Contains store configurations (weights, year weights)
 """
 
 import os
 import random
 import sqlite3
-from faker import Faker
 import logging
 import json
 import datetime
+import sys
+import time
+from faker import Faker
 
 # Initialize Faker and logging
 fake = Faker()
@@ -44,40 +33,44 @@ def load_reference_data():
         logging.error(f"Failed to load reference data: {e}")
         raise
 
+def load_product_data():
+    """Load product data from JSON file"""
+    try:
+        json_path = os.path.join(os.path.dirname(__file__), 'product_data.json')
+        with open(json_path, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        logging.error(f"Failed to load product data: {e}")
+        raise
+
 # Load the reference data
 reference_data = load_reference_data()
+product_data = load_product_data()
 
 # Get reference data from loaded JSON
-main_categories = reference_data['main_categories']
-regions = reference_data['regions']
-region_weights = reference_data['region_weights']
+main_categories = product_data['main_categories']
+stores = reference_data['stores']
+
+# Check if seasonal trends are available
+seasonal_categories = []
+for category_name, category_data in main_categories.items():
+    if 'washington_seasonal_multipliers' in category_data:
+        seasonal_categories.append(category_name)
+
+if seasonal_categories:
+    logging.info(f"🗓️  Washington State seasonal trends active for {len(seasonal_categories)} categories: {', '.join(seasonal_categories)}")
+else:
+    logging.info("⚠️  No seasonal trends found - using equal weights for all categories")
 
 def weighted_region_choice():
     """Choose a region based on weighted distribution"""
-    return random.choices(list(region_weights.keys()), weights=list(region_weights.values()), k=1)[0]
+    store_names = list(stores.keys())
+    weights = [stores[store]['customer_distribution_weight'] for store in store_names]
+    return random.choices(store_names, weights=weights, k=1)[0]
 
 def generate_phone_number(region=None):
-    """Generate a realistic phone number based on region"""
-    region_phone_formats = reference_data['region_phone_formats']
-    if region and region in region_phone_formats:
-        region_info = region_phone_formats[region]
-        country_code = random.choice(region_info['country_codes'])
-        
-        if region == 'NORTH AMERICA':
-            return f"+1-{random.randint(200, 999)}-{random.randint(200, 999)}-{random.randint(1000, 9999)}"
-        elif region == 'CHINA':
-            return f"+86-{random.choice([130, 131, 132, 133, 134, 135, 136, 137, 138, 139])}-{random.randint(1000, 9999)}-{random.randint(1000, 9999)}"
-        elif region_info['format_type'] == 'standard':
-            if region == 'EUROPE':
-                return f"{country_code}-{random.randint(1, 9)}{random.randint(10000000, 99999999)}"
-            elif region in ['ASIA-PACIFIC', 'LATIN AMERICA', 'MIDDLE EAST', 'AFRICA']:
-                if region == 'ASIA-PACIFIC':
-                    return f"{country_code}-{random.randint(10000000, 99999999)}"
-                else:  # LATIN AMERICA, MIDDLE EAST, AFRICA
-                    return f"{country_code}-{random.randint(100000000, 999999999)}"
-    
-    # Default to North American format if region not specified
-    return f"+1-{random.randint(200, 999)}-{random.randint(200, 999)}-{random.randint(1000, 9999)}"
+    """Generate a phone number in North American format (XXX) XXX-XXXX"""
+    return f"({random.randint(200, 999)}) {random.randint(200, 999)}-{random.randint(1000, 9999)}"
 
 def create_database_schema(conn):
     """Create database tables and indexes"""
@@ -125,28 +118,19 @@ def create_database_schema(conn):
             )
         """)
         
-        # Create optimized performance indexes (reduced set for better performance)
-        logging.info("Creating optimized performance indexes...")
+        # Create optimized performance indexes
+        logging.info("Creating performance indexes...")
         
-        # Essential product indexes
+        # Product indexes
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(main_category)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_type ON products(product_type)")
         
-        # NOTE: Removed redundant single-column indexes:
-        # - idx_orders_customer (covered by composite indexes below)
-        # - idx_orders_product (covered by composite indexes below) 
-        # - idx_orders_date (covered by composite indexes below)
-        # - idx_orders_quantity (low selectivity, rarely useful)
-        # - idx_orders_unit_price (low selectivity, range queries work better with composite)
-        # - idx_orders_discount (low selectivity)
-        # - idx_orders_year and idx_orders_year_month (computed columns, can use date ranges)
-        
-        # Essential composite indexes for common query patterns
+        # Composite indexes for common query patterns
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_date_total ON orders(order_date, total_amount)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_customer_date ON orders(customer_id, order_date)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_product_date ON orders(product_id, order_date)")
         
-        # Covering indexes for aggregation queries (kept for performance)
+        # Covering indexes for aggregation queries
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_covering_sales ON orders(order_date, customer_id, total_amount, quantity)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_covering ON products(main_category, product_type, product_id, base_price)")
         
@@ -154,7 +138,7 @@ def create_database_schema(conn):
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_customers_email ON customers(email)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_customer_region_id ON customers(region, customer_id)")
         
-        # Advanced analytics indexes (optimized set)
+        # Analytics indexes
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_region_date ON orders(customer_id, order_date, total_amount)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_price_category ON products(base_price, main_category)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_product_revenue ON orders(product_id, total_amount, order_date)")
@@ -183,10 +167,9 @@ def insert_customers(conn, num_customers=100000):
         for i in range(1, num_customers + 1):
             first_name = fake.first_name().replace("'", "''")  # Escape single quotes
             last_name = fake.last_name().replace("'", "''")
-            # Use customer ID to ensure unique emails
             email = f"{first_name.lower()}.{last_name.lower()}.{i}@example.com"
-            region = weighted_region_choice()  # Use weighted selection
-            phone = generate_phone_number(region)  # Generate region-specific phone number
+            region = weighted_region_choice()
+            phone = generate_phone_number(region)
             
             customers_data.append((first_name, last_name, email, phone, region))
         
@@ -209,11 +192,21 @@ def insert_products(conn):
         product_id = 1
         
         for main_category, subcategories in main_categories.items():
-            for subcategory, details in subcategories.items():
-                product_name, min_price, max_price, description = details
-                base_price = random.uniform(min_price, max_price)
-                products_data.append((product_id, product_name, main_category, subcategory, base_price, description))
-                product_id += 1
+            for subcategory, product_list in subcategories.items():
+                # Skip the seasonal multipliers key, only process actual product types
+                if subcategory == 'washington_seasonal_multipliers':
+                    continue
+                    
+                if not product_list:  # Handle empty product lists
+                    continue
+                    
+                for product_details in product_list:
+                    product_name = product_details["name"]
+                    fixed_price = product_details["price"]
+                    description = product_details["description"]
+                    base_price = float(fixed_price)
+                    products_data.append((product_id, product_name, main_category, subcategory, base_price, description))
+                    product_id += 1
         
         batch_insert(cursor, "INSERT INTO products (product_id, product_name, main_category, product_type, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?)", products_data)
         
@@ -229,11 +222,16 @@ def get_customer_region(conn, customer_id):
     cursor = conn.cursor()
     cursor.execute("SELECT region FROM customers WHERE customer_id = ?", (customer_id,))
     result = cursor.fetchone()
-    return result[0] if result else 'NORTH AMERICA'
+    return result[0] if result else 'Zava Retail Seattle'
 
 def get_region_multipliers(region):
-    """Get order count and value multipliers based on region"""
-    return reference_data['region_multipliers'].get(region, {'orders': 1.0, 'value': 1.0})
+    """Get order frequency multipliers based on region"""
+    store_data = stores.get(region, {
+        'customer_distribution_weight': 1,
+        'order_frequency_multiplier': 1.0, 
+        'order_value_multiplier': 1.0
+    })
+    return {'orders': store_data.get('order_frequency_multiplier', 1.0)}
 
 def get_yearly_weight(year):
     """Get the weight for each year to create growth pattern"""
@@ -245,12 +243,15 @@ def weighted_year_choice():
     weights = [get_yearly_weight(year) for year in years]
     return random.choices(years, weights=weights, k=1)[0]
 
-def insert_orders(conn, num_customers=100000, max_product_id=1):
+def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=None):
     """Insert order data into the database"""
     cursor = conn.cursor()
     
+    # Build product lookup if not provided
+    if product_lookup is None:
+        product_lookup = build_product_lookup()
+    
     logging.info(f"Generating orders for {num_customers:,} customers...")
-    logging.info("Creating sales growth pattern: 10% YoY growth, except 2023 (-5%)")
     
     batch_size = 1000
     orders_data = []
@@ -262,12 +263,11 @@ def insert_orders(conn, num_customers=100000, max_product_id=1):
         region = get_customer_region(conn, customer_id)
         multipliers = get_region_multipliers(region)
         
-        # Adjust number of orders based on region (2-8 base, modified by region)
+        # Adjust number of orders based on region
         base_orders = random.randint(2, 8)
         num_orders = max(1, int(base_orders * multipliers['orders']))
         
         for _ in range(num_orders):
-            product_id = random.randint(1, max_product_id)
             quantity = random.randint(1, 5)
             
             # Generate weighted year and random date within that year
@@ -278,20 +278,31 @@ def insert_orders(conn, num_customers=100000, max_product_id=1):
             random_days = random.randint(0, days_in_year)
             order_date = start_of_year + datetime.timedelta(days=random_days)
             
-            # Use seasonal selection based on order date and customer region
-            order_month = order_date.month
-            main_category = choose_seasonal_category(order_month, region)
-            product_type = choose_seasonal_product_type(main_category, order_month, region)
-            product_info = main_categories[main_category][product_type]
-            price_range = product_info[1:3]  # Second and third elements are min/max price
+            # Choose product with seasonal weighting based on order month
+            main_category = choose_seasonal_product_category(order_date.month)
+            product_type = choose_product_type(main_category)
             
-            # Apply regional value multiplier to unit price
-            base_unit_price = random.randint(price_range[0], price_range[1])
-            unit_price = base_unit_price * multipliers['value']
+            # Get product list for this category and type
+            product_list = main_categories[main_category][product_type]
+            if not product_list:  # Skip if empty product list
+                continue
+                
+            # Choose a random product from the list
+            product_info = random.choice(product_list)
+            product_name = product_info["name"]
+            fixed_price = product_info["price"]
             
+            # Get the product_id from lookup
+            lookup_key = (main_category, product_type, product_name)
+            product_id = product_lookup.get(lookup_key)
+            if product_id is None:
+                logging.warning(f"Product not found in lookup: {lookup_key}")
+                continue
+            
+            # Calculate pricing
+            unit_price = float(fixed_price)
             discount_percent = random.randint(0, 15)  # 0-15% discount
             discount_amount = round((unit_price * quantity * discount_percent) / 100, 2)
-            
             total_amount = (unit_price * quantity) - discount_amount
             
             orders_data.append((
@@ -347,7 +358,10 @@ def generate_sqlite_database(db_path="customer_sales.db", num_customers=50000):
             create_database_schema(conn)
             insert_customers(conn, num_customers)
             max_product_id = insert_products(conn)
-            insert_orders(conn, num_customers, max_product_id)
+            
+            # Build product lookup for order generation
+            product_lookup = build_product_lookup()
+            insert_orders(conn, num_customers, max_product_id, product_lookup)
             
             # Verify the database was created and has data
             verify_database_contents(conn)
@@ -443,7 +457,6 @@ def verify_database_contents(conn):
     
     # Database performance test
     logging.info("\n⚡ QUERY PERFORMANCE TEST:")
-    import time
     
     test_queries = [
         ("Regional aggregation", "SELECT region, COUNT(*), SUM(total_amount) FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY region"),
@@ -481,163 +494,23 @@ def verify_database_contents(conn):
     logging.info(f"   Total Revenue: ${total_revenue/1000000:.1f}M")
     logging.info(f"   Avg Order:     ${total_revenue/orders:.2f}")
     logging.info(f"   Orders/Customer: {orders/customers:.1f}")
+    
+    # Show seasonal trends analysis
+    show_seasonal_trends_analysis(conn)
 
-def test_query_performance(db_path="../customer_sales.db"):
-    """Test comprehensive query performance on the generated database"""
-    
-    logging.info("\n" + "=" * 60)
-    logging.info("COMPREHENSIVE QUERY PERFORMANCE TEST")
-    logging.info("=" * 60)
-    
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    
-    test_queries = [
-        ("Regional Sales Summary", """
-            SELECT c.region, 
-                   COUNT(o.order_id) as orders,
-                   SUM(o.total_amount) as revenue,
-                   AVG(o.total_amount) as avg_order
-            FROM customers c 
-            JOIN orders o ON c.customer_id = o.customer_id 
-            GROUP BY c.region 
-            ORDER BY revenue DESC
-        """),
-        
-        ("Yearly Revenue Trend", """
-            SELECT SUBSTR(order_date, 1, 4) as year,
-                   SUM(total_amount) as revenue,
-                   COUNT(*) as orders,
-                   AVG(total_amount) as avg_order
-            FROM orders 
-            GROUP BY SUBSTR(order_date, 1, 4)
-            ORDER BY year
-        """),
-        
-        ("Monthly Revenue for 2023", """
-            SELECT SUBSTR(order_date, 1, 7) as month,
-                   SUM(total_amount) as revenue,
-                   COUNT(*) as orders
-            FROM orders 
-            WHERE order_date LIKE '2023%'
-            GROUP BY SUBSTR(order_date, 1, 7)
-            ORDER BY month
-        """),
-        
-        ("Top Products by Category", """
-            SELECT p.main_category,
-                   p.product_type,
-                   COUNT(o.order_id) as orders,
-                   SUM(o.total_amount) as revenue
-            FROM products p
-            JOIN orders o ON p.product_id = o.product_id
-            GROUP BY p.main_category, p.product_type
-            ORDER BY revenue DESC
-            LIMIT 10
-        """),
-        
-        ("Customer Purchase Patterns", """
-            SELECT c.region,
-                   COUNT(DISTINCT o.customer_id) as customers,
-                   AVG(customer_orders) as avg_orders_per_customer,
-                   AVG(customer_revenue) as avg_revenue_per_customer
-            FROM customers c
-            JOIN (
-                SELECT customer_id, 
-                       COUNT(*) as customer_orders,
-                       SUM(total_amount) as customer_revenue
-                FROM orders 
-                GROUP BY customer_id
-            ) o ON c.customer_id = o.customer_id
-            GROUP BY c.region
-            ORDER BY avg_revenue_per_customer DESC
-        """),
-        
-        ("Discount Effectiveness", """
-            SELECT 
-                CASE 
-                    WHEN discount_percent = 0 THEN 'No Discount'
-                    WHEN discount_percent <= 5 THEN '1-5%'
-                    WHEN discount_percent <= 10 THEN '6-10%'
-                    ELSE '11%+'
-                END as discount_range,
-                COUNT(*) as orders,
-                AVG(total_amount) as avg_order_value,
-                SUM(total_amount) as total_revenue
-            FROM orders
-            GROUP BY discount_range
-            ORDER BY avg_order_value DESC
-        """),
-    ]
-    
-    import time
-    
-    for query_name, query in test_queries:
-        logging.info(f"\n🔍 {query_name}:")
-        start_time = time.time()
-        
-        cursor.execute(query)
-        results = cursor.fetchall()
-        
-        elapsed = time.time() - start_time
-        logging.info(f"   Execution time: {elapsed:.3f} seconds")
-        logging.info(f"   Rows returned: {len(results)}")
-        
-        # Show first few results
-        if results:
-            logging.info("   Sample results:")
-            for i, row in enumerate(results[:3]):
-                formatted_row = []
-                for val in row:
-                    if isinstance(val, float):
-                        if val > 1000000:
-                            formatted_row.append(f"${val/1000000:.1f}M")
-                        elif val > 1000:
-                            formatted_row.append(f"${val:,.0f}")
-                        else:
-                            formatted_row.append(f"{val:.2f}")
-                    else:
-                        formatted_row.append(str(val))
-                logging.info(f"     {formatted_row}")
-            if len(results) > 3:
-                logging.info(f"     ... and {len(results) - 3} more rows")
-    
-    conn.close()
-    
-    logging.info("\n🎉 Performance test complete!")
-    logging.info("\nRecommended query patterns for best performance:")
-    logging.info("• Use indexed columns in WHERE clauses")
-    logging.info("• Leverage covering indexes for SELECT columns")
-    logging.info("• Use SUBSTR(order_date, 1, 4) for year queries")
-    logging.info("• Use SUBSTR(order_date, 1, 7) for year-month queries")
-    logging.info("• Join on indexed foreign keys (customer_id, product_id)")
 
 def show_database_stats(db_path="../customer_sales.db"):
-    """Show database statistics including index optimization results"""
+    """Show database statistics"""
     
-    logging.info("\n" + "📊" * 20)
-    logging.info("DATABASE OPTIMIZATION STATISTICS")
-    logging.info("📊" * 20)
+    logging.info("\n" + "=" * 40)
+    logging.info("DATABASE STATISTICS")
+    logging.info("=" * 40)
     
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
-    # Get database size using file system
-    import os
+    # Get database size
     db_size = os.path.getsize(db_path) / (1024*1024)  # Convert to MB
-    
-    # Count indexes
-    cursor.execute("SELECT COUNT(*) FROM sqlite_master WHERE type = 'index' AND name LIKE 'idx_%'")
-    index_count = cursor.fetchone()[0]
-    
-    # Get list of indexes
-    cursor.execute("""
-        SELECT name, sql 
-        FROM sqlite_master 
-        WHERE type = 'index' AND name LIKE 'idx_%' 
-        ORDER BY name
-    """)
-    indexes = cursor.fetchall()
     
     # Get table row counts
     cursor.execute("SELECT COUNT(*) FROM customers")
@@ -649,141 +522,125 @@ def show_database_stats(db_path="../customer_sales.db"):
     cursor.execute("SELECT COUNT(*) FROM orders")
     orders_count = cursor.fetchone()[0]
     
-    logging.info(f"📁 Total Database Size: {db_size:.1f} MB")
-    logging.info(f"🔍 Total Index Count: {index_count}")
-    logging.info("� Table Sizes:")
-    logging.info(f"   👥 Customers: {customers_count:,}")
-    logging.info(f"   📦 Products:  {products_count:,}")
-    logging.info(f"   🛒 Orders:    {orders_count:,}")
+    # Count indexes
+    cursor.execute("SELECT COUNT(*) FROM sqlite_master WHERE type = 'index' AND name LIKE 'idx_%'")
+    index_count = cursor.fetchone()[0]
     
-    logging.info("\n📋 Optimized Index List:")
-    for name, sql in indexes:
-        # Extract table and columns from SQL
-        if "ON orders(" in sql:
-            table_icon = "🛒"
-        elif "ON products(" in sql:
-            table_icon = "📦"
-        elif "ON customers(" in sql:
-            table_icon = "👥"
-        else:
-            table_icon = "🔍"
-        logging.info(f"   {table_icon} {name}")
-    
-    # List removed indexes for reference
-    removed_indexes = [
-        'idx_orders_customer', 'idx_orders_product', 'idx_orders_date',
-        'idx_orders_quantity', 'idx_orders_unit_price', 'idx_orders_discount', 
-        'idx_orders_year', 'idx_orders_year_month'
-    ]
-    
-    logging.info("\n🗑️  Optimized away (removed indexes):")
-    for idx in removed_indexes:
-        logging.info(f"   ❌ {idx}")
-    
-    logging.info(f"\n✅ Query performance maintained with {len(removed_indexes)} fewer indexes!")
-    logging.info("💡 Estimated space savings: ~200+ MB compared to non-optimized version")
-    logging.info("🚀 Faster database creation and smaller file size!")
+    logging.info(f"Database Size: {db_size:.1f} MB")
+    logging.info(f"Customers: {customers_count:,}")
+    logging.info(f"Products: {products_count:,}")
+    logging.info(f"Orders: {orders_count:,}")
+    logging.info(f"Indexes: {index_count}")
     
     conn.close()
 
-def get_seasonal_category_weights(month, region):
-    """Get category weights based on season and region"""
-    # Define seasons by month (Northern Hemisphere for most regions)
-    if region in ['AFRICA']:
-        # Southern Hemisphere - opposite seasons
-        if month in [12, 1, 2]:  # Summer
-            season = 'summer'
-        elif month in [3, 4, 5]:  # Autumn
-            season = 'autumn'
-        elif month in [6, 7, 8]:  # Winter
-            season = 'winter'
-        else:  # Spring
-            season = 'spring'
-    else:
-        # Northern Hemisphere
-        if month in [6, 7, 8]:  # Summer
-            season = 'summer'
-        elif month in [9, 10, 11]:  # Autumn
-            season = 'autumn'
-        elif month in [12, 1, 2]:  # Winter
-            season = 'winter'
-        else:  # Spring
-            season = 'spring'
-    
-    # Base weights (equal distribution)
-    base_weights = {
-        "APPAREL": 1.0,
-        "CAMPING & HIKING": 1.0,
-        "CLIMBING": 1.0,
-        "FOOTWEAR": 1.0,
-        "TRAVEL": 1.0,
-        "WATER SPORTS": 1.0,
-        "WINTER SPORTS": 1.0
-    }
-    
-    # Get seasonal modifiers from reference data
-    seasonal_modifiers = reference_data['seasonal_category_weights']
-    
-    # Apply seasonal modifiers
-    weights = base_weights.copy()
-    if region in seasonal_modifiers and season in seasonal_modifiers[region]:
-        for category, modifier in seasonal_modifiers[region][season].items():
-            if category in weights:
-                weights[category] *= modifier
-    
-    return weights
+def choose_product_category():
+    """Choose a category with equal weights"""
+    categories = list(main_categories.keys())
+    return random.choice(categories)
 
-def get_seasonal_product_type_weights(main_category, month, region):
-    """Get product type weights within a category based on season and region"""
-    # Define season
-    if region in ['AFRICA']:
-        if month in [12, 1, 2]:
-            season = 'summer'
-        elif month in [3, 4, 5]:
-            season = 'autumn'
-        elif month in [6, 7, 8]:
-            season = 'winter'
+def choose_seasonal_product_category(month):
+    """Choose a category based on Washington State seasonal multipliers"""
+    categories = []
+    weights = []
+    
+    for category_name, category_data in main_categories.items():
+        # Skip if no seasonal multipliers defined for this category
+        if 'washington_seasonal_multipliers' not in category_data:
+            categories.append(category_name)
+            weights.append(1.0)  # Default weight
         else:
-            season = 'spring'
-    else:
-        if month in [6, 7, 8]:
-            season = 'summer'
-        elif month in [9, 10, 11]:
-            season = 'autumn'
-        elif month in [12, 1, 2]:
-            season = 'winter'
-        else:
-            season = 'spring'
+            seasonal_multipliers = category_data['washington_seasonal_multipliers']
+            # Use month index (0-11) to get the multiplier
+            seasonal_weight = seasonal_multipliers[month - 1]  # month is 1-12, array is 0-11
+            categories.append(category_name)
+            weights.append(seasonal_weight)
     
-    # Get base weights (equal for all product types in category)
-    product_types = list(main_categories[main_category].keys())
-    weights = {product_type: 1.0 for product_type in product_types}
-    
-    # Get seasonal product preferences from reference data
-    seasonal_product_preferences = reference_data['seasonal_product_preferences']
-    
-    # Apply seasonal modifiers
-    if main_category in seasonal_product_preferences and season in seasonal_product_preferences[main_category]:
-        for product_type, modifier in seasonal_product_preferences[main_category][season].items():
-            if product_type in weights:
-                weights[product_type] *= modifier
-    
-    return weights
+    return random.choices(categories, weights=weights, k=1)[0]
 
-def choose_seasonal_category(month, region):
-    """Choose a category based on seasonal preferences"""
-    weights = get_seasonal_category_weights(month, region)
-    categories = list(weights.keys())
-    weight_values = list(weights.values())
-    return random.choices(categories, weights=weight_values, k=1)[0]
+def choose_product_type(main_category):
+    """Choose a product type within a category with equal weights"""
+    product_types = []
+    for key in main_categories[main_category].keys():
+        # Skip the seasonal multipliers key, only include actual product types
+        if key != 'washington_seasonal_multipliers':
+            product_types.append(key)
+    
+    if not product_types:
+        return None
+    return random.choice(product_types)
 
-def choose_seasonal_product_type(main_category, month, region):
-    """Choose a product type within a category based on seasonal preferences"""
-    weights = get_seasonal_product_type_weights(main_category, month, region)
-    product_types = list(weights.keys())
-    weight_values = list(weights.values())
-    return random.choices(product_types, weights=weight_values, k=1)[0]
+def build_product_lookup():
+    """Build a lookup table mapping (main_category, product_type, product_name) to product_id"""
+    product_lookup = {}
+    product_id = 1
+    
+    for main_category, subcategories in main_categories.items():
+        for product_type, product_list in subcategories.items():
+            # Skip the seasonal multipliers key, only process actual product types
+            if product_type == 'washington_seasonal_multipliers':
+                continue
+                
+            if not product_list:  # Handle empty product lists
+                continue
+                
+            for product_details in product_list:
+                product_name = product_details["name"]
+                key = (main_category, product_type, product_name)
+                product_lookup[key] = product_id
+                product_id += 1
+    
+    return product_lookup
 
+def show_seasonal_trends_analysis(conn):
+    """Show seasonal sales trends analysis to verify the seasonal multipliers are working"""
+    cursor = conn.cursor()
+    
+    logging.info("\n🌦️  SEASONAL TRENDS ANALYSIS:")
+    
+    # Monthly sales by category for categories with seasonal multipliers
+    seasonal_categories = []
+    for category_name, category_data in main_categories.items():
+        if 'washington_seasonal_multipliers' in category_data:
+            seasonal_categories.append(category_name)
+    
+    if seasonal_categories:
+        logging.info("   Monthly sales distribution for categories with seasonal trends:")
+        logging.info("   " + "-" * 80)
+        
+        for category in seasonal_categories[:3]:  # Show first 3 categories to avoid too much output
+            # Get expected multipliers
+            expected_multipliers = main_categories[category]['washington_seasonal_multipliers']
+            
+            cursor.execute("""
+                SELECT CAST(SUBSTR(order_date, 6, 2) AS INTEGER) as month,
+                       COUNT(*) as orders,
+                       printf('%.2f', AVG(total_amount)) as avg_order
+                FROM orders o
+                JOIN products p ON o.product_id = p.product_id
+                WHERE p.main_category = ?
+                GROUP BY CAST(SUBSTR(order_date, 6, 2) AS INTEGER)
+                ORDER BY month
+            """, (category,))
+            
+            results = cursor.fetchall()
+            logging.info(f"\n   {category}:")
+            logging.info("   Month  Orders  Avg$   Expected Multiplier  Actual vs Expected")
+            logging.info("   " + "-" * 65)
+            
+            if results:
+                # Calculate base average (assuming equal distribution would be total/12)
+                total_orders = sum(row[1] for row in results)
+                base_orders = total_orders / 12
+                
+                for month, orders, avg_order in results:
+                    expected_mult = expected_multipliers[month - 1]
+                    actual_mult = orders / base_orders if base_orders > 0 else 0
+                    variance = ((actual_mult - expected_mult) / expected_mult * 100) if expected_mult > 0 else 0
+                    
+                    logging.info(f"   {month:>2}     {orders:>5}  {avg_order:>6}        {expected_mult:>4.1f}x           {actual_mult:4.1f}x ({variance:+5.1f}%)")
+
+# ...existing code...
 if __name__ == "__main__":
     # Check if faker is available
     try:
@@ -795,15 +652,7 @@ if __name__ == "__main__":
     import sys
     
     # Check for command line arguments
-    if len(sys.argv) > 1 and sys.argv[1] == "--test-performance":
-        # Test performance on existing database
-        db_path = "../customer_sales.db"
-        if os.path.exists(db_path):
-            test_query_performance(db_path)
-        else:
-            logging.error(f"Database not found: {db_path}")
-            logging.info("Run without arguments to generate the database first.")
-    elif len(sys.argv) > 1 and sys.argv[1] == "--show-stats":
+    if len(sys.argv) > 1 and sys.argv[1] == "--show-stats":
         # Show database statistics
         db_path = "../customer_sales.db"
         if os.path.exists(db_path):
@@ -813,24 +662,11 @@ if __name__ == "__main__":
             logging.info("Run without arguments to generate the database first.")
     else:
         # Generate the database
-        db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "customer_sales.db")  # Save in the shared/database directory
+        db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "customer_sales.db")
         abs_path = os.path.abspath(db_path)
-        logging.info(f"🔧 Database will be created at: {abs_path}")
+        logging.info(f"Database will be created at: {abs_path}")
         generate_sqlite_database(db_path, num_customers=50000)
         
-        logging.info("\n" + "🎯" * 20)
-        logging.info("CUSTOMER SALES DATABASE GENERATED SUCCESSFULLY!")
-        logging.info("🎯" * 20)
-        logging.info(f"\nDatabase location: {abs_path}")
-        logging.info(f"Relative path from data-generator: {db_path}")
-        logging.info(f"To test query performance: python {sys.argv[0]} --test-performance")
-        logging.info(f"To view database statistics: python {sys.argv[0]} --show-stats")
-        logging.info("\nThe database includes:")
-        logging.info("✅ 50,000 customers with realistic regional distribution")
-        logging.info("✅ 104 products across 7 categories with seasonal preferences")
-        logging.info("✅ ~200,000-400,000 orders with year-over-year growth patterns")
-        logging.info("✅ Seasonal ordering patterns by region (winter sports in winter, etc.)")
-        logging.info("✅ Optimized performance indexes (15-20% size reduction)")
-        logging.info("✅ Regional sales hierarchy (North America > Europe > China)")
-        logging.info("✅ Business growth pattern: 10% YoY except 2023 (-5%)")
-        logging.info("✅ Date range: 2020-2026 for historical and future analysis")
+        logging.info("\nDatabase generated successfully!")
+        logging.info(f"Location: {abs_path}")
+        logging.info(f"To view statistics: python {sys.argv[0]} --show-stats")
