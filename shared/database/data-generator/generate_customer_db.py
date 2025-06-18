@@ -62,8 +62,8 @@ if seasonal_categories:
 else:
     logging.info("⚠️  No seasonal trends found - using equal weights for all categories")
 
-def weighted_region_choice():
-    """Choose a region based on weighted distribution"""
+def weighted_store_choice():
+    """Choose a store based on weighted distribution"""
     store_names = list(stores.keys())
     weights = [stores[store]['customer_distribution_weight'] for store in store_names]
     return random.choices(store_names, weights=weights, k=1)[0]
@@ -85,7 +85,7 @@ def create_database_schema(conn):
                 last_name TEXT NOT NULL,
                 email TEXT UNIQUE NOT NULL,
                 phone TEXT,
-                region TEXT
+                store TEXT
             )
         """)
         
@@ -136,10 +136,10 @@ def create_database_schema(conn):
         
         # Customer indexes
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_customers_email ON customers(email)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_customer_region_id ON customers(region, customer_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_customer_store_id ON customers(store, customer_id)")
         
         # Analytics indexes
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_region_date ON orders(customer_id, order_date, total_amount)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_store_date ON orders(customer_id, order_date, total_amount)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_price_category ON products(base_price, main_category)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_product_revenue ON orders(product_id, total_amount, order_date)")
         
@@ -168,12 +168,12 @@ def insert_customers(conn, num_customers=100000):
             first_name = fake.first_name().replace("'", "''")  # Escape single quotes
             last_name = fake.last_name().replace("'", "''")
             email = f"{first_name.lower()}.{last_name.lower()}.{i}@example.com"
-            region = weighted_region_choice()
-            phone = generate_phone_number(region)
+            store = weighted_store_choice()  # This returns store name
+            phone = generate_phone_number(store)
             
-            customers_data.append((first_name, last_name, email, phone, region))
+            customers_data.append((first_name, last_name, email, phone, store))
         
-        batch_insert(cursor, "INSERT INTO customers (first_name, last_name, email, phone, region) VALUES (?, ?, ?, ?, ?)", customers_data)
+        batch_insert(cursor, "INSERT INTO customers (first_name, last_name, email, phone, store) VALUES (?, ?, ?, ?, ?)", customers_data)
         
         conn.commit()
         logging.info(f"Successfully inserted {num_customers:,} customers!")
@@ -217,16 +217,16 @@ def insert_products(conn):
         logging.error(f"Error inserting products: {e}")
         raise
 
-def get_customer_region(conn, customer_id):
-    """Get the region for a specific customer"""
+def get_customer_store(conn, customer_id):
+    """Get the store for a specific customer"""
     cursor = conn.cursor()
-    cursor.execute("SELECT region FROM customers WHERE customer_id = ?", (customer_id,))
+    cursor.execute("SELECT store FROM customers WHERE customer_id = ?", (customer_id,))
     result = cursor.fetchone()
     return result[0] if result else 'Zava Retail Seattle'
 
-def get_region_multipliers(region):
-    """Get order frequency multipliers based on region"""
-    store_data = stores.get(region, {
+def get_store_multipliers(store):
+    """Get order frequency multipliers based on store"""
+    store_data = stores.get(store, {
         'customer_distribution_weight': 1,
         'order_frequency_multiplier': 1.0, 
         'order_value_multiplier': 1.0
@@ -259,11 +259,11 @@ def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=N
     total_orders = 0
     
     for customer_id in range(1, num_customers + 1):
-        # Get customer region for order adjustments
-        region = get_customer_region(conn, customer_id)
-        multipliers = get_region_multipliers(region)
+        # Get customer store for order adjustments
+        store = get_customer_store(conn, customer_id)
+        multipliers = get_store_multipliers(store)
         
-        # Adjust number of orders based on region
+        # Adjust number of orders based on store
         base_orders = random.randint(2, 8)
         num_orders = max(1, int(base_orders * multipliers['orders']))
         
@@ -394,20 +394,20 @@ def verify_database_contents(conn):
     logging.info("DATABASE VERIFICATION & STATISTICS")
     logging.info("=" * 60)
     
-    # Regional distribution verification
-    logging.info("\n📍 REGIONAL SALES DISTRIBUTION:")
+    # Store distribution verification
+    logging.info("\n🏪 STORE SALES DISTRIBUTION:")
     cursor.execute("""
-        SELECT c.region, 
+        SELECT c.store, 
                COUNT(o.order_id) as orders,
                printf('$%.1fM', SUM(o.total_amount)/1000000.0) as revenue,
                printf('%.1f%%', 100.0 * COUNT(o.order_id) / (SELECT COUNT(*) FROM orders)) as order_pct
         FROM customers c 
         JOIN orders o ON c.customer_id = o.customer_id 
-        GROUP BY c.region 
+        GROUP BY c.store 
         ORDER BY SUM(o.total_amount) DESC
     """)
     
-    logging.info("   Region              Orders     Revenue    % of Orders")
+    logging.info("   Store               Orders     Revenue    % of Orders")
     logging.info("   " + "-" * 50)
     for row in cursor.fetchall():
         logging.info(f"   {row[0]:<18} {row[1]:>8,} {row[2]:>10} {row[3]:>10}")
@@ -459,7 +459,7 @@ def verify_database_contents(conn):
     logging.info("\n⚡ QUERY PERFORMANCE TEST:")
     
     test_queries = [
-        ("Regional aggregation", "SELECT region, COUNT(*), SUM(total_amount) FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY region"),
+        ("Store aggregation", "SELECT store, COUNT(*), SUM(total_amount) FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY store"),
         ("Yearly trend", "SELECT SUBSTR(order_date, 1, 4), COUNT(*), SUM(total_amount) FROM orders GROUP BY SUBSTR(order_date, 1, 4)"),
         ("Customer order history", "SELECT customer_id, COUNT(*), MAX(order_date) FROM orders WHERE customer_id <= 100 GROUP BY customer_id"),
     ]

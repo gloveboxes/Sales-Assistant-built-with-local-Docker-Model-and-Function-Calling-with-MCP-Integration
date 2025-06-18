@@ -63,7 +63,7 @@ def get_db_provider() -> DatabaseSchemaProvider:
 
 @mcp.tool()
 async def get_customers_table_schema() -> str:
-    """Get the complete schema information for the customers table. **ALWAYS call this tool first** when queries involve customer data, customer information, regions, or customer-related analysis. This provides table structure, available regions, column types, and relationships needed for accurate query generation."""
+    """Get the complete schema information for the customers table. **ALWAYS call this tool first** when queries involve customer data, customer information, regions, locations, stores, or customer-related analysis. This provides table structure, available stores, column types, and relationships needed for accurate query generation."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("customers")
