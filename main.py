@@ -172,7 +172,7 @@ class AIAssistant:
         self.client = OpenAI(
             azure_endpoint=config.azure_endpoint,
             api_key=config.api_key,
-            api_version=config.api_version
+            api_version=config.api_version,
         )
         self.tool_manager = MCPToolManager()
         self.conversation = ConversationManager()
@@ -287,7 +287,9 @@ class AIAssistant:
             # Execute the tool
             result = await self.tool_manager.execute_tool(function_name, args)
 
-            print(f"{tc.BG_BRIGHT_BLUE}Tool {function_name} {args} executed successfully{tc.RESET}")
+            print(
+                f"{tc.BG_BRIGHT_BLUE}Tool {function_name} {args} executed successfully{tc.RESET}"
+            )
             print(f"{tc.BG_GREEN}Result: {result}{tc.RESET}")
 
             # Add result to conversation history

@@ -30,6 +30,11 @@ logger = logging.getLogger(__name__)
 CUSTOMERS_TABLE = "customers"
 PRODUCTS_TABLE = "products"
 ORDERS_TABLE = "orders"
+ORDER_ITEMS_TABLE = "order_items"
+STORES_TABLE = "stores"
+CATEGORIES_TABLE = "categories"
+PRODUCT_TYPES_TABLE = "product_types"
+INVENTORY_TABLE = "inventory"
 
 
 class DatabaseSchemaProvider:
@@ -98,7 +103,7 @@ class DatabaseSchemaProvider:
         """Infer a relationship type based on the referenced table."""
         return (
             "many_to_one"
-            if references_table in {CUSTOMERS_TABLE, PRODUCTS_TABLE}
+            if references_table in {CUSTOMERS_TABLE, PRODUCTS_TABLE, STORES_TABLE, CATEGORIES_TABLE, PRODUCT_TYPES_TABLE, ORDERS_TABLE}
             else "one_to_many"
         )
 
@@ -123,31 +128,52 @@ class DatabaseSchemaProvider:
         columns_format = ", ".join(f"{col[1]}:{col[2]}" for col in columns)
         lower_table = table_name.lower()
 
+        # Define enum queries for each table to get unique values
         enum_queries = {
-            CUSTOMERS_TABLE: {"available_regions": ("region", CUSTOMERS_TABLE)},
-            PRODUCTS_TABLE: {
-                "available_product_types": ("product_type", PRODUCTS_TABLE),
-                "available_product_categories": ("main_category", PRODUCTS_TABLE),
+            STORES_TABLE: {
+                "available_stores": ("store_name", STORES_TABLE)
             },
+            CATEGORIES_TABLE: {
+                "available_categories": ("category_name", CATEGORIES_TABLE)
+            },
+            PRODUCT_TYPES_TABLE: {
+                "available_product_types": ("type_name", PRODUCT_TYPES_TABLE)
+            },
+            PRODUCTS_TABLE: {
+                # Removed available_product_names to avoid lengthy output
+            },
+            ORDERS_TABLE: {
+                "available_years": ("SUBSTR(order_date, 1, 4)", ORDERS_TABLE)
+            },
+            ORDER_ITEMS_TABLE: {
+                # "price_range": ("unit_price", ORDER_ITEMS_TABLE)
+            }
         }
 
         enum_data = {}
-        if lower_table in {CUSTOMERS_TABLE, PRODUCTS_TABLE}:
-            for key, (column, table) in enum_queries.get(lower_table, {}).items():
+        if lower_table in enum_queries:
+            for key, (column, table) in enum_queries[lower_table].items():
                 try:
-                    enum_data[key] = await self.fetch_distinct_values(column, table)
-                except Exception:
+                    if key == "price_range":
+                        # For price range, get min and max values
+                        async with self.connection.execute(
+                            f"SELECT MIN({column}) as min_price, MAX({column}) as max_price FROM {table}"
+                        ) as cursor:
+                            result = await cursor.fetchone()
+                            if result and result[0] is not None:
+                                enum_data[key] = f"${result[0]:.2f} - ${result[1]:.2f}"
+                    elif key == "available_years":
+                        # Handle years specially
+                        async with self.connection.execute(
+                            f"SELECT DISTINCT {column} as year FROM {table} WHERE order_date IS NOT NULL ORDER BY year"
+                        ) as cursor:
+                            years = [row[0] for row in await cursor.fetchall() if row[0]]
+                            enum_data[key] = years
+                    else:
+                        enum_data[key] = await self.fetch_distinct_values(column, table)
+                except Exception as e:
+                    logger.debug(f"Failed to fetch {key} for {table}: {e}")
                     enum_data[key] = []
-
-        reporting_years = None
-        if lower_table == ORDERS_TABLE:
-            async with self.connection.execute(
-                "SELECT DISTINCT strftime('%Y', order_date) as year FROM orders "
-                "WHERE order_date IS NOT NULL ORDER BY year"
-            ) as cursor:
-                years = [row[0] for row in await cursor.fetchall() if row[0]]
-                if years:
-                    reporting_years = ", ".join(years)
 
         schema_data = {
             "table_name": table_name,
@@ -176,9 +202,6 @@ class DatabaseSchemaProvider:
         }
 
         schema_data.update(enum_data)
-        if reporting_years:
-            schema_data["reporting_years"] = reporting_years
-
         return schema_data
 
     async def get_all_table_names(self) -> List[str]:
@@ -218,24 +241,21 @@ class DatabaseSchemaProvider:
                 )
 
         enum_fields = [
-            ("available_regions", "Valid Regions"),
+            ("available_stores", "Valid Stores"),
+            ("available_categories", "Valid Categories"), 
             ("available_product_types", "Valid Product Types"),
-            ("available_product_categories", "Valid Categories"),
-            ("reporting_years", "Available Years"),
+            ("available_years", "Available Years"),
+            ("price_range", "Price Range"),
         ]
 
         enum_lines = []
         for field_key, label in enum_fields:
             if field_key in schema and schema[field_key]:
                 values = schema[field_key]
-                if isinstance(values, list) and len(values) > 10:
-                    enum_lines.append(
-                        f"**{label}:** {', '.join(values[:10])}, ... [{len(values)} total options]"
-                    )
-                else:
-                    enum_lines.append(
-                        f"**{label}:** {', '.join(values) if isinstance(values, list) else values}"
-                    )
+                # Always show the full list, no truncation
+                enum_lines.append(
+                    f"**{label}:** {', '.join(values) if isinstance(values, list) else values}"
+                )
 
         if enum_lines:
             lines.append("\n## Valid Values")
@@ -318,15 +338,37 @@ async def main():
             )
             logger.info(f"Result: {result}")
 
+            logger.info("\n📊 Test 2: Count stores")
+            result = await provider.execute_query(
+                "SELECT COUNT(*) as total_stores FROM stores"
+            )
+            logger.info(f"Result: {result}")
+
+            logger.info("\n📊 Test 3: Count categories and types")
+            result = await provider.execute_query(
+                "SELECT COUNT(*) as total_categories FROM categories"
+            )
+            logger.info(f"Result: {result}")
+
+            logger.info("\n📊 Test 4: Orders with revenue")
+            result = await provider.execute_query(
+                "SELECT COUNT(DISTINCT o.order_id) as orders, SUM(oi.total_amount) as revenue FROM orders o JOIN order_items oi ON o.order_id = oi.order_id LIMIT 1"
+            )
+            logger.info(f"Result: {result}")
+
             logger.info("\n✅ SQL Query tests completed!")
             logger.info("=" * 50)
             print("\n📋 All table schemas:\n")
 
             # --- Use print for clean, user-facing schema info ---
-            print(await provider.get_table_metadata_string(CUSTOMERS_TABLE))
+            print(await provider.get_table_metadata_string(STORES_TABLE))
+            print(await provider.get_table_metadata_string(CATEGORIES_TABLE))
+            print(await provider.get_table_metadata_string(PRODUCT_TYPES_TABLE))
             print(await provider.get_table_metadata_string(PRODUCTS_TABLE))
+            print(await provider.get_table_metadata_string(CUSTOMERS_TABLE))
             print(await provider.get_table_metadata_string(ORDERS_TABLE))
-            print(await provider.get_table_metadata_string("non_existing_table"))
+            print(await provider.get_table_metadata_string(ORDER_ITEMS_TABLE))
+            print(await provider.get_table_metadata_string(INVENTORY_TABLE))
 
     except Exception as e:
         logger.error(f"❌ Error during analysis: {e}")

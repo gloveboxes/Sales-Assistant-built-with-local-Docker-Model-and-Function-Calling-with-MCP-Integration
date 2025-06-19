@@ -77,6 +77,14 @@ def create_database_schema(conn):
     try:
         cursor = conn.cursor()
         
+        # Create stores table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS stores (
+                store_id INTEGER PRIMARY KEY,
+                store_name TEXT UNIQUE NOT NULL
+            )
+        """)
+        
         # Create customers table
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS customers (
@@ -84,8 +92,25 @@ def create_database_schema(conn):
                 first_name TEXT NOT NULL,
                 last_name TEXT NOT NULL,
                 email TEXT UNIQUE NOT NULL,
-                phone TEXT,
-                store TEXT
+                phone TEXT
+            )
+        """)
+        
+        # Create categories table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS categories (
+                category_id INTEGER PRIMARY KEY,
+                category_name TEXT NOT NULL UNIQUE
+            )
+        """)
+        
+        # Create product_types table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS product_types (
+                type_id INTEGER PRIMARY KEY,
+                category_id INTEGER NOT NULL,
+                type_name TEXT NOT NULL,
+                FOREIGN KEY (category_id) REFERENCES categories (category_id)
             )
         """)
         
@@ -94,26 +119,51 @@ def create_database_schema(conn):
             CREATE TABLE IF NOT EXISTS products (
                 product_id INTEGER PRIMARY KEY,
                 product_name TEXT NOT NULL,
-                main_category TEXT NOT NULL,
-                product_type TEXT NOT NULL,
+                category_id INTEGER NOT NULL,
+                type_id INTEGER NOT NULL,
                 base_price REAL NOT NULL,
-                product_description TEXT NOT NULL
+                product_description TEXT NOT NULL,
+                FOREIGN KEY (category_id) REFERENCES categories (category_id),
+                FOREIGN KEY (type_id) REFERENCES product_types (type_id)
             )
         """)
         
-        # Create orders table
+        # Create inventory table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS inventory (
+                store_id INTEGER NOT NULL,
+                product_id INTEGER NOT NULL,
+                stock_level INTEGER NOT NULL,
+                PRIMARY KEY (store_id, product_id),
+                FOREIGN KEY (store_id) REFERENCES stores (store_id),
+                FOREIGN KEY (product_id) REFERENCES products (product_id)
+            )
+        """)
+        
+        # Create orders table (header only)
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS orders (
                 order_id INTEGER PRIMARY KEY,
                 customer_id INTEGER NOT NULL,
+                store_id INTEGER NOT NULL,
+                order_date DATE NOT NULL,
+                FOREIGN KEY (customer_id) REFERENCES customers (customer_id),
+                FOREIGN KEY (store_id) REFERENCES stores (store_id)
+            )
+        """)
+        
+        # Create order_items table (line items)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS order_items (
+                order_item_id INTEGER PRIMARY KEY,
+                order_id INTEGER NOT NULL,
                 product_id INTEGER NOT NULL,
                 quantity INTEGER NOT NULL,
                 unit_price REAL NOT NULL,
                 discount_percent INTEGER DEFAULT 0,
                 discount_amount REAL DEFAULT 0,
                 total_amount REAL NOT NULL,
-                order_date DATE NOT NULL,
-                FOREIGN KEY (customer_id) REFERENCES customers (customer_id),
+                FOREIGN KEY (order_id) REFERENCES orders (order_id),
                 FOREIGN KEY (product_id) REFERENCES products (product_id)
             )
         """)
@@ -121,27 +171,42 @@ def create_database_schema(conn):
         # Create optimized performance indexes
         logging.info("Creating performance indexes...")
         
-        # Product indexes
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(main_category)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_type ON products(product_type)")
+        # Category and type indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_categories_name ON categories(category_name)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_product_types_category ON product_types(category_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_product_types_name ON product_types(type_name)")
         
-        # Composite indexes for common query patterns
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_date_total ON orders(order_date, total_amount)")
+        # Product indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_type ON products(type_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_price ON products(base_price)")
+        
+        # Inventory indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_store_product ON inventory(store_id, product_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_product ON inventory(product_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_store ON inventory(store_id)")
+        
+        # Store indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_stores_name ON stores(store_name)")
+        
+        # Order indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_customer ON orders(customer_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_store ON orders(store_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_date ON orders(order_date)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_customer_date ON orders(customer_id, order_date)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_product_date ON orders(product_id, order_date)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_store_date ON orders(store_id, order_date)")
+        
+        # Order items indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_order_items_order ON order_items(order_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_order_items_product ON order_items(product_id)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_order_items_total ON order_items(total_amount)")
         
         # Covering indexes for aggregation queries
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_covering_sales ON orders(order_date, customer_id, total_amount, quantity)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_covering ON products(main_category, product_type, product_id, base_price)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_order_items_covering ON order_items(order_id, product_id, total_amount, quantity)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_covering ON products(category_id, type_id, product_id, base_price)")
         
         # Customer indexes
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_customers_email ON customers(email)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_customer_store_id ON customers(store, customer_id)")
-        
-        # Analytics indexes
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_store_date ON orders(customer_id, order_date, total_amount)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_price_category ON products(base_price, main_category)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_orders_product_revenue ON orders(product_id, total_amount, order_date)")
         
         conn.commit()
         logging.info("Performance indexes created successfully!")
@@ -168,12 +233,11 @@ def insert_customers(conn, num_customers=100000):
             first_name = fake.first_name().replace("'", "''")  # Escape single quotes
             last_name = fake.last_name().replace("'", "''")
             email = f"{first_name.lower()}.{last_name.lower()}.{i}@example.com"
-            store = weighted_store_choice()  # This returns store name
-            phone = generate_phone_number(store)
+            phone = generate_phone_number()
             
-            customers_data.append((first_name, last_name, email, phone, store))
+            customers_data.append((first_name, last_name, email, phone))
         
-        batch_insert(cursor, "INSERT INTO customers (first_name, last_name, email, phone, store) VALUES (?, ?, ?, ?, ?)", customers_data)
+        batch_insert(cursor, "INSERT INTO customers (first_name, last_name, email, phone) VALUES (?, ?, ?, ?)", customers_data)
         
         conn.commit()
         logging.info(f"Successfully inserted {num_customers:,} customers!")
@@ -188,10 +252,19 @@ def insert_products(conn):
         
         logging.info("Generating products...")
         
+        # Get category and type mappings
+        cursor.execute("SELECT category_id, category_name FROM categories")
+        category_mapping = {name: id for id, name in cursor.fetchall()}
+        
+        cursor.execute("SELECT type_id, type_name, category_id FROM product_types")
+        type_mapping = {(cat_id, type_name): type_id for type_id, type_name, cat_id in cursor.fetchall()}
+        
         products_data = []
         product_id = 1
         
         for main_category, subcategories in main_categories.items():
+            category_id = category_mapping[main_category]
+            
             for subcategory, product_list in subcategories.items():
                 # Skip the seasonal multipliers key, only process actual product types
                 if subcategory == 'washington_seasonal_multipliers':
@@ -199,16 +272,21 @@ def insert_products(conn):
                     
                 if not product_list:  # Handle empty product lists
                     continue
+                
+                type_id = type_mapping.get((category_id, subcategory))
+                if not type_id:
+                    logging.warning(f"Type ID not found for category {main_category}, type {subcategory}")
+                    continue
                     
                 for product_details in product_list:
                     product_name = product_details["name"]
                     fixed_price = product_details["price"]
                     description = product_details["description"]
                     base_price = float(fixed_price)
-                    products_data.append((product_id, product_name, main_category, subcategory, base_price, description))
+                    products_data.append((product_id, product_name, category_id, type_id, base_price, description))
                     product_id += 1
         
-        batch_insert(cursor, "INSERT INTO products (product_id, product_name, main_category, product_type, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?)", products_data)
+        batch_insert(cursor, "INSERT INTO products (product_id, product_name, category_id, type_id, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?)", products_data)
         
         conn.commit()
         logging.info(f"Successfully inserted {len(products_data):,} products!")
@@ -217,16 +295,90 @@ def insert_products(conn):
         logging.error(f"Error inserting products: {e}")
         raise
 
-def get_customer_store(conn, customer_id):
-    """Get the store for a specific customer"""
-    cursor = conn.cursor()
-    cursor.execute("SELECT store FROM customers WHERE customer_id = ?", (customer_id,))
-    result = cursor.fetchone()
-    return result[0] if result else 'Zava Retail Seattle'
+def insert_stores(conn):
+    """Insert store data into the database"""
+    try:
+        cursor = conn.cursor()
+        
+        logging.info("Generating stores...")
+        
+        stores_data = []
+        store_id = 1
+        
+        for store_name, store_config in stores.items():
+            stores_data.append((store_id, store_name))
+            store_id += 1
+        
+        batch_insert(cursor, "INSERT INTO stores (store_id, store_name) VALUES (?, ?)", stores_data)
+        
+        conn.commit()
+        logging.info(f"Successfully inserted {len(stores_data):,} stores!")
+        return store_id - 1  # Return the last store_id used
+    except sqlite3.Error as e:
+        logging.error(f"Error inserting stores: {e}")
+        raise
 
-def get_store_multipliers(store):
-    """Get order frequency multipliers based on store"""
-    store_data = stores.get(store, {
+def insert_categories(conn):
+    """Insert category data into the database"""
+    try:
+        cursor = conn.cursor()
+        
+        logging.info("Generating categories...")
+        
+        categories_data = []
+        category_id = 1
+        
+        # Extract unique categories from product data
+        for main_category in main_categories.keys():
+            categories_data.append((category_id, main_category))
+            category_id += 1
+        
+        batch_insert(cursor, "INSERT INTO categories (category_id, category_name) VALUES (?, ?)", categories_data)
+        
+        conn.commit()
+        logging.info(f"Successfully inserted {len(categories_data):,} categories!")
+        return category_id - 1  # Return the last category_id used
+    except sqlite3.Error as e:
+        logging.error(f"Error inserting categories: {e}")
+        raise
+
+def insert_product_types(conn):
+    """Insert product type data into the database"""
+    try:
+        cursor = conn.cursor()
+        
+        logging.info("Generating product types...")
+        
+        product_types_data = []
+        type_id = 1
+        
+        # Get category_id mapping
+        cursor.execute("SELECT category_id, category_name FROM categories")
+        category_mapping = {name: id for id, name in cursor.fetchall()}
+        
+        # Extract product types for each category
+        for main_category, subcategories in main_categories.items():
+            category_id = category_mapping[main_category]
+            for subcategory in subcategories.keys():
+                # Skip the seasonal multipliers key
+                if subcategory == 'washington_seasonal_multipliers':
+                    continue
+                
+                product_types_data.append((type_id, category_id, subcategory))
+                type_id += 1
+        
+        batch_insert(cursor, "INSERT INTO product_types (type_id, category_id, type_name) VALUES (?, ?, ?)", product_types_data)
+        
+        conn.commit()
+        logging.info(f"Successfully inserted {len(product_types_data):,} product types!")
+        return type_id - 1  # Return the last type_id used
+    except sqlite3.Error as e:
+        logging.error(f"Error inserting product types: {e}")
+        raise
+
+def get_store_multipliers(store_name):
+    """Get order frequency multipliers based on store name"""
+    store_data = stores.get(store_name, {
         'customer_distribution_weight': 1,
         'order_frequency_multiplier': 1.0, 
         'order_value_multiplier': 1.0
@@ -244,7 +396,7 @@ def weighted_year_choice():
     return random.choices(years, weights=weights, k=1)[0]
 
 def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=None):
-    """Insert order data into the database"""
+    """Insert order data into the database with separate orders and order_items tables"""
     cursor = conn.cursor()
     
     # Build product lookup if not provided
@@ -255,20 +407,19 @@ def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=N
     
     batch_size = 1000
     orders_data = []
+    order_items_data = []
     order_id = 1
+    order_item_id = 1
     total_orders = 0
     
     for customer_id in range(1, num_customers + 1):
-        # Get customer store for order adjustments
-        store = get_customer_store(conn, customer_id)
-        multipliers = get_store_multipliers(store)
-        
-        # Adjust number of orders based on store
+        # Generate random number of orders for this customer
         base_orders = random.randint(2, 8)
-        num_orders = max(1, int(base_orders * multipliers['orders']))
         
-        for _ in range(num_orders):
-            quantity = random.randint(1, 5)
+        for _ in range(base_orders):
+            # Choose a random store for this order
+            store_name = weighted_store_choice()
+            store_id = get_store_id_by_name(conn, store_name)
             
             # Generate weighted year and random date within that year
             order_year = weighted_year_choice()
@@ -278,37 +429,47 @@ def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=N
             random_days = random.randint(0, days_in_year)
             order_date = start_of_year + datetime.timedelta(days=random_days)
             
-            # Choose product with seasonal weighting based on order month
-            main_category = choose_seasonal_product_category(order_date.month)
-            product_type = choose_product_type(main_category)
+            # Create the order header
+            orders_data.append((order_id, customer_id, store_id, order_date.isoformat()))
             
-            # Get product list for this category and type
-            product_list = main_categories[main_category][product_type]
-            if not product_list:  # Skip if empty product list
-                continue
+            # Generate 1-3 items for this order
+            num_items = random.randint(1, 3)
+            
+            for _ in range(num_items):
+                # Choose product with seasonal weighting based on order month
+                main_category = choose_seasonal_product_category(order_date.month)
+                product_type = choose_product_type(main_category)
                 
-            # Choose a random product from the list
-            product_info = random.choice(product_list)
-            product_name = product_info["name"]
-            fixed_price = product_info["price"]
-            
-            # Get the product_id from lookup
-            lookup_key = (main_category, product_type, product_name)
-            product_id = product_lookup.get(lookup_key)
-            if product_id is None:
-                logging.warning(f"Product not found in lookup: {lookup_key}")
-                continue
-            
-            # Calculate pricing
-            unit_price = float(fixed_price)
-            discount_percent = random.randint(0, 15)  # 0-15% discount
-            discount_amount = round((unit_price * quantity * discount_percent) / 100, 2)
-            total_amount = (unit_price * quantity) - discount_amount
-            
-            orders_data.append((
-                order_id, customer_id, product_id, quantity, unit_price,
-                discount_percent, discount_amount, total_amount, order_date.isoformat()
-            ))
+                # Get product list for this category and type
+                product_list = main_categories[main_category][product_type]
+                if not product_list:  # Skip if empty product list
+                    continue
+                    
+                # Choose a random product from the list
+                product_info = random.choice(product_list)
+                product_name = product_info["name"]
+                fixed_price = product_info["price"]
+                
+                # Get the product_id from lookup
+                lookup_key = (main_category, product_type, product_name)
+                product_id = product_lookup.get(lookup_key)
+                if product_id is None:
+                    logging.warning(f"Product not found in lookup: {lookup_key}")
+                    continue
+                
+                quantity = random.randint(1, 5)
+                
+                # Calculate pricing
+                unit_price = float(fixed_price)
+                discount_percent = random.randint(0, 15)  # 0-15% discount
+                discount_amount = round((unit_price * quantity * discount_percent) / 100, 2)
+                total_amount = (unit_price * quantity) - discount_amount
+                
+                order_items_data.append((
+                    order_item_id, order_id, product_id, quantity, unit_price,
+                    discount_percent, discount_amount, total_amount
+                ))
+                order_item_id += 1
             
             order_id += 1
             total_orders += 1
@@ -316,28 +477,110 @@ def insert_orders(conn, num_customers=100000, max_product_id=1, product_lookup=N
             # Insert in batches
             if len(orders_data) >= batch_size:
                 cursor.executemany(
-                    """INSERT INTO orders (order_id, customer_id, product_id, quantity, unit_price,
-                       discount_percent, discount_amount, total_amount, order_date) 
-                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    """INSERT INTO orders (order_id, customer_id, store_id, order_date) 
+                       VALUES (?, ?, ?, ?)""",
                     orders_data
                 )
+                cursor.executemany(
+                    """INSERT INTO order_items (order_item_id, order_id, product_id, quantity, unit_price,
+                       discount_percent, discount_amount, total_amount) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                    order_items_data
+                )
                 orders_data = []
+                order_items_data = []
                 
                 if total_orders % 50000 == 0:
                     logging.info(f"  Inserted {total_orders:,} orders...")
                     conn.commit()
     
-    # Insert remaining orders
+    # Insert remaining orders and items
     if orders_data:
         cursor.executemany(
-            """INSERT INTO orders (order_id, customer_id, product_id, quantity, unit_price,
-               discount_percent, discount_amount, total_amount, order_date) 
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            """INSERT INTO orders (order_id, customer_id, store_id, order_date) 
+               VALUES (?, ?, ?, ?)""",
             orders_data
+        )
+    if order_items_data:
+        cursor.executemany(
+            """INSERT INTO order_items (order_item_id, order_id, product_id, quantity, unit_price,
+               discount_percent, discount_amount, total_amount) 
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            order_items_data
         )
     
     conn.commit()
     logging.info(f"Successfully inserted {total_orders:,} orders!")
+    logging.info(f"Successfully inserted {order_item_id - 1:,} order items!")
+
+def insert_inventory(conn):
+    """Insert inventory data distributed across stores based on customer distribution weights"""
+    try:
+        cursor = conn.cursor()
+        
+        logging.info("Generating inventory distribution across stores...")
+        
+        inventory_data = []
+        store_names = list(stores.keys())
+        
+        # Get total distribution weight to calculate proportions
+        total_weight = sum(stores[store]['customer_distribution_weight'] for store in store_names)
+        
+        # Get product data with stock levels
+        product_id = 1
+        total_inventory_records = 0
+        
+        for main_category, subcategories in main_categories.items():
+            for subcategory, product_list in subcategories.items():
+                # Skip the seasonal multipliers key, only process actual product types
+                if subcategory == 'washington_seasonal_multipliers':
+                    continue
+                    
+                if not product_list:  # Handle empty product lists
+                    continue
+                    
+                for product_details in product_list:
+                    if 'stock_level' in product_details:
+                        total_stock = product_details["stock_level"]
+                        
+                        # Distribute stock across stores based on customer distribution weights
+                        remaining_stock = total_stock
+                        
+                        for i, store_name in enumerate(store_names):
+                            store_id = get_store_id_by_name(conn, store_name)
+                            weight = stores[store_name]['customer_distribution_weight']
+                            weight_proportion = weight / total_weight
+                            
+                            if i == len(store_names) - 1:
+                                # Last store gets remaining stock to ensure total is preserved
+                                store_stock = remaining_stock
+                            else:
+                                # Calculate proportional stock for this store
+                                store_stock = max(0, int(total_stock * weight_proportion))
+                                remaining_stock -= store_stock
+                            
+                            inventory_data.append((store_id, product_id, store_stock))
+                            total_inventory_records += 1
+                    
+                    product_id += 1
+        
+        batch_insert(cursor, "INSERT INTO inventory (store_id, product_id, stock_level) VALUES (?, ?, ?)", inventory_data)
+        
+        conn.commit()
+        logging.info(f"Successfully inserted {total_inventory_records:,} inventory records across {len(store_names)} stores!")
+        
+        # Show inventory distribution summary
+        logging.info("📦 Inventory distribution by store:")
+        for store_name in store_names:
+            store_id = get_store_id_by_name(conn, store_name)
+            cursor.execute("SELECT SUM(stock_level) FROM inventory WHERE store_id = ?", (store_id,))
+            total_stock = cursor.fetchone()[0] or 0
+            weight = stores[store_name]['customer_distribution_weight']
+            logging.info(f"   {store_name}: {total_stock:,} units (weight: {weight})")
+            
+    except sqlite3.Error as e:
+        logging.error(f"Error inserting inventory: {e}")
+        raise
 
 def generate_sqlite_database(db_path="customer_sales.db", num_customers=50000):
     """Generate complete SQLite database"""
@@ -356,8 +599,12 @@ def generate_sqlite_database(db_path="customer_sales.db", num_customers=50000):
 
         try:
             create_database_schema(conn)
+            insert_stores(conn)
+            insert_categories(conn)
+            insert_product_types(conn)
             insert_customers(conn, num_customers)
             max_product_id = insert_products(conn)
+            insert_inventory(conn)
             
             # Build product lookup for order generation
             product_lookup = build_product_lookup()
@@ -397,14 +644,15 @@ def verify_database_contents(conn):
     # Store distribution verification
     logging.info("\n🏪 STORE SALES DISTRIBUTION:")
     cursor.execute("""
-        SELECT c.store, 
+        SELECT s.store_name, 
                COUNT(o.order_id) as orders,
-               printf('$%.1fM', SUM(o.total_amount)/1000000.0) as revenue,
+               printf('$%.1fM', SUM(oi.total_amount)/1000000.0) as revenue,
                printf('%.1f%%', 100.0 * COUNT(o.order_id) / (SELECT COUNT(*) FROM orders)) as order_pct
-        FROM customers c 
-        JOIN orders o ON c.customer_id = o.customer_id 
-        GROUP BY c.store 
-        ORDER BY SUM(o.total_amount) DESC
+        FROM orders o 
+        JOIN stores s ON o.store_id = s.store_id
+        JOIN order_items oi ON o.order_id = oi.order_id
+        GROUP BY s.store_id, s.store_name
+        ORDER BY SUM(oi.total_amount) DESC
     """)
     
     logging.info("   Store               Orders     Revenue    % of Orders")
@@ -415,12 +663,13 @@ def verify_database_contents(conn):
     # Year-over-year growth verification
     logging.info("\n📈 YEAR-OVER-YEAR GROWTH PATTERN:")
     cursor.execute("""
-        SELECT SUBSTR(order_date, 1, 4) as year,
-               COUNT(*) as orders,
-               printf('$%.1fM', SUM(total_amount)/1000000.0) as revenue,
-               LAG(SUM(total_amount)) OVER (ORDER BY SUBSTR(order_date, 1, 4)) as prev_revenue
-        FROM orders 
-        GROUP BY SUBSTR(order_date, 1, 4)
+        SELECT SUBSTR(o.order_date, 1, 4) as year,
+               COUNT(DISTINCT o.order_id) as orders,
+               printf('$%.1fM', SUM(oi.total_amount)/1000000.0) as revenue,
+               LAG(SUM(oi.total_amount)) OVER (ORDER BY SUBSTR(o.order_date, 1, 4)) as prev_revenue
+        FROM orders o
+        JOIN order_items oi ON o.order_id = oi.order_id
+        GROUP BY SUBSTR(o.order_date, 1, 4)
         ORDER BY year
     """)
     
@@ -440,13 +689,15 @@ def verify_database_contents(conn):
     # Product category distribution
     logging.info("\n🛍️  TOP PRODUCT CATEGORIES:")
     cursor.execute("""
-        SELECT p.main_category,
-               COUNT(o.order_id) as orders,
-               printf('$%.1fM', SUM(o.total_amount)/1000000.0) as revenue
-        FROM products p
-        JOIN orders o ON p.product_id = o.product_id
-        GROUP BY p.main_category
-        ORDER BY SUM(o.total_amount) DESC
+        SELECT c.category_name,
+               COUNT(DISTINCT o.order_id) as orders,
+               printf('$%.1fM', SUM(oi.total_amount)/1000000.0) as revenue
+        FROM categories c
+        JOIN products p ON c.category_id = p.category_id
+        JOIN order_items oi ON p.product_id = oi.product_id
+        JOIN orders o ON oi.order_id = o.order_id
+        GROUP BY c.category_id, c.category_name
+        ORDER BY SUM(oi.total_amount) DESC
         LIMIT 5
     """)
     
@@ -459,8 +710,8 @@ def verify_database_contents(conn):
     logging.info("\n⚡ QUERY PERFORMANCE TEST:")
     
     test_queries = [
-        ("Store aggregation", "SELECT store, COUNT(*), SUM(total_amount) FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY store"),
-        ("Yearly trend", "SELECT SUBSTR(order_date, 1, 4), COUNT(*), SUM(total_amount) FROM orders GROUP BY SUBSTR(order_date, 1, 4)"),
+        ("Store aggregation", "SELECT s.store_name, COUNT(DISTINCT o.order_id), SUM(oi.total_amount) FROM orders o JOIN stores s ON o.store_id = s.store_id JOIN order_items oi ON o.order_id = oi.order_id GROUP BY s.store_id, s.store_name"),
+        ("Yearly trend", "SELECT SUBSTR(o.order_date, 1, 4), COUNT(DISTINCT o.order_id), SUM(oi.total_amount) FROM orders o JOIN order_items oi ON o.order_id = oi.order_id GROUP BY SUBSTR(o.order_date, 1, 4)"),
         ("Customer order history", "SELECT customer_id, COUNT(*), MAX(order_date) FROM orders WHERE customer_id <= 100 GROUP BY customer_id"),
     ]
     
@@ -484,16 +735,20 @@ def verify_database_contents(conn):
     products = cursor.fetchone()[0]
     cursor.execute("SELECT COUNT(*) FROM orders")
     orders = cursor.fetchone()[0]
-    cursor.execute("SELECT SUM(total_amount) FROM orders")
+    cursor.execute("SELECT COUNT(*) FROM order_items")
+    order_items = cursor.fetchone()[0]
+    cursor.execute("SELECT SUM(total_amount) FROM order_items")
     total_revenue = cursor.fetchone()[0]
     
     logging.info("\n✅ DATABASE SUMMARY:")
     logging.info(f"   Customers:     {customers:>8,}")
     logging.info(f"   Products:      {products:>8,}")
     logging.info(f"   Orders:        {orders:>8,}")
+    logging.info(f"   Order Items:   {order_items:>8,}")
     logging.info(f"   Total Revenue: ${total_revenue/1000000:.1f}M")
     logging.info(f"   Avg Order:     ${total_revenue/orders:.2f}")
     logging.info(f"   Orders/Customer: {orders/customers:.1f}")
+    logging.info(f"   Items/Order: {order_items/orders:.1f}")
     
     # Show seasonal trends analysis
     show_seasonal_trends_analysis(conn)
@@ -613,13 +868,15 @@ def show_seasonal_trends_analysis(conn):
             expected_multipliers = main_categories[category]['washington_seasonal_multipliers']
             
             cursor.execute("""
-                SELECT CAST(SUBSTR(order_date, 6, 2) AS INTEGER) as month,
-                       COUNT(*) as orders,
-                       printf('%.2f', AVG(total_amount)) as avg_order
+                SELECT CAST(SUBSTR(o.order_date, 6, 2) AS INTEGER) as month,
+                       COUNT(DISTINCT o.order_id) as orders,
+                       printf('%.2f', AVG(oi.total_amount)) as avg_order
                 FROM orders o
-                JOIN products p ON o.product_id = p.product_id
-                WHERE p.main_category = ?
-                GROUP BY CAST(SUBSTR(order_date, 6, 2) AS INTEGER)
+                JOIN order_items oi ON o.order_id = oi.order_id
+                JOIN products p ON oi.product_id = p.product_id
+                JOIN categories c ON p.category_id = c.category_id
+                WHERE c.category_name = ?
+                GROUP BY CAST(SUBSTR(o.order_date, 6, 2) AS INTEGER)
                 ORDER BY month
             """, (category,))
             
@@ -640,7 +897,13 @@ def show_seasonal_trends_analysis(conn):
                     
                     logging.info(f"   {month:>2}     {orders:>5}  {avg_order:>6}        {expected_mult:>4.1f}x           {actual_mult:4.1f}x ({variance:+5.1f}%)")
 
-# ...existing code...
+def get_store_id_by_name(conn, store_name):
+    """Get store_id for a given store name"""
+    cursor = conn.cursor()
+    cursor.execute("SELECT store_id FROM stores WHERE store_name = ?", (store_name,))
+    result = cursor.fetchone()
+    return result[0] if result else 1  # Default to store_id 1 if not found
+
 if __name__ == "__main__":
     # Check if faker is available
     try:

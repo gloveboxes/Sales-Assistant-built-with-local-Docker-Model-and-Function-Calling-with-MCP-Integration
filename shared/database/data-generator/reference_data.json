@@ -34,6 +34,11 @@
       "customer_distribution_weight": 4,
       "order_frequency_multiplier": 0.7,
       "order_value_multiplier": 0.85
+    },
+    "Zava Retail Online": {
+      "customer_distribution_weight": 30,
+      "order_frequency_multiplier": 1.5,
+      "order_value_multiplier": 1.5
     }
   },
   "year_weights": {
