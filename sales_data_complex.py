@@ -308,7 +308,7 @@ class DatabaseSchemaProvider:
 
 async def main():
     """Main function to run the schema tool."""
-    db_path = Path(__file__).parent / "shared" / "database" / "customer_sales.db"
+    db_path = Path(__file__).parent / "shared" / "database" / "zava_retail.db"
 
     if not db_path.exists():
         logger.error(f"❌ Error: Database file not found at {db_path}")

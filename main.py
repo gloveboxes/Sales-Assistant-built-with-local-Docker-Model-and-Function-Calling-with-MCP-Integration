@@ -121,7 +121,7 @@ class ConversationManager:
         self._add_system_message()
 
     def _add_system_message(self):
-        """Add initial system message with Contoso Sales Analysis Agent instructions."""
+        """Add initial system message with Zava Sales Analysis Agent instructions."""
         try:
             # Read system message from file
             with open(SYSTEM_MSG_FILE, "r", encoding="utf-8") as f:
@@ -193,7 +193,7 @@ class AIAssistant:
         if self.tool_manager.is_initialized:
             tool_names = [tool["function"]["name"] for tool in self.tool_manager.tools]
             print(f"📋 Available functions: {', '.join(tool_names)}")
-            print("💡 Ask about Contoso sales data!")
+            print("💡 Ask about Zava sales data!")
 
         print("=" * 60)
 

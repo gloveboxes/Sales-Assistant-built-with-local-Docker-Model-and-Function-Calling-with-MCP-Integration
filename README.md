@@ -1,10 +1,10 @@
 # AI Assistant with Function Calling and MCP Integration
 
-A modular, async-friendly AI chatbot that demonstrates the integration of Model Context Protocol (MCP) tools with local AI models. This project showcases how to build a sales analysis agent for Contoso (a fictional outdoor gear retailer) using function calling capabilities with a locally hosted AI model.
+A modular, async-friendly AI chatbot that demonstrates the integration of Model Context Protocol (MCP) tools with local AI models. This project showcases how to build a sales analysis agent for Zava (a fictional outdoor gear retailer) using function calling capabilities with a locally hosted AI model.
 
 ## 📊 Scenario
 
-Imagine you are a sales manager at Contoso, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Contoso has developed a conversational agent that can answer questions about your sales data.
+Imagine you are a sales manager at Zava, a multinational retail company that sells outdoor equipment. You need to analyze sales data to find trends, understand customer preferences, and make informed business decisions. To help you, Zava has developed a conversational agent that can answer questions about your sales data.
 
 ![banner](media/banner.png)
 
@@ -17,14 +17,14 @@ This project demonstrates how such an agent works behind the scenes, combining t
 - **Database Analysis**: SQLite database queries for sales data analysis
 - **Function Calling**: Advanced AI function calling capabilities
 - **Async Architecture**: Fully asynchronous implementation for better performance
-- **Sales Analytics**: Specialized tools for analyzing Contoso sales data
+- **Sales Analytics**: Specialized tools for analyzing Zava sales data
 
 ## 🏗️ Architecture
 
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   AI Assistant  │    │   MCP Client    │    │   MCP Server    │
-│   (main.py)     │◄──►│ (mcp_client.py) │◄──►│ (mcp_server.py) │
+│   (main.py)     │◄──►│ (mcp_client.py) │◄──►│ (zava_mcp_server.py) │
 │                 │    └─────────────────┘    └─────────────────┘
 │ ┌─────────────┐ │                                     │
 │ │ OpenAI      │ │                                     ▼
@@ -36,7 +36,7 @@ This project demonstrates how such an agent works behind the scenes, combining t
          ▼                                               ▼
 ┌─────────────────┐                            ┌─────────────────┐
 │ Docker Model    │                            │ SQLite Database │
-│ Runner (Local)  │                            │ (contoso-sales) │
+│ Runner (Local)  │                            │ (zava-sales) │
 └─────────────────┘                            └─────────────────┘
 ```
 
@@ -99,8 +99,8 @@ This project demonstrates how such an agent works behind the scenes, combining t
 
 5. **Database Setup**:
    The project includes two SQLite databases:
-   - `shared/database/contoso-sales.db`: Original sample sales data for Contoso
-   - `shared/database/customer_sales.db`: Enhanced comprehensive sales database (50K customers, ~200K-400K orders)
+   - `shared/database/zava-sales.db`: Original sample sales data for zava
+   - `shared/database/zava_retail.db`: Enhanced comprehensive sales database (50K customers, ~200K-400K orders)
 
    **Optional: Generate New Database**:
    To create a fresh comprehensive database with realistic sales patterns:
@@ -146,7 +146,7 @@ This project demonstrates how such an agent works behind the scenes, combining t
 function_calling_and_mcp/
 ├── main.py                 # Main AI assistant application
 ├── mcp_client.py          # MCP client for tool communication
-├── mcp_server.py          # MCP server with database tools
+├── zava_mcp_server.py          # MCP server with database tools
 ├── sales_data.py          # Database access layer
 ├── utilities.py           # Utility functions
 ├── terminal_colors.py     # Terminal color formatting
@@ -154,8 +154,8 @@ function_calling_and_mcp/
 ├── requirements.txt       # Python dependencies
 └── shared/
     └── database/
-        ├── contoso-sales.db          # Original SQLite database
-        ├── customer_sales.db         # Enhanced comprehensive database
+        ├── zava-sales.db          # Original SQLite database
+        ├── zava_retail.db         # Enhanced comprehensive database
         ├── PERFORMANCE_INTEGRATION.md # Performance optimization docs
         ├── sales_data.sqbpro         # Database project file
         └── data-generator/
@@ -183,7 +183,7 @@ Handles communication with MCP servers:
 - Executes tool calls
 - Manages tool schemas
 
-### MCPServer (mcp_server.py)
+### MCPServer (zava_mcp_server.py)
 
 Provides tools for database access:
 
@@ -219,12 +219,12 @@ class ModelConfig:
 The database path is configured in `sales_data.py`:
 
 ```python
-DATA_BASE = "database/contoso-sales.db"
+DATA_BASE = "database/zava-sales.db"
 ```
 
 ## 📊 Database Schema
 
-The Contoso sales database contains a single table with comprehensive sales transaction data:
+The zava sales database contains a single table with comprehensive sales transaction data:
 
 ### Table: `sales_data`
 
@@ -310,4 +310,4 @@ If you encounter issues:
 
 ---
 
-**Note**: This is a demonstration project showcasing MCP integration with local AI models. The Contoso company and sales data are fictional and used for educational purposes.
+**Note**: This is a demonstration project showcasing MCP integration with local AI models. The Zava company and sales data are fictional and used for educational purposes.

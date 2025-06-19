@@ -582,7 +582,7 @@ def insert_inventory(conn):
         logging.error(f"Error inserting inventory: {e}")
         raise
 
-def generate_sqlite_database(db_path="customer_sales.db", num_customers=50000):
+def generate_sqlite_database(db_path="zava_retail.db", num_customers=50000):
     """Generate complete SQLite database"""
     try:
         # Convert to absolute path
@@ -754,7 +754,7 @@ def verify_database_contents(conn):
     show_seasonal_trends_analysis(conn)
 
 
-def show_database_stats(db_path="../customer_sales.db"):
+def show_database_stats(db_path="../zava_retail.db"):
     """Show database statistics"""
     
     logging.info("\n" + "=" * 40)
@@ -917,7 +917,7 @@ if __name__ == "__main__":
     # Check for command line arguments
     if len(sys.argv) > 1 and sys.argv[1] == "--show-stats":
         # Show database statistics
-        db_path = "../customer_sales.db"
+        db_path = "../zava_retail.db"
         if os.path.exists(db_path):
             show_database_stats(db_path)
         else:
@@ -925,7 +925,7 @@ if __name__ == "__main__":
             logging.info("Run without arguments to generate the database first.")
     else:
         # Generate the database
-        db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "customer_sales.db")
+        db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "zava_retail.db")
         abs_path = os.path.abspath(db_path)
         logging.info(f"Database will be created at: {abs_path}")
         generate_sqlite_database(db_path, num_customers=50000)
