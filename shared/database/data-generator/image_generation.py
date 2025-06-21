@@ -198,6 +198,7 @@ A simple realistic image of a "{product['description']}", isolated on a white ba
                             time.sleep(delay)
                     else:
                         print(f"    ✗ Failed to generate image for: {product['name']}")
+                        time.sleep(delay)
         
         print("\n🎉 Image generation complete!")
         print(f"Generated {generated_count} new images")
