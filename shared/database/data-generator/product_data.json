@@ -18,6 +18,7 @@
       "HAMMERS": [
         {
           "name": "Professional Claw Hammer 16oz",
+          "sku": "HTHM001600",
           "price": 28,
           "description": "High-quality steel claw hammer with comfortable fiberglass handle, perfect for framing and general construction work.",
           "stock_level": 25,
@@ -25,6 +26,7 @@
         },
         {
           "name": "Dead Blow Hammer 2lb",
+          "sku": "HTHM020200",
           "price": 35,
           "description": "Non-rebounding dead blow hammer with shot-filled head for precision striking without bounce-back.",
           "stock_level": 30,
@@ -32,6 +34,7 @@
         },
         {
           "name": "Ball Peen Hammer 12oz",
+          "sku": "HTHM031200",
           "price": 18,
           "description": "Classic ball peen hammer for metalworking, riveting, and shaping metal with hardened striking surfaces.",
           "stock_level": 44,
@@ -39,6 +42,7 @@
         },
         {
           "name": "Finishing Hammer 13oz",
+          "sku": "HTHM041300",
           "price": 25,
           "description": "Lightweight finishing hammer with smooth face for trim work and delicate construction tasks.",
           "stock_level": 75,
@@ -46,6 +50,7 @@
         },
         {
           "name": "Sledge Hammer 3lb",
+          "sku": "HTHM050300",
           "price": 42,
           "description": "Heavy-duty sledge hammer for demolition, driving stakes, and breaking concrete with steel handle.",
           "stock_level": 8,
@@ -55,6 +60,7 @@
       "SCREWDRIVERS": [
         {
           "name": "Phillips Screwdriver Set",
+          "sku": "HTSD010001",
           "price": 16,
           "description": "Complete Phillips head screwdriver set with magnetic tips and comfortable cushion grips in multiple sizes.",
           "stock_level": 79,
@@ -62,6 +68,7 @@
         },
         {
           "name": "Flathead Screwdriver Set",
+          "sku": "HTSD020001",
           "price": 14,
           "description": "Professional flathead screwdrivers with precision-machined tips and ergonomic handles for various applications.",
           "stock_level": 95,
@@ -69,6 +76,7 @@
         },
         {
           "name": "Precision Screwdriver Kit",
+          "sku": "HTSD030001",
           "price": 22,
           "description": "Micro precision screwdriver set for electronics, eyeglasses, and small appliance repair work.",
           "stock_level": 30,
@@ -76,6 +84,7 @@
         },
         {
           "name": "Insulated Screwdriver Set",
+          "sku": "HTSD041000",
           "price": 32,
           "description": "Electrician's insulated screwdrivers rated for 1000V with dual-material handles for electrical safety.",
           "stock_level": 80,
@@ -83,6 +92,7 @@
         },
         {
           "name": "Ratcheting Screwdriver",
+          "sku": "HTSD050001",
           "price": 26,
           "description": "Multi-bit ratcheting screwdriver with reversible mechanism and magnetic bit storage in handle.",
           "stock_level": 44,
@@ -95,35 +105,40 @@
           "price": 45,
           "description": "Standard SAE combination wrenches from 1/4-inch to 1-inch with chrome-vanadium steel construction.",
           "stock_level": 89,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_combination_wrench_set_sae_20250620_181718.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_combination_wrench_set_sae_20250620_181718.png",
+          "sku": "HTWR000001"
         },
         {
           "name": "Metric Wrench Set",
           "price": 49,
           "description": "Complete metric combination wrench set from 8mm to 24mm with polished chrome finish.",
           "stock_level": 18,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_metric_wrench_set_20250620_181758.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_metric_wrench_set_20250620_181758.png",
+          "sku": "HTWR000002"
         },
         {
           "name": "Adjustable Wrench 10-inch",
           "price": 21,
           "description": "Professional adjustable wrench with parallel jaws and comfortable grip for versatile applications.",
           "stock_level": 81,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_adjustable_wrench_10_inch_20250620_181831.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_adjustable_wrench_10_inch_20250620_181831.png",
+          "sku": "HTWR000003"
         },
         {
           "name": "Pipe Wrench Set",
           "price": 60,
           "description": "Heavy-duty pipe wrenches for plumbing work with serrated jaws and cast iron construction.",
           "stock_level": 75,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_pipe_wrench_set_20250620_181904.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_pipe_wrench_set_20250620_181904.png",
+          "sku": "HTWR000004"
         },
         {
           "name": "Torque Wrench 1/2-drive",
           "price": 108,
           "description": "Calibrated torque wrench with click mechanism for precise bolt tightening to specifications.",
           "stock_level": 56,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_torque_wrench_12_drive_20250620_181941.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_wrenches_torque_wrench_12_drive_20250620_181941.png",
+          "sku": "HTWR000005"
         }
       ],
       "PLIERS": [
@@ -132,28 +147,32 @@
           "price": 15,
           "description": "Long-nose pliers with serrated jaws for gripping small objects and working in tight spaces.",
           "stock_level": 71,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_needle_nose_pliers_6_inch_20250621_093109.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_needle_nose_pliers_6_inch_20250621_093109.png",
+          "sku": "HTPL000006"
         },
         {
           "name": "Lineman's Pliers 9-inch",
           "price": 25,
           "description": "Heavy-duty lineman's pliers with cutting edges and insulated grips for electrical work.",
           "stock_level": 18,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_linemans_pliers_9_inch_20250620_182023.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_linemans_pliers_9_inch_20250620_182023.png",
+          "sku": "HTPL000007"
         },
         {
           "name": "Locking Pliers 10-inch",
           "price": 20,
           "description": "Vise-grip locking pliers with adjustable jaw and release lever for secure clamping action.",
           "stock_level": 96,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_locking_pliers_10_inch_20250620_182057.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_locking_pliers_10_inch_20250620_182057.png",
+          "sku": "HTPL000008"
         },
         {
           "name": "Wire Stripping Pliers",
           "price": 29,
           "description": "Precision wire strippers with multiple gauge settings and comfortable spring-loaded handles.",
           "stock_level": 20,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_wire_stripping_pliers_20250620_182131.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_wire_stripping_pliers_20250620_182131.png",
+          "sku": "HTPL000009"
         }
       ],
       "HAND SAWS": [
@@ -162,7 +181,8 @@
           "price": 13,
           "description": "Fine-blade coping saw with adjustable frame for intricate curves and detailed woodworking cuts.",
           "stock_level": 25,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_hand saws_coping_saw_20250621_110057.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_hand saws_coping_saw_20250621_110057.png",
+          "sku": "HTHS000010"
         }
       ],
       "CHISELS": [],
@@ -172,14 +192,16 @@
           "price": 14,
           "description": "Coarse wood rasps for rapid material removal and shaping of wood surfaces.",
           "stock_level": 69,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_wood_rasp_set_20250621_110701.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_wood_rasp_set_20250621_110701.png",
+          "sku": "HTFR000011"
         },
         {
           "name": "Riffler File Set",
           "price": 27,
           "description": "Curved riffler files with various profiles for sculptural work and hard-to-reach areas.",
           "stock_level": 54,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_riffler_file_set_20250621_124453.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_riffler_file_set_20250621_124453.png",
+          "sku": "HTFR000012"
         }
       ],
       "MEASURING TOOLS": [
@@ -188,35 +210,40 @@
           "price": 14,
           "description": "Heavy-duty tape measure with standout blade and magnetic tip for one-person measuring.",
           "stock_level": 50,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_tape_measure_25_foot_20250621_110945.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_tape_measure_25_foot_20250621_110945.png",
+          "sku": "HTMT000013"
         },
         {
           "name": "Speed Square 7-inch",
           "price": 10,
           "description": "Aluminum speed square for quick angle cuts and layout work with degree markings.",
           "stock_level": 42,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_speed_square_7_inch_20250621_111029.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_speed_square_7_inch_20250621_111029.png",
+          "sku": "HTMT000014"
         },
         {
           "name": "Level 24-inch",
           "price": 27,
           "description": "Precision aluminum level with three vials for accurate horizontal and vertical alignment.",
           "stock_level": 100,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_level_24_inch_20250621_111113.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_level_24_inch_20250621_111113.png",
+          "sku": "HTMT000015"
         },
         {
           "name": "Folding Rule 6-foot",
           "price": 17,
           "description": "Traditional wooden folding rule with brass hinges for precise inside measurements.",
           "stock_level": 1,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_folding_rule_6_foot_20250621_111156.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_folding_rule_6_foot_20250621_111156.png",
+          "sku": "HTMT000016"
         },
         {
           "name": "Digital Caliper 6-inch",
           "price": 42,
           "description": "Electronic digital caliper for precise measurements to 0.001-inch accuracy with LCD display.",
           "stock_level": 79,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_digital_caliper_6_inch_20250621_111241.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_measuring tools_digital_caliper_6_inch_20250621_111241.png",
+          "sku": "HTMT000017"
         }
       ],
       "ALLEN KEYS": [
@@ -225,35 +252,40 @@
           "price": 12,
           "description": "Complete metric hex key set from 1.5mm to 10mm in convenient folding case.",
           "stock_level": 19,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_metric_hex_key_set_20250621_111653.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_metric_hex_key_set_20250621_111653.png",
+          "sku": "HTAK000018"
         },
         {
           "name": "SAE Hex Key Set",
           "price": 12,
           "description": "Standard SAE hex key set from 1/16-inch to 3/8-inch with chrome-vanadium steel construction.",
           "stock_level": 52,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_sae_hex_key_set_20250621_111755.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_sae_hex_key_set_20250621_111755.png",
+          "sku": "HTAK000019"
         },
         {
           "name": "Ball-End Hex Set",
           "price": 17,
           "description": "Ball-end hex keys allowing angled access up to 25 degrees for hard-to-reach fasteners.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_ball_end_hex_set_20250621_093244.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_ball_end_hex_set_20250621_093244.png",
+          "sku": "HTAK000020"
         },
         {
           "name": "T-Handle Hex Set",
           "price": 27,
           "description": "T-handle hex keys with comfortable grips for high-torque applications and ease of use.",
           "stock_level": 47,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_t_handle_hex_set_20250621_124935.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_t_handle_hex_set_20250621_124935.png",
+          "sku": "HTAK000021"
         },
         {
           "name": "Long Arm Hex Set",
           "price": 15,
           "description": "Extra-long hex keys for reaching recessed bolts and deep socket applications.",
           "stock_level": 6,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_long_arm_hex_set_20250621_111919.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_allen keys_long_arm_hex_set_20250621_111919.png",
+          "sku": "HTAK000022"
         }
       ]
     },
@@ -278,35 +310,40 @@
           "price": 115,
           "description": "Professional cordless drill with lithium-ion battery, variable speed control, and LED work light.",
           "stock_level": 3,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_cordless_drill_18v_li_ion_20250620_182306.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_cordless_drill_18v_li_ion_20250620_182306.png",
+          "sku": "PTDR000001"
         },
         {
           "name": "Hammer Drill 1/2-inch",
           "price": 160,
           "description": "Corded hammer drill with percussion action for drilling into concrete and masonry materials.",
           "stock_level": 77,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_hammer_drill_12_inch_20250620_182340.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_hammer_drill_12_inch_20250620_182340.png",
+          "sku": "PTDR000002"
         },
         {
           "name": "Right Angle Drill",
           "price": 138,
           "description": "Compact right-angle drill for tight spaces with 3/8-inch chuck and reversible motor.",
           "stock_level": 5,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_right_angle_drill_20250620_182416.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_right_angle_drill_20250620_182416.png",
+          "sku": "PTDR000003"
         },
         {
           "name": "Impact Drill 20V",
           "price": 122,
           "description": "High-torque impact drill with brushless motor for efficient drilling and driving applications.",
           "stock_level": 52,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_impact_drill_20v_20250620_182458.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_impact_drill_20v_20250620_182458.png",
+          "sku": "PTDR000004"
         },
         {
           "name": "Benchtop Drill Press",
           "price": 265,
           "description": "Stationary drill press with adjustable table and depth stop for precision drilling operations.",
           "stock_level": 38,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_benchtop_drill_press_20250620_182531.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_drills_benchtop_drill_press_20250620_182531.png",
+          "sku": "PTDR000005"
         }
       ],
       "CIRCULAR SAWS": [
@@ -315,35 +352,40 @@
           "price": 170,
           "description": "Powerful circular saw with carbide-tipped blade for cutting lumber and sheet materials.",
           "stock_level": 49,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_circular_saw_7_14_inch_20250620_182610.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_circular_saw_7_14_inch_20250620_182610.png",
+          "sku": "PTCS000006"
         },
         {
           "name": "Cordless Circular Saw 6-1/2",
           "price": 210,
           "description": "Battery-powered circular saw with lightweight design and laser guide for portable cutting.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_cordless_circular_saw_6_12_20250620_182648.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_cordless_circular_saw_6_12_20250620_182648.png",
+          "sku": "PTCS000007"
         },
         {
           "name": "Worm Drive Saw",
           "price": 250,
           "description": "Heavy-duty worm drive saw with superior torque for demanding construction applications.",
           "stock_level": 99,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_worm_drive_saw_20250620_182721.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_worm_drive_saw_20250620_182721.png",
+          "sku": "PTCS000008"
         },
         {
           "name": "Track Saw",
           "price": 350,
           "description": "Precision track saw system for perfectly straight cuts in plywood and large panels.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_track_saw_20250620_182757.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_track_saw_20250620_182757.png",
+          "sku": "PTCS000009"
         },
         {
           "name": "Mini Circular Saw 4-1/2",
           "price": 90,
           "description": "Compact circular saw for detailed work and cutting in confined spaces.",
           "stock_level": 99,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_mini_circular_saw_4_12_20250620_182834.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_circular saws_mini_circular_saw_4_12_20250620_182834.png",
+          "sku": "PTCS000010"
         }
       ],
       "SANDERS": [
@@ -352,35 +394,40 @@
           "price": 67,
           "description": "Variable-speed orbital sander with dust collection system for smooth wood finishing.",
           "stock_level": 43,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_orbital_sander_14_sheet_20250620_182913.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_orbital_sander_14_sheet_20250620_182913.png",
+          "sku": "PTSA000011"
         },
         {
           "name": "Random Orbit Sander 5-inch",
           "price": 92,
           "description": "Random orbital action sander with hook-and-loop pad system for swirl-free finishes.",
           "stock_level": 45,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_random_orbit_sander_5_inch_20250620_182949.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_random_orbit_sander_5_inch_20250620_182949.png",
+          "sku": "PTSA000012"
         },
         {
           "name": "Palm Sander",
           "price": 52,
           "description": "Compact palm sander with ergonomic design for detail work and tight corners.",
           "stock_level": 27,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_palm_sander_20250621_105614.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_palm_sander_20250621_105614.png",
+          "sku": "PTSA000013"
         },
         {
           "name": "Mouse Sander",
           "price": 40,
           "description": "Detail mouse sander with triangular pad for sanding in corners and intricate shapes.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_mouse_sander_20250620_190532.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_mouse_sander_20250620_190532.png",
+          "sku": "PTSA000014"
         },
         {
           "name": "Drywall Sander",
           "price": 122,
           "description": "Long-reach drywall sander with vacuum attachment for dust-free wall preparation.",
           "stock_level": 21,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_drywall_sander_20250620_190606.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_sanders_drywall_sander_20250620_190606.png",
+          "sku": "PTSA000015"
         }
       ],
       "JIGSAWS": [
@@ -389,35 +436,40 @@
           "price": 92,
           "description": "Precision jigsaw with orbital action and variable speed control for curved and straight cuts.",
           "stock_level": 73,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_variable_speed_jigsaw_20250620_190639.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_variable_speed_jigsaw_20250620_190639.png",
+          "sku": "PTJS000016"
         },
         {
           "name": "Cordless Jigsaw 20V",
           "price": 107,
           "description": "Battery-powered jigsaw with tool-free blade change and LED light for portable cutting.",
           "stock_level": 88,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_cordless_jigsaw_20v_20250620_190713.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_cordless_jigsaw_20v_20250620_190713.png",
+          "sku": "PTJS000017"
         },
         {
           "name": "Barrel Grip Jigsaw",
           "price": 77,
           "description": "Compact barrel grip jigsaw for one-handed operation and improved maneuverability.",
           "stock_level": 20,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_barrel_grip_jigsaw_20250620_190747.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_barrel_grip_jigsaw_20250620_190747.png",
+          "sku": "PTJS000018"
         },
         {
           "name": "Heavy Duty Jigsaw",
           "price": 117,
           "description": "Professional-grade jigsaw with powerful motor for cutting thick materials and metal.",
           "stock_level": 65,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_heavy_duty_jigsaw_20250620_190821.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_heavy_duty_jigsaw_20250620_190821.png",
+          "sku": "PTJS000019"
         },
         {
           "name": "Scrolling Jigsaw",
           "price": 137,
           "description": "Precision scrolling jigsaw with rotating barrel for intricate cuts without turning workpiece.",
           "stock_level": 99,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_scrolling_jigsaw_20250620_190855.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_jigsaws_scrolling_jigsaw_20250620_190855.png",
+          "sku": "PTJS000020"
         }
       ],
       "ANGLE GRINDERS": [
@@ -426,35 +478,40 @@
           "price": 82,
           "description": "Compact angle grinder for cutting, grinding, and polishing metal and masonry.",
           "stock_level": 78,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_angle_grinder_4_12_inch_20250620_190928.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_angle_grinder_4_12_inch_20250620_190928.png",
+          "sku": "PTAG000021"
         },
         {
           "name": "Large Angle Grinder 7-inch",
           "price": 112,
           "description": "Heavy-duty 7-inch angle grinder for aggressive material removal and cutting.",
           "stock_level": 63,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_large_angle_grinder_7_inch_20250620_191002.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_large_angle_grinder_7_inch_20250620_191002.png",
+          "sku": "PTAG000022"
         },
         {
           "name": "Cordless Angle Grinder",
           "price": 127,
           "description": "Battery-powered angle grinder with brushless motor for extended runtime and power.",
           "stock_level": 69,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_cordless_angle_grinder_20250621_105657.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_cordless_angle_grinder_20250621_105657.png",
+          "sku": "PTAG000023"
         },
         {
           "name": "Variable Speed Grinder",
           "price": 102,
           "description": "Electronic angle grinder with variable speed control for different materials and applications.",
           "stock_level": 74,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_variable_speed_grinder_20250620_191046.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_variable_speed_grinder_20250620_191046.png",
+          "sku": "PTAG000024"
         },
         {
           "name": "Cut-Off Tool 3-inch",
           "price": 52,
           "description": "Compact cut-off tool for precision cutting in tight spaces and detail work.",
           "stock_level": 48,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_cut_off_tool_3_inch_20250621_112003.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_angle grinders_cut_off_tool_3_inch_20250621_112003.png",
+          "sku": "PTAG000025"
         }
       ],
       "RECIPROCATING SAWS": [
@@ -463,28 +520,32 @@
           "price": 107,
           "description": "Powerful corded reciprocating saw for demolition and rough cutting applications.",
           "stock_level": 91,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_reciprocating_saw_corded_20250621_125020.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_reciprocating_saw_corded_20250621_125020.png",
+          "sku": "PTRS000026"
         },
         {
           "name": "Cordless Recip Saw 18V",
           "price": 132,
           "description": "Battery-powered reciprocating saw with tool-free blade change and variable speed.",
           "stock_level": 60,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_cordless_recip_saw_18v_20250621_105759.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_cordless_recip_saw_18v_20250621_105759.png",
+          "sku": "PTRS000027"
         },
         {
           "name": "Compact Recip Saw",
           "price": 92,
           "description": "Lightweight compact reciprocating saw for overhead work and tight access cutting.",
           "stock_level": 24,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_compact_recip_saw_20250621_125104.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_compact_recip_saw_20250621_125104.png",
+          "sku": "PTRS000028"
         },
         {
           "name": "Multi-Tool Oscillating",
           "price": 85,
           "description": "Oscillating multi-tool with various attachments for cutting, sanding, and scraping.",
           "stock_level": 36,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_multi_tool_oscillating_20250621_112248.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_multi_tool_oscillating_20250621_112248.png",
+          "sku": "PTRS000029"
         }
       ],
       "ROUTERS": [
@@ -493,35 +554,40 @@
           "price": 135,
           "description": "Precision fixed base router with micro-adjustment and dust collection for edge work.",
           "stock_level": 8,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_fixed_base_router_1_34_hp_20250621_112331.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_fixed_base_router_1_34_hp_20250621_112331.png",
+          "sku": "PTRT000030"
         },
         {
           "name": "Plunge Router 2-1/4 HP",
           "price": 170,
           "description": "Variable-speed plunge router with depth adjustment for dadoes and mortises.",
           "stock_level": 43,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_plunge_router_2_14_hp_20250620_191136.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_plunge_router_2_14_hp_20250620_191136.png",
+          "sku": "PTRT000031"
         },
         {
           "name": "Trim Router 1 HP",
           "price": 90,
           "description": "Compact trim router with comfortable grip for edge profiling and laminate trimming.",
           "stock_level": 64,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_trim_router_1_hp_20250620_191212.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_trim_router_1_hp_20250620_191212.png",
+          "sku": "PTRT000032"
         },
         {
           "name": "Router Table Combo",
           "price": 265,
           "description": "Complete router table system with fence and miter gauge for stationary routing.",
           "stock_level": 95,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_router_table_combo_20250620_191246.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_router_table_combo_20250620_191246.png",
+          "sku": "PTRT000033"
         },
         {
           "name": "Cordless Router 18V",
           "price": 195,
           "description": "Battery-powered router with LED light and variable speed for portable woodworking.",
           "stock_level": 63,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_cordless_router_18v_20250620_191321.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_routers_cordless_router_18v_20250620_191321.png",
+          "sku": "PTRT000034"
         }
       ],
       "IMPACT DRIVERS": [
@@ -530,35 +596,40 @@
           "price": 100,
           "description": "High-torque impact driver with hex chuck for driving screws and bolts efficiently.",
           "stock_level": 100,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_impact_driver_18v_20250620_191355.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_impact_driver_18v_20250620_191355.png",
+          "sku": "PTID000035"
         },
         {
           "name": "Brushless Impact Driver",
           "price": 122,
           "description": "Brushless motor impact driver with extended battery life and reduced maintenance.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_brushless_impact_driver_20250620_191428.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_brushless_impact_driver_20250620_191428.png",
+          "sku": "PTID000036"
         },
         {
           "name": "Compact Impact Driver",
           "price": 87,
           "description": "Lightweight compact impact driver for overhead work and tight spaces.",
           "stock_level": 94,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_compact_impact_driver_20250620_191504.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_compact_impact_driver_20250620_191504.png",
+          "sku": "PTID000037"
         },
         {
           "name": "Impact Wrench 1/2-inch",
           "price": 137,
           "description": "Powerful impact wrench with square drive for automotive and heavy-duty applications.",
           "stock_level": 3,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_impact_wrench_12_inch_20250620_191538.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_impact_wrench_12_inch_20250620_191538.png",
+          "sku": "PTID000038"
         },
         {
           "name": "Right Angle Impact",
           "price": 115,
           "description": "Right-angle impact driver for driving fasteners in confined spaces and corners.",
           "stock_level": 4,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_right_angle_impact_20250620_191613.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_impact drivers_right_angle_impact_20250620_191613.png",
+          "sku": "PTID000039"
         }
       ],
       "BELT SANDERS": [
@@ -567,35 +638,40 @@
           "price": 122,
           "description": "Professional belt sander for aggressive material removal and surface preparation.",
           "stock_level": 55,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_belt_sander_3x21_inch_20250621_112415.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_belt_sander_3x21_inch_20250621_112415.png",
+          "sku": "PTBS000040"
         },
         {
           "name": "Variable Speed Belt Sander",
           "price": 137,
           "description": "Electronic belt sander with variable speed control for different materials.",
           "stock_level": 66,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_variable_speed_belt_sander_20250620_191702.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_variable_speed_belt_sander_20250620_191702.png",
+          "sku": "PTBS000041"
         },
         {
           "name": "Compact Belt Sander 3x18",
           "price": 100,
           "description": "Lightweight belt sander with front handle for improved control and comfort.",
           "stock_level": 28,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_compact_belt_sander_3x18_20250620_191738.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_compact_belt_sander_3x18_20250620_191738.png",
+          "sku": "PTBS000042"
         },
         {
           "name": "File Belt Sander",
           "price": 155,
           "description": "Narrow belt sander for detailed work and sanding in grooves and contours.",
           "stock_level": 54,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_file_belt_sander_20250620_191812.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_file_belt_sander_20250620_191812.png",
+          "sku": "PTBS000043"
         },
         {
           "name": "Stationary Belt Sander",
           "price": 225,
           "description": "Benchtop belt sander with tilting table for precision edge sanding and sharpening.",
           "stock_level": 40,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_stationary_belt_sander_20250620_191846.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_belt sanders_stationary_belt_sander_20250620_191846.png",
+          "sku": "PTBS000044"
         }
       ],
       "MITER SAWS": [
@@ -604,35 +680,40 @@
           "price": 275,
           "description": "Precision compound miter saw for accurate crosscuts and miter cuts with laser guide.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_compound_miter_saw_10_inch_20250620_191922.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_compound_miter_saw_10_inch_20250620_191922.png",
+          "sku": "PTMS000045"
         },
         {
           "name": "Sliding Miter Saw 12-inch",
           "price": 475,
           "description": "Dual-bevel sliding compound miter saw for cutting wide boards and crown molding.",
           "stock_level": 37,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_sliding_miter_saw_12_inch_20250620_191957.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_sliding_miter_saw_12_inch_20250620_191957.png",
+          "sku": "PTMS000046"
         },
         {
           "name": "Cordless Miter Saw 10-inch",
           "price": 365,
           "description": "Battery-powered miter saw for portable precision cutting without power cords.",
           "stock_level": 77,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_cordless_miter_saw_10_inch_20250620_192030.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_cordless_miter_saw_10_inch_20250620_192030.png",
+          "sku": "PTMS000047"
         },
         {
           "name": "Basic Miter Saw 10-inch",
           "price": 200,
           "description": "Simple miter saw with manual miter adjustment and fence system for basic cuts.",
           "stock_level": 75,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_basic_miter_saw_10_inch_20250620_192105.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_basic_miter_saw_10_inch_20250620_192105.png",
+          "sku": "PTMS000048"
         },
         {
           "name": "Miter Saw Stand",
           "price": 115,
           "description": "Universal miter saw stand with extensions and folding legs for portable work setup.",
           "stock_level": 84,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_miter_saw_stand_20250620_192140.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_miter saws_miter_saw_stand_20250620_192140.png",
+          "sku": "PTMS000049"
         }
       ]
     },
@@ -657,35 +738,40 @@
           "price": 40,
           "description": "High-quality flat interior paint with excellent coverage and hide, perfect for ceilings and low-traffic areas.",
           "stock_level": 19,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_premium_interior_latex_flat_20250620_192214.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_premium_interior_latex_flat_20250620_192214.png",
+          "sku": "PFIP000001"
         },
         {
           "name": "Interior Eggshell Paint",
           "price": 44,
           "description": "Durable eggshell finish paint with subtle sheen, ideal for living rooms and bedrooms with easy cleanup.",
           "stock_level": 80,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_interior_eggshell_paint_20250620_192249.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_interior_eggshell_paint_20250620_192249.png",
+          "sku": "PFIP000002"
         },
         {
           "name": "Interior Semi-Gloss Paint",
           "price": 47,
           "description": "Washable semi-gloss interior paint for kitchens, bathrooms, and trim work with moisture resistance.",
           "stock_level": 2,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_interior_semi_gloss_paint_20250620_192336.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_interior_semi_gloss_paint_20250620_192336.png",
+          "sku": "PFIP000003"
         },
         {
           "name": "Zero VOC Interior Paint",
           "price": 52,
           "description": "Environmentally friendly zero-VOC paint for healthy indoor air quality in all living spaces.",
           "stock_level": 25,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_zero_voc_interior_paint_20250620_192411.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_zero_voc_interior_paint_20250620_192411.png",
+          "sku": "PFIP000004"
         },
         {
           "name": "One-Coat Interior Paint",
           "price": 50,
           "description": "High-hide one-coat paint formula that covers most colors in a single application for time savings.",
           "stock_level": 47,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_one_coat_interior_paint_20250620_192445.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_interior paint_one_coat_interior_paint_20250620_192445.png",
+          "sku": "PFIP000005"
         }
       ],
       "EXTERIOR PAINT": [
@@ -694,35 +780,40 @@
           "price": 50,
           "description": "Weather-resistant exterior paint with satin finish for siding, trim, and outdoor surfaces.",
           "stock_level": 93,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_latex_paint_satin_20250620_192519.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_latex_paint_satin_20250620_192519.png",
+          "sku": "PFEP000006"
         },
         {
           "name": "Exterior Acrylic Paint",
           "price": 57,
           "description": "Premium acrylic exterior paint with fade resistance and superior adhesion for long-lasting protection.",
           "stock_level": 74,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_acrylic_paint_20250620_192554.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_acrylic_paint_20250620_192554.png",
+          "sku": "PFEP000007"
         },
         {
           "name": "Exterior Primer-Paint Combo",
           "price": 53,
           "description": "All-in-one primer and paint system for bare wood and previously painted exterior surfaces.",
           "stock_level": 10,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_primer_paint_combo_20250620_192632.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_exterior_primer_paint_combo_20250620_192632.png",
+          "sku": "PFEP000008"
         },
         {
           "name": "Elastomeric Exterior Paint",
           "price": 65,
           "description": "Flexible elastomeric paint for stucco and masonry that bridges hairline cracks and prevents water penetration.",
           "stock_level": 14,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_elastomeric_exterior_paint_20250620_192706.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_elastomeric_exterior_paint_20250620_192706.png",
+          "sku": "PFEP000009"
         },
         {
           "name": "Deck and Fence Stain",
           "price": 42,
           "description": "Penetrating wood stain with UV protection for decks, fences, and outdoor wood structures.",
           "stock_level": 76,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_deck_and_fence_stain_20250620_192740.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_exterior paint_deck_and_fence_stain_20250620_192740.png",
+          "sku": "PFEP000010"
         }
       ],
       "PRIMER": [
@@ -731,35 +822,40 @@
           "price": 32,
           "description": "High-adhesion primer for all surfaces including wood, metal, drywall, and previously painted surfaces.",
           "stock_level": 96,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_universal_bonding_primer_20250620_192814.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_universal_bonding_primer_20250620_192814.png",
+          "sku": "PFPR000011"
         },
         {
           "name": "Stain-Blocking Primer",
           "price": 40,
           "description": "Heavy-duty primer that blocks water stains, crayon marks, and other discoloration from bleeding through.",
           "stock_level": 42,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_stain_blocking_primer_20250620_192849.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_stain_blocking_primer_20250620_192849.png",
+          "sku": "PFPR000012"
         },
         {
           "name": "Metal Primer",
           "price": 36,
           "description": "Rust-inhibitive primer specifically formulated for ferrous and non-ferrous metal surfaces.",
           "stock_level": 31,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_metal_primer_20250620_192924.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_metal_primer_20250620_192924.png",
+          "sku": "PFPR000013"
         },
         {
           "name": "Drywall Primer",
           "price": 29,
           "description": "Fast-drying primer designed for new drywall with excellent sealing properties and quick recoat time.",
           "stock_level": 42,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_drywall_primer_20250620_192959.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_drywall_primer_20250620_192959.png",
+          "sku": "PFPR000014"
         },
         {
           "name": "Masonry Primer",
           "price": 38,
           "description": "Alkali-resistant primer for concrete, stucco, and other alkaline masonry surfaces.",
           "stock_level": 28,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_masonry_primer_20250620_193033.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_primer_masonry_primer_20250620_193033.png",
+          "sku": "PFPR000015"
         }
       ],
       "BRUSHES": [
@@ -768,35 +864,40 @@
           "price": 16,
           "description": "Professional synthetic bristle brushes for latex paints with excellent paint pickup and smooth finish.",
           "stock_level": 86,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_synthetic_brush_set_20250620_193107.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_synthetic_brush_set_20250620_193107.png",
+          "sku": "PFBR000016"
         },
         {
           "name": "Natural Bristle Brush Set",
           "price": 23,
           "description": "Traditional natural bristle brushes for oil-based paints and stains with superior flow and leveling.",
           "stock_level": 40,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_natural_bristle_brush_set_20250620_193149.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_natural_bristle_brush_set_20250620_193149.png",
+          "sku": "PFBR000017"
         },
         {
           "name": "Angled Brush Set",
           "price": 20,
           "description": "Precision angled brushes for cutting in edges and detail work with comfortable ergonomic handles.",
           "stock_level": 28,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_angled_brush_set_20250620_193229.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_angled_brush_set_20250620_193229.png",
+          "sku": "PFBR000018"
         },
         {
           "name": "Foam Brush Set",
           "price": 9,
           "description": "Disposable foam brushes for small projects, touch-ups, and applying stains and polyurethane.",
           "stock_level": 8,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_foam_brush_set_20250620_193303.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_foam_brush_set_20250620_193303.png",
+          "sku": "PFBR000019"
         },
         {
           "name": "Artist Detail Brush Set",
           "price": 13,
           "description": "Fine detail brushes for decorative painting, trim work, and artistic applications with precise control.",
           "stock_level": 55,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_artist_detail_brush_set_20250620_193337.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_brushes_artist_detail_brush_set_20250620_193337.png",
+          "sku": "PFBR000020"
         }
       ],
       "ROLLERS": [
@@ -805,35 +906,40 @@
           "price": 10,
           "description": "Heavy-duty roller frame with threaded handle attachment and cage design for various cover types.",
           "stock_level": 90,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_roller_frame_9_inch_20250620_193410.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_roller_frame_9_inch_20250620_193410.png",
+          "sku": "PFRL000021"
         },
         {
           "name": "Microfiber Roller Covers",
           "price": 14,
           "description": "High-quality microfiber roller covers for smooth finishes with minimal lint and excellent paint capacity.",
           "stock_level": 57,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_microfiber_roller_covers_20250620_193446.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_microfiber_roller_covers_20250620_193446.png",
+          "sku": "PFRL000022"
         },
         {
           "name": "Nap Roller Cover Set",
           "price": 12,
           "description": "Assorted nap roller covers from 1/4-inch to 1-inch for different surface textures and paint types.",
           "stock_level": 52,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_nap_roller_cover_set_20250620_193520.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_nap_roller_cover_set_20250620_193520.png",
+          "sku": "PFRL000023"
         },
         {
           "name": "Mini Roller Kit 4-inch",
           "price": 8,
           "description": "Compact roller kit for small areas, touch-ups, and detail work with frame and covers included.",
           "stock_level": 62,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_mini_roller_kit_4_inch_20250620_193555.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_mini_roller_kit_4_inch_20250620_193555.png",
+          "sku": "PFRL000024"
         },
         {
           "name": "Extension Pole 4-foot",
           "price": 15,
           "description": "Telescoping extension pole for reaching high areas and reducing ladder use during painting projects.",
           "stock_level": 34,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_extension_pole_4_foot_20250620_193630.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_rollers_extension_pole_4_foot_20250620_193630.png",
+          "sku": "PFRL000025"
         }
       ],
       "SPRAY PAINT": [
@@ -842,35 +948,40 @@
           "price": 7,
           "description": "Fast-drying spray primer for metal, wood, and plastic with excellent adhesion and coverage.",
           "stock_level": 76,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_aerosol_primer_spray_20250620_193704.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_aerosol_primer_spray_20250620_193704.png",
+          "sku": "PFSP000026"
         },
         {
           "name": "Gloss Spray Paint",
           "price": 8,
           "description": "High-gloss aerosol paint in various colors for furniture, crafts, and small metal projects.",
           "stock_level": 89,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_gloss_spray_paint_20250620_193738.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_gloss_spray_paint_20250620_193738.png",
+          "sku": "PFSP000027"
         },
         {
           "name": "Matte Finish Spray Paint",
           "price": 7,
           "description": "Flat matte spray paint for decorative items and surfaces requiring a non-reflective finish.",
           "stock_level": 13,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_matte_finish_spray_paint_20250620_193812.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_matte_finish_spray_paint_20250620_193812.png",
+          "sku": "PFSP000028"
         },
         {
           "name": "Rust Prevention Spray",
           "price": 10,
           "description": "Rust-inhibitive spray paint for direct application over rust with long-lasting protection.",
           "stock_level": 67,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_rust_prevention_spray_20250620_193847.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_rust_prevention_spray_20250620_193847.png",
+          "sku": "PFSP000029"
         },
         {
           "name": "Textured Spray Paint",
           "price": 9,
           "description": "Specialty textured spray paint creating stone, hammered, or wrinkle finishes on various surfaces.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_textured_spray_paint_20250620_193921.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_spray paint_textured_spray_paint_20250620_193921.png",
+          "sku": "PFSP000030"
         }
       ],
       "WOOD STAIN": [
@@ -879,35 +990,40 @@
           "price": 29,
           "description": "Penetrating oil-based stain that enhances wood grain with rich, deep color and natural look.",
           "stock_level": 24,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_oil_based_wood_stain_20250620_193956.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_oil_based_wood_stain_20250620_193956.png",
+          "sku": "PFWS000031"
         },
         {
           "name": "Water-Based Wood Stain",
           "price": 27,
           "description": "Fast-drying water-based stain with low odor and easy cleanup while maintaining wood beauty.",
           "stock_level": 81,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_water_based_wood_stain_20250620_194030.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_water_based_wood_stain_20250620_194030.png",
+          "sku": "PFWS000032"
         },
         {
           "name": "Gel Stain",
           "price": 32,
           "description": "Thick gel stain that won't drip or run, perfect for vertical surfaces and blotchy woods.",
           "stock_level": 4,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_gel_stain_20250620_194104.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_gel_stain_20250620_194104.png",
+          "sku": "PFWS000033"
         },
         {
           "name": "Semi-Transparent Deck Stain",
           "price": 36,
           "description": "Outdoor deck stain with UV protection that allows wood grain to show through natural finish.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_semi_transparent_deck_stain_20250620_194138.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_semi_transparent_deck_stain_20250620_194138.png",
+          "sku": "PFWS000034"
         },
         {
           "name": "Solid Color Deck Stain",
           "price": 38,
           "description": "Opaque deck stain that provides full color coverage while still allowing wood texture to show.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_solid_color_deck_stain_20250620_194212.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_wood stain_solid_color_deck_stain_20250620_194212.png",
+          "sku": "PFWS000035"
         }
       ],
       "POLYURETHANE": [
@@ -916,35 +1032,40 @@
           "price": 36,
           "description": "Durable polyurethane finish with satin sheen for wood floors, furniture, and cabinets.",
           "stock_level": 58,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_clear_polyurethane_satin_20250620_194245.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_clear_polyurethane_satin_20250620_194245.png",
+          "sku": "PFPU000036"
         },
         {
           "name": "Gloss Polyurethane",
           "price": 39,
           "description": "High-gloss polyurethane for maximum durability and shine on high-traffic wood surfaces.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_gloss_polyurethane_20250620_194319.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_gloss_polyurethane_20250620_194319.png",
+          "sku": "PFPU000037"
         },
         {
           "name": "Water-Based Polyurethane",
           "price": 43,
           "description": "Fast-drying water-based polyurethane with low odor and excellent clarity for interior wood.",
           "stock_level": 59,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_water_based_polyurethane_20250620_194353.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_water_based_polyurethane_20250620_194353.png",
+          "sku": "PFPU000038"
         },
         {
           "name": "Oil-Based Polyurethane",
           "price": 34,
           "description": "Traditional oil-based polyurethane with amber tone and superior durability for classic wood finish.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_oil_based_polyurethane_20250620_194428.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_oil_based_polyurethane_20250620_194428.png",
+          "sku": "PFPU000039"
         },
         {
           "name": "Floor Polyurethane",
           "price": 46,
           "description": "Commercial-grade floor polyurethane designed for heavy traffic areas with maximum wear resistance.",
           "stock_level": 94,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_floor_polyurethane_20250620_194503.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_polyurethane_floor_polyurethane_20250620_194503.png",
+          "sku": "PFPU000040"
         }
       ],
       "PAINT TRAYS": [
@@ -953,35 +1074,40 @@
           "price": 6,
           "description": "Lightweight disposable paint trays with liners for easy cleanup and multiple project use.",
           "stock_level": 12,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_disposable_paint_tray_set_20250620_194537.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_disposable_paint_tray_set_20250620_194537.png",
+          "sku": "PFPT000041"
         },
         {
           "name": "Metal Paint Tray 9-inch",
           "price": 10,
           "description": "Durable metal paint tray with deep well and ribbed ramp for proper roller loading.",
           "stock_level": 70,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_metal_paint_tray_9_inch_20250620_194611.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_metal_paint_tray_9_inch_20250620_194611.png",
+          "sku": "PFPT000042"
         },
         {
           "name": "Paint Tray Liner Set",
           "price": 5,
           "description": "Disposable plastic liners that fit standard paint trays for quick cleanup and color changes.",
           "stock_level": 0,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_paint_tray_liner_set_20250620_194645.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_paint_tray_liner_set_20250620_194645.png",
+          "sku": "PFPT000043"
         },
         {
           "name": "Rolling Tray with Grid",
           "price": 13,
           "description": "Professional rolling tray with built-in grid for removing excess paint and even coverage.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_rolling_tray_with_grid_20250620_194721.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_rolling_tray_with_grid_20250620_194721.png",
+          "sku": "PFPT000044"
         },
         {
           "name": "Paint Bucket Grid",
           "price": 8,
           "description": "Wire grid insert for paint buckets to remove excess paint from brushes and rollers.",
           "stock_level": 13,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_paint_bucket_grid_20250620_194755.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_paint trays_paint_bucket_grid_20250620_194755.png",
+          "sku": "PFPT000045"
         }
       ],
       "DROP CLOTHS": [
@@ -990,35 +1116,40 @@
           "price": 20,
           "description": "Heavy-duty canvas drop cloth for floor protection during painting with absorbent cotton material.",
           "stock_level": 53,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_canvas_drop_cloth_9x12_20250620_194828.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_canvas_drop_cloth_9x12_20250620_194828.png",
+          "sku": "PFDC000046"
         },
         {
           "name": "Plastic Drop Cloth",
           "price": 5,
           "description": "Lightweight plastic sheeting for furniture and floor protection with easy disposal after use.",
           "stock_level": 60,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_plastic_drop_cloth_20250620_194905.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_plastic_drop_cloth_20250620_194905.png",
+          "sku": "PFDC000047"
         },
         {
           "name": "Paper Drop Cloth",
           "price": 7,
           "description": "Absorbent paper drop cloth for light protection and easy cleanup on small painting projects.",
           "stock_level": 3,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_paper_drop_cloth_20250620_194939.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_paper_drop_cloth_20250620_194939.png",
+          "sku": "PFDC000048"
         },
         {
           "name": "Canvas Runner 4x15",
           "price": 14,
           "description": "Long canvas runner for hallway and narrow area protection during interior painting projects.",
           "stock_level": 63,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_canvas_runner_4x15_20250620_195013.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_canvas_runner_4x15_20250620_195013.png",
+          "sku": "PFDC000049"
         },
         {
           "name": "Pre-Taped Masking Film",
           "price": 10,
           "description": "Plastic film with pre-applied masking tape for quick coverage of windows and trim work.",
           "stock_level": 97,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_pre_taped_masking_film_20250620_195046.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\paint & finishes_drop cloths_pre_taped_masking_film_20250620_195046.png",
+          "sku": "PFDC000050"
         }
       ]
     },
@@ -1043,35 +1174,40 @@
           "price": 12,
           "description": "Comprehensive collection of wood screws in various lengths from 1/2-inch to 3-inch with Phillips and Robertson drives.",
           "stock_level": 14,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_wood_screw_assortment_20250621_112459.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_wood_screw_assortment_20250621_112459.png",
+          "sku": "HWSC000001"
         },
         {
           "name": "Drywall Screws 1-5/8 inch",
           "price": 8,
           "description": "Fine-thread drywall screws with sharp points for quick penetration and secure attachment to metal studs.",
           "stock_level": 71,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_drywall_screws_1_58_inch_20250620_195131.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_drywall_screws_1_58_inch_20250620_195131.png",
+          "sku": "HWSC000002"
         },
         {
           "name": "Deck Screws 2-1/2 inch",
           "price": 15,
           "description": "Exterior-rated deck screws with corrosion-resistant coating for outdoor construction projects.",
           "stock_level": 9,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_deck_screws_2_12_inch_20250620_195204.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_deck_screws_2_12_inch_20250620_195204.png",
+          "sku": "HWSC000003"
         },
         {
           "name": "Machine Screws Kit",
           "price": 13,
           "description": "Precision machine screws with hex, Phillips, and slotted drives in metric and standard thread pitches.",
           "stock_level": 0,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_machine_screws_kit_20250620_195239.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_machine_screws_kit_20250620_195239.png",
+          "sku": "HWSC000004"
         },
         {
           "name": "Self-Tapping Screws",
           "price": 10,
           "description": "Hardened self-tapping screws for metal applications with drilling and threading action in one step.",
           "stock_level": 39,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_self_tapping_screws_20250620_195313.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_screws_self_tapping_screws_20250620_195313.png",
+          "sku": "HWSC000005"
         }
       ],
       "NAILS": [
@@ -1080,35 +1216,40 @@
           "price": 16,
           "description": "Traditional common nails from 6d to 16d for general construction and framing applications.",
           "stock_level": 72,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_common_nail_assortment_20250621_112543.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_common_nail_assortment_20250621_112543.png",
+          "sku": "HWNA000006"
         },
         {
           "name": "Finish Nails 2-inch",
           "price": 12,
           "description": "Small-head finish nails for trim work and cabinetry where nail heads will be countersunk and filled.",
           "stock_level": 48,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_finish_nails_2_inch_20250620_195356.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_finish_nails_2_inch_20250620_195356.png",
+          "sku": "HWNA000007"
         },
         {
           "name": "Roofing Nails 1-1/4 inch",
           "price": 14,
           "description": "Galvanized roofing nails with large heads for securing shingles and roofing materials.",
           "stock_level": 55,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_roofing_nails_1_14_inch_20250620_195430.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_roofing_nails_1_14_inch_20250620_195430.png",
+          "sku": "HWNA000008"
         },
         {
           "name": "Masonry Nails",
           "price": 10,
           "description": "Hardened masonry nails for fastening into concrete, brick, and block with fluted shanks for holding power.",
           "stock_level": 90,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_masonry_nails_20250620_195503.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_masonry_nails_20250620_195503.png",
+          "sku": "HWNA000009"
         },
         {
           "name": "Brad Nails 18-gauge",
           "price": 9,
           "description": "Thin brad nails for delicate trim work and attaching thin materials without splitting.",
           "stock_level": 64,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_brad_nails_18_gauge_20250620_195537.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_nails_brad_nails_18_gauge_20250620_195537.png",
+          "sku": "HWNA000010"
         }
       ],
       "BOLTS": [
@@ -1117,35 +1258,40 @@
           "price": 24,
           "description": "High-strength Grade 5 hex bolts with matching nuts and washers in popular sizes from 1/4-inch to 1/2-inch.",
           "stock_level": 96,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_hex_bolt_kit_grade_5_20250620_195611.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_hex_bolt_kit_grade_5_20250620_195611.png",
+          "sku": "HWBO000011"
         },
         {
           "name": "Carriage Bolt Set",
           "price": 19,
           "description": "Smooth-head carriage bolts with square necks for wood applications and matching hex nuts.",
           "stock_level": 70,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_carriage_bolt_set_20250620_195645.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_carriage_bolt_set_20250620_195645.png",
+          "sku": "HWBO000012"
         },
         {
           "name": "Eye Bolts Assorted",
           "price": 16,
           "description": "Forged eye bolts for hanging applications and rigging with thimbles and hardware included.",
           "stock_level": 17,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_eye_bolts_assorted_20250620_195718.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_eye_bolts_assorted_20250620_195718.png",
+          "sku": "HWBO000013"
         },
         {
           "name": "Lag Bolts 1/2 x 6-inch",
           "price": 28,
           "description": "Heavy-duty lag bolts with hex heads for securing large timbers and structural connections.",
           "stock_level": 20,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_lag_bolts_12_x_6_inch_20250620_195752.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_lag_bolts_12_x_6_inch_20250620_195752.png",
+          "sku": "HWBO000014"
         },
         {
           "name": "Toggle Bolt Set",
           "price": 13,
           "description": "Spring-loaded toggle bolts for hollow wall applications with various lengths and thread sizes.",
           "stock_level": 64,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_toggle_bolt_set_20250620_195826.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_bolts_toggle_bolt_set_20250620_195826.png",
+          "sku": "HWBO000015"
         }
       ],
       "WASHERS": [
@@ -1154,35 +1300,40 @@
           "price": 8,
           "description": "Standard flat washers in SAE sizes to distribute load and prevent bolt head pull-through.",
           "stock_level": 57,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_flat_washer_assortment_sae_20250620_195901.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_flat_washer_assortment_sae_20250620_195901.png",
+          "sku": "HWWA000016"
         },
         {
           "name": "Lock Washer Set",
           "price": 10,
           "description": "Split ring lock washers that prevent loosening of bolted connections under vibration.",
           "stock_level": 11,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_lock_washer_set_20250620_195935.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_lock_washer_set_20250620_195935.png",
+          "sku": "HWWA000017"
         },
         {
           "name": "Fender Washer Kit",
           "price": 12,
           "description": "Large-diameter fender washers for distributing loads over larger areas and soft materials.",
           "stock_level": 16,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_fender_washer_kit_20250620_200008.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_fender_washer_kit_20250620_200008.png",
+          "sku": "HWWA000018"
         },
         {
           "name": "Rubber Washer Set",
           "price": 6,
           "description": "Flexible rubber washers for sealing applications and preventing metal-to-metal contact.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_rubber_washer_set_20250620_200043.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_rubber_washer_set_20250620_200043.png",
+          "sku": "HWWA000019"
         },
         {
           "name": "Metric Washer Assortment",
           "price": 8,
           "description": "Complete metric flat washer set for European and Asian equipment and machinery.",
           "stock_level": 6,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_metric_washer_assortment_20250620_200116.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_washers_metric_washer_assortment_20250620_200116.png",
+          "sku": "HWWA000020"
         }
       ],
       "HINGES": [
@@ -1191,35 +1342,40 @@
           "price": 16,
           "description": "Standard door butt hinges with removable pins and screw holes for interior door hanging.",
           "stock_level": 59,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_butt_hinge_3_12_inch_20250620_200151.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_butt_hinge_3_12_inch_20250620_200151.png",
+          "sku": "HWHI000021"
         },
         {
           "name": "Piano Hinge 2-foot",
           "price": 24,
           "description": "Continuous piano hinge for cabinet doors, lids, and long applications requiring full-length support.",
           "stock_level": 16,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_piano_hinge_2_foot_20250620_200224.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_piano_hinge_2_foot_20250620_200224.png",
+          "sku": "HWHI000022"
         },
         {
           "name": "Strap Hinge Heavy Duty",
           "price": 20,
           "description": "Heavy-duty strap hinges for gates, shutters, and outdoor applications with rust-resistant finish.",
           "stock_level": 25,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_strap_hinge_heavy_duty_20250620_200258.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_strap_hinge_heavy_duty_20250620_200258.png",
+          "sku": "HWHI000023"
         },
         {
           "name": "Spring Hinge Self-Closing",
           "price": 28,
           "description": "Self-closing spring hinges that automatically return doors to closed position for screen doors.",
           "stock_level": 76,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_spring_hinge_self_closing_20250620_200332.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_spring_hinge_self_closing_20250620_200332.png",
+          "sku": "HWHI000024"
         },
         {
           "name": "Concealed Cabinet Hinge",
           "price": 13,
           "description": "European-style concealed hinges for modern cabinet doors with adjustable mounting plates.",
           "stock_level": 11,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_concealed_cabinet_hinge_20250620_200407.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hinges_concealed_cabinet_hinge_20250620_200407.png",
+          "sku": "HWHI000025"
         }
       ],
       "HANDLES & KNOBS": [
@@ -1228,35 +1384,40 @@
           "price": 30,
           "description": "Modern cabinet knobs in brushed nickel finish with matching screws and mounting hardware.",
           "stock_level": 5,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_cabinet_knob_set_brushed_nickel_20250620_200441.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_cabinet_knob_set_brushed_nickel_20250620_200441.png",
+          "sku": "HWHK000026"
         },
         {
           "name": "Cabinet Pull 4-inch Centers",
           "price": 36,
           "description": "Contemporary cabinet pulls with 4-inch hole spacing in various finishes and styles.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_cabinet_pull_4_inch_centers_20250620_200515.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_cabinet_pull_4_inch_centers_20250620_200515.png",
+          "sku": "HWHK000027"
         },
         {
           "name": "Door Handle Lever Set",
           "price": 48,
           "description": "Interior door lever handle set with latch and strike plate for modern door hardware.",
           "stock_level": 7,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_door_handle_lever_set_20250620_200548.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_door_handle_lever_set_20250620_200548.png",
+          "sku": "HWHK000028"
         },
         {
           "name": "Drawer Pull 5-inch",
           "price": 24,
           "description": "Traditional drawer pulls with antique brass finish for classic furniture and cabinetry.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_drawer_pull_5_inch_20250620_200623.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_drawer_pull_5_inch_20250620_200623.png",
+          "sku": "HWHK000029"
         },
         {
           "name": "T-Handle Cabinet Hardware",
           "price": 16,
           "description": "Functional T-handle pulls for workshop cabinets and utility storage with secure grip.",
           "stock_level": 41,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_t_handle_cabinet_hardware_20250620_200657.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_handles & knobs_t_handle_cabinet_hardware_20250620_200657.png",
+          "sku": "HWHK000030"
         }
       ],
       "LOCKS": [
@@ -1265,35 +1426,40 @@
           "price": 45,
           "description": "Single-cylinder deadbolt lock with pick-resistant pins and hardened steel bolt for security.",
           "stock_level": 52,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_deadbolt_lock_keyed_20250620_200732.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_deadbolt_lock_keyed_20250620_200732.png",
+          "sku": "HWLO000031"
         },
         {
           "name": "Door Knob Lock Set",
           "price": 35,
           "description": "Entry door knob lock set with key-in-knob design and matching interior and exterior finishes.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_door_knob_lock_set_20250620_200807.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_door_knob_lock_set_20250620_200807.png",
+          "sku": "HWLO000032"
         },
         {
           "name": "Padlock Set Keyed Alike",
           "price": 28,
           "description": "Weather-resistant padlocks keyed alike for multiple applications with hardened steel shackles.",
           "stock_level": 1,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_padlock_set_keyed_alike_20250620_200841.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_padlock_set_keyed_alike_20250620_200841.png",
+          "sku": "HWLO000033"
         },
         {
           "name": "Cabinet Lock Cam Type",
           "price": 15,
           "description": "Cam lock for cabinets and drawers with 90-degree turn action and removable key feature.",
           "stock_level": 55,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_cabinet_lock_cam_type_20250620_200914.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_cabinet_lock_cam_type_20250620_200914.png",
+          "sku": "HWLO000034"
         },
         {
           "name": "Chain Lock Door Security",
           "price": 12,
           "description": "Door chain lock for additional security allowing partial door opening while maintaining control.",
           "stock_level": 52,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_chain_lock_door_security_20250620_200949.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_locks_chain_lock_door_security_20250620_200949.png",
+          "sku": "HWLO000035"
         }
       ],
       "HASPS & LATCHES": [
@@ -1302,35 +1468,40 @@
           "price": 12,
           "description": "Heavy-duty hasp and staple set for padlock security on gates, sheds, and storage areas.",
           "stock_level": 59,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_security_hasp_6_inch_20250620_201023.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_security_hasp_6_inch_20250620_201023.png",
+          "sku": "HWHL000036"
         },
         {
           "name": "Barrel Latch 4-inch",
           "price": 8,
           "description": "Spring-loaded barrel latch for gates and doors with automatic latching action.",
           "stock_level": 33,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_barrel_latch_4_inch_20250620_201058.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_barrel_latch_4_inch_20250620_201058.png",
+          "sku": "HWHL000037"
         },
         {
           "name": "Thumb Latch Galvanized",
           "price": 15,
           "description": "Traditional thumb latch for gates with galvanized finish for outdoor weather resistance.",
           "stock_level": 49,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_thumb_latch_galvanized_20250620_201132.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_thumb_latch_galvanized_20250620_201132.png",
+          "sku": "HWHL000038"
         },
         {
           "name": "Slide Bolt Latch",
           "price": 10,
           "description": "Surface-mount slide bolt latch for doors and gates with smooth sliding action.",
           "stock_level": 3,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_slide_bolt_latch_20250620_201206.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_slide_bolt_latch_20250620_201206.png",
+          "sku": "HWHL000039"
         },
         {
           "name": "Hook and Eye Latch",
           "price": 6,
           "description": "Simple hook and eye latch for lightweight doors and gate applications with various sizes.",
           "stock_level": 57,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_hook_and_eye_latch_20250620_201239.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_hasps & latches_hook_and_eye_latch_20250620_201239.png",
+          "sku": "HWHL000040"
         }
       ],
       "BRACKETS": [
@@ -1339,35 +1510,40 @@
           "price": 10,
           "description": "Heavy-duty steel shelf brackets with decorative scrollwork and powder-coated finish.",
           "stock_level": 7,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_shelf_bracket_8_inch_20250620_201313.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_shelf_bracket_8_inch_20250620_201313.png",
+          "sku": "HWBK000041"
         },
         {
           "name": "Angle Bracket 4-inch",
           "price": 8,
           "description": "Right-angle corner brackets for reinforcing joints and connecting perpendicular members.",
           "stock_level": 35,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_angle_bracket_4_inch_20250620_201346.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_angle_bracket_4_inch_20250620_201346.png",
+          "sku": "HWBK000042"
         },
         {
           "name": "L-Bracket Galvanized",
           "price": 5,
           "description": "Simple L-brackets in galvanized steel for basic corner reinforcement and light-duty connections.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_l_bracket_galvanized_20250620_201421.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_l_bracket_galvanized_20250620_201421.png",
+          "sku": "HWBK000043"
         },
         {
           "name": "Floating Shelf Bracket",
           "price": 13,
           "description": "Concealed floating shelf brackets that create the appearance of unsupported shelving.",
           "stock_level": 95,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_floating_shelf_bracket_20250620_201455.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_floating_shelf_bracket_20250620_201455.png",
+          "sku": "HWBK000044"
         },
         {
           "name": "Countertop Support Bracket",
           "price": 16,
           "description": "Heavy-duty brackets designed to support overhanging countertops and work surfaces.",
           "stock_level": 16,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_countertop_support_bracket_20250620_201528.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_brackets_countertop_support_bracket_20250620_201528.png",
+          "sku": "HWBK000045"
         }
       ],
       "CASTERS": [
@@ -1376,35 +1552,40 @@
           "price": 15,
           "description": "Heavy-duty swivel casters with ball bearing races for smooth rolling and 360-degree rotation.",
           "stock_level": 67,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_swivel_caster_2_inch_20250620_201602.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_swivel_caster_2_inch_20250620_201602.png",
+          "sku": "HWCA000046"
         },
         {
           "name": "Fixed Caster 3-inch",
           "price": 12,
           "description": "Rigid fixed casters for straight-line movement with polyurethane wheels for floor protection.",
           "stock_level": 43,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_fixed_caster_3_inch_20250620_201637.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_fixed_caster_3_inch_20250620_201637.png",
+          "sku": "HWCA000047"
         },
         {
           "name": "Locking Caster Set",
           "price": 21,
           "description": "Swivel casters with foot-operated locks for both wheel rotation and swivel action.",
           "stock_level": 81,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_locking_caster_set_20250620_201711.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_locking_caster_set_20250620_201711.png",
+          "sku": "HWCA000048"
         },
         {
           "name": "Pneumatic Caster 4-inch",
           "price": 28,
           "description": "Air-filled pneumatic casters for smooth rolling over rough surfaces and outdoor use.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_pneumatic_caster_4_inch_20250620_201744.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_pneumatic_caster_4_inch_20250620_201744.png",
+          "sku": "HWCA000049"
         },
         {
           "name": "Furniture Caster Set",
           "price": 10,
           "description": "Small furniture casters with soft wheels for hardwood floor protection and quiet operation.",
           "stock_level": 95,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_furniture_caster_set_20250620_201819.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hardware_casters_furniture_caster_set_20250620_201819.png",
+          "sku": "HWCA000050"
         }
       ]
     },
@@ -1429,35 +1610,40 @@
           "price": 8,
           "description": "Kiln-dried pressure-treated lumber for structural framing and outdoor construction projects.",
           "stock_level": 19,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_pressure_treated_2x4x8_20250620_201852.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_pressure_treated_2x4x8_20250620_201852.png",
+          "sku": "LBDL000001"
         },
         {
           "name": "Douglas Fir 2x6x10",
           "price": 13,
           "description": "Premium Douglas fir dimensional lumber for structural applications with excellent strength-to-weight ratio.",
           "stock_level": 53,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_douglas_fir_2x6x10_20250620_201926.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_douglas_fir_2x6x10_20250620_201926.png",
+          "sku": "LBDL000002"
         },
         {
           "name": "Cedar 2x4x8",
           "price": 18,
           "description": "Natural cedar lumber with built-in insect and decay resistance for outdoor construction.",
           "stock_level": 81,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_cedar_2x4x8_20250620_202000.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_cedar_2x4x8_20250620_202000.png",
+          "sku": "LBDL000003"
         },
         {
           "name": "Pine Stud 2x4x8",
           "price": 6,
           "description": "Kiln-dried pine construction studs for interior framing with straight grain and minimal defects.",
           "stock_level": 72,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_pine_stud_2x4x8_20250620_202034.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_pine_stud_2x4x8_20250620_202034.png",
+          "sku": "LBDL000004"
         },
         {
           "name": "Treated 2x8x12 Joist",
           "price": 22,
           "description": "Heavy-duty pressure-treated joists for deck framing and structural support applications.",
           "stock_level": 76,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_treated_2x8x12_joist_20250620_202108.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_dimensional lumber_treated_2x8x12_joist_20250620_202108.png",
+          "sku": "LBDL000005"
         }
       ],
       "PLYWOOD": [
@@ -1503,35 +1689,40 @@
           "price": 16,
           "description": "Regular gypsum drywall for interior walls and ceilings in dry locations.",
           "stock_level": 88,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_standard_drywall_4x8x12_20250620_202431.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_standard_drywall_4x8x12_20250620_202431.png",
+          "sku": "LBDW000006"
         },
         {
           "name": "Moisture Resistant Drywall",
           "price": 20,
           "description": "Green board drywall for bathrooms and high-humidity areas with moisture-resistant core.",
           "stock_level": 97,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_moisture_resistant_drywall_20250620_202507.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_moisture_resistant_drywall_20250620_202507.png",
+          "sku": "LBDW000007"
         },
         {
           "name": "Fire Resistant Drywall",
           "price": 24,
           "description": "Type X fire-rated drywall for enhanced fire protection in commercial and residential applications.",
           "stock_level": 50,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_fire_resistant_drywall_20250620_202546.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_fire_resistant_drywall_20250620_202546.png",
+          "sku": "LBDW000008"
         },
         {
           "name": "Lightweight Drywall 4x8",
           "price": 18,
           "description": "Ultra-light drywall that's 25% lighter than standard board for easier handling and installation.",
           "stock_level": 45,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_lightweight_drywall_4x8_20250620_202620.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_lightweight_drywall_4x8_20250620_202620.png",
+          "sku": "LBDW000009"
         },
         {
           "name": "Soundproof Drywall 4x8",
           "price": 35,
           "description": "Sound-dampening drywall with enhanced acoustic properties for noise reduction between rooms.",
           "stock_level": 10,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_soundproof_drywall_4x8_20250620_202655.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_drywall_soundproof_drywall_4x8_20250620_202655.png",
+          "sku": "LBDW000010"
         }
       ],
       "INSULATION": [
@@ -1540,35 +1731,40 @@
           "price": 32,
           "description": "Standard fiberglass insulation batts for 2x4 wall construction with moisture barrier.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_fiberglass_batts_r_13_20250620_202730.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_fiberglass_batts_r_13_20250620_202730.png",
+          "sku": "LBIN000011"
         },
         {
           "name": "Blown-In Insulation R-30",
           "price": 48,
           "description": "Loose-fill fiberglass insulation for attics and hard-to-reach areas with higher R-value.",
           "stock_level": 8,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_blown_in_insulation_r_30_20250620_202805.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_blown_in_insulation_r_30_20250620_202805.png",
+          "sku": "LBIN000012"
         },
         {
           "name": "Foam Board Insulation",
           "price": 35,
           "description": "Rigid foam insulation board for continuous insulation and thermal bridging reduction.",
           "stock_level": 77,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_foam_board_insulation_20250620_202840.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_foam_board_insulation_20250620_202840.png",
+          "sku": "LBIN000013"
         },
         {
           "name": "Spray Foam Kit",
           "price": 65,
           "description": "Two-component spray foam insulation kit for air sealing and insulating irregular spaces.",
           "stock_level": 40,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_spray_foam_kit_20250620_202915.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_spray_foam_kit_20250620_202915.png",
+          "sku": "LBIN000014"
         },
         {
           "name": "Reflective Insulation",
           "price": 25,
           "description": "Radiant barrier insulation with reflective surface for reducing heat transfer in attics.",
           "stock_level": 17,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_reflective_insulation_20250620_202949.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\lumber & building materials_insulation_reflective_insulation_20250620_202949.png",
+          "sku": "LBIN000015"
         }
       ],
       "OSB": [
@@ -1926,35 +2122,40 @@
           "price": 18,
           "description": "Standard single pole circuit breaker for 120V residential electrical panels.",
           "stock_level": 96,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_single_pole_breaker_15a_20250620_205630.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_single_pole_breaker_15a_20250620_205630.png",
+          "sku": "ELCB000001"
         },
         {
           "name": "Single Pole Breaker 20A",
           "price": 22,
           "description": "20-amp single pole breaker for kitchen and bathroom circuit protection.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_single_pole_breaker_20a_20250620_205711.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_single_pole_breaker_20a_20250620_205711.png",
+          "sku": "ELCB000002"
         },
         {
           "name": "Double Pole Breaker 30A",
           "price": 38,
           "description": "Double pole breaker for 240V appliances like electric dryers and water heaters.",
           "stock_level": 46,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_double_pole_breaker_30a_20250620_205747.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_double_pole_breaker_30a_20250620_205747.png",
+          "sku": "ELCB000003"
         },
         {
           "name": "GFCI Breaker 20-Amp",
           "price": 52,
           "description": "Ground fault circuit interrupter breaker for wet location protection at panel level.",
           "stock_level": 14,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_gfci_breaker_20_amp_20250620_205822.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_gfci_breaker_20_amp_20250620_205822.png",
+          "sku": "ELCB000004"
         },
         {
           "name": "AFCI Breaker 15-Amp",
           "price": 48,
           "description": "Arc fault circuit interrupter breaker for bedroom and living area fire protection.",
           "stock_level": 57,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_afci_breaker_15_amp_20250620_205856.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_circuit breakers_afci_breaker_15_amp_20250620_205856.png",
+          "sku": "ELCB000005"
         }
       ],
       "CONDUIT": [
@@ -1963,35 +2164,40 @@
           "price": 6,
           "description": "Electrical metallic tubing for protecting wiring in commercial applications.",
           "stock_level": 16,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_emt_conduit_12_inch_20250620_205930.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_emt_conduit_12_inch_20250620_205930.png",
+          "sku": "ELCO000006"
         },
         {
           "name": "PVC Conduit 3/4-inch",
           "price": 8,
           "description": "PVC electrical conduit for underground and wet location wire protection.",
           "stock_level": 94,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_pvc_conduit_34_inch_20250620_210003.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_pvc_conduit_34_inch_20250620_210003.png",
+          "sku": "ELCO000007"
         },
         {
           "name": "Flexible Conduit 1/2-inch",
           "price": 12,
           "description": "Flexible metal conduit for connections to motors and vibrating equipment.",
           "stock_level": 74,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_flexible_conduit_12_inch_20250620_210037.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_flexible_conduit_12_inch_20250620_210037.png",
+          "sku": "ELCO000008"
         },
         {
           "name": "Rigid Conduit 1-inch",
           "price": 16,
           "description": "Heavy-duty rigid metal conduit for industrial and outdoor electrical installations.",
           "stock_level": 61,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_rigid_conduit_1_inch_20250620_210111.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_rigid_conduit_1_inch_20250620_210111.png",
+          "sku": "ELCO000009"
         },
         {
           "name": "Liquid-Tight Conduit",
           "price": 20,
           "description": "Waterproof flexible conduit for outdoor and wet location electrical connections.",
           "stock_level": 89,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_liquid_tight_conduit_20250620_210146.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_conduit_liquid_tight_conduit_20250620_210146.png",
+          "sku": "ELCO000010"
         }
       ],
       "JUNCTION BOXES": [
@@ -2000,35 +2206,40 @@
           "price": 4,
           "description": "Standard single gang electrical box for switches and outlets in wall installations.",
           "stock_level": 24,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_outlet_box_single_gang_20250620_210220.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_outlet_box_single_gang_20250620_210220.png",
+          "sku": "ELJB000011"
         },
         {
           "name": "Junction Box 4x4",
           "price": 6,
           "description": "Square junction box for wire splicing and electrical connections with knockouts.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_junction_box_4x4_20250620_210255.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_junction_box_4x4_20250620_210255.png",
+          "sku": "ELJB000012"
         },
         {
           "name": "Ceiling Box with Bracket",
           "price": 8,
           "description": "Ceiling electrical box with adjustable bracket for light fixture mounting.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_ceiling_box_with_bracket_20250620_210330.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_ceiling_box_with_bracket_20250620_210330.png",
+          "sku": "ELJB000013"
         },
         {
           "name": "Old Work Box",
           "price": 6,
           "description": "Retrofit electrical box for adding outlets to existing walls without wall removal.",
           "stock_level": 82,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_old_work_box_20250620_210403.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_old_work_box_20250620_210403.png",
+          "sku": "ELJB000014"
         },
         {
           "name": "Weatherproof Box",
           "price": 14,
           "description": "Outdoor electrical box with gasket seal for weather protection in exterior applications.",
           "stock_level": 96,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_weatherproof_box_20250620_210438.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_junction boxes_weatherproof_box_20250620_210438.png",
+          "sku": "ELJB000015"
         }
       ],
       "WIRE NUTS": [
@@ -2074,35 +2285,40 @@
           "price": 18,
           "description": "16-gauge indoor extension cord for household appliances and electronics.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_indoor_extension_cord_25ft_20250620_210803.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_indoor_extension_cord_25ft_20250620_210803.png",
+          "sku": "ELEC000016"
         },
         {
           "name": "Outdoor Extension Cord 50ft",
           "price": 38,
           "description": "12-gauge outdoor cord with weather-resistant jacket for power tools and equipment.",
           "stock_level": 17,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_outdoor_extension_cord_50ft_20250620_210836.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_outdoor_extension_cord_50ft_20250620_210836.png",
+          "sku": "ELEC000017"
         },
         {
           "name": "Heavy Duty Cord 100ft",
           "price": 65,
           "description": "Professional-grade extension cord for construction and industrial applications.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_heavy_duty_cord_100ft_20250620_210912.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_heavy_duty_cord_100ft_20250620_210912.png",
+          "sku": "ELEC000018"
         },
         {
           "name": "Retractable Cord Reel",
           "price": 52,
           "description": "Automatic retractable extension cord reel for workshop and garage organization.",
           "stock_level": 39,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_retractable_cord_reel_20250620_210946.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_retractable_cord_reel_20250620_210946.png",
+          "sku": "ELEC000019"
         },
         {
           "name": "Multi-Outlet Power Strip",
           "price": 25,
           "description": "Power strip with surge protection and multiple outlets for electronics protection.",
           "stock_level": 42,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_multi_outlet_power_strip_20250620_211021.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_extension cords_multi_outlet_power_strip_20250620_211021.png",
+          "sku": "ELEC000020"
         }
       ],
       "LIGHT FIXTURES": [
@@ -2111,35 +2327,40 @@
           "price": 40,
           "description": "Energy-efficient LED ceiling fixture with modern design and long bulb life.",
           "stock_level": 5,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_led_flush_mount_ceiling_20250620_211054.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_led_flush_mount_ceiling_20250620_211054.png",
+          "sku": "ELLF000021"
         },
         {
           "name": "Pendant Light Kitchen",
           "price": 58,
           "description": "Decorative pendant light for kitchen islands and dining areas with adjustable height.",
           "stock_level": 11,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_pendant_light_kitchen_20250620_211130.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_pendant_light_kitchen_20250620_211130.png",
+          "sku": "ELLF000022"
         },
         {
           "name": "Vanity Light 3-Bulb",
           "price": 50,
           "description": "Bathroom vanity light with multiple bulbs for even illumination and style.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_vanity_light_3_bulb_20250620_211203.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_vanity_light_3_bulb_20250620_211203.png",
+          "sku": "ELLF000023"
         },
         {
           "name": "Track Lighting Kit",
           "price": 70,
           "description": "Adjustable track lighting system with multiple spotlights for accent lighting.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_track_lighting_kit_20250620_211237.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_track_lighting_kit_20250620_211237.png",
+          "sku": "ELLF000024"
         },
         {
           "name": "Outdoor Flood Light LED",
           "price": 32,
           "description": "Weather-resistant LED flood light with motion sensor for security lighting.",
           "stock_level": 20,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_outdoor_flood_light_led_20250620_211313.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_light fixtures_outdoor_flood_light_led_20250620_211313.png",
+          "sku": "ELLF000025"
         }
       ],
       "ELECTRICAL TAPE": [
@@ -2148,35 +2369,40 @@
           "price": 4,
           "description": "Standard black electrical tape for insulating wire connections and splices.",
           "stock_level": 95,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_vinyl_electrical_tape_20250620_211346.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_vinyl_electrical_tape_20250620_211346.png",
+          "sku": "ELET000026"
         },
         {
           "name": "High-Temp Electrical Tape",
           "price": 7,
           "description": "Heat-resistant electrical tape for high-temperature electrical applications.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_high_temp_electrical_tape_20250620_211420.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_high_temp_electrical_tape_20250620_211420.png",
+          "sku": "ELET000027"
         },
         {
           "name": "Color-Coded Tape Set",
           "price": 10,
           "description": "Assorted colored electrical tape for wire identification and phase marking.",
           "stock_level": 14,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_color_coded_tape_set_20250620_211453.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_color_coded_tape_set_20250620_211453.png",
+          "sku": "ELET000028"
         },
         {
           "name": "Self-Fusing Silicone Tape",
           "price": 13,
           "description": "Self-amalgamating tape that bonds to itself for waterproof electrical connections.",
           "stock_level": 35,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_self_fusing_silicone_tape_20250620_211527.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_self_fusing_silicone_tape_20250620_211527.png",
+          "sku": "ELET000029"
         },
         {
           "name": "Friction Tape",
           "price": 6,
           "description": "Cotton friction tape for mechanical protection and insulation of electrical connections.",
           "stock_level": 22,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_friction_tape_20250620_211600.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\electrical_electrical tape_friction_tape_20250620_211600.png",
+          "sku": "ELET000030"
         }
       ]
     },
@@ -2312,35 +2538,40 @@
           "price": 14,
           "description": "Quarter-turn ball valve for water shut-off with full-port design.",
           "stock_level": 8,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_ball_valve_12_inch_20250620_212512.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_ball_valve_12_inch_20250620_212512.png",
+          "sku": "PLVA000001"
         },
         {
           "name": "Gate Valve 3/4-inch",
           "price": 20,
           "description": "Traditional gate valve for main water line shut-off applications.",
           "stock_level": 63,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_gate_valve_34_inch_20250620_212551.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_gate_valve_34_inch_20250620_212551.png",
+          "sku": "PLVA000002"
         },
         {
           "name": "Check Valve 1-inch",
           "price": 25,
           "description": "One-way check valve to prevent backflow in plumbing systems.",
           "stock_level": 45,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_check_valve_1_inch_20250620_212625.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_check_valve_1_inch_20250620_212625.png",
+          "sku": "PLVA000003"
         },
         {
           "name": "Pressure Relief Valve",
           "price": 40,
           "description": "Safety pressure relief valve for water heaters and pressure systems.",
           "stock_level": 92,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_pressure_relief_valve_20250620_212658.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_pressure_relief_valve_20250620_212658.png",
+          "sku": "PLVA000004"
         },
         {
           "name": "Angle Stop Valve",
           "price": 12,
           "description": "Angle stop valve for connecting toilet and sink supply lines to wall outlets.",
           "stock_level": 53,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_angle_stop_valve_20250620_212732.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_valves_angle_stop_valve_20250620_212732.png",
+          "sku": "PLVA000005"
         }
       ],
       "FAUCETS": [
@@ -2460,35 +2691,40 @@
           "price": 6,
           "description": "Self-sealing foam insulation for 1/2-inch pipes to prevent freezing.",
           "stock_level": 48,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_foam_pipe_insulation_12_20250620_213649.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_foam_pipe_insulation_12_20250620_213649.png",
+          "sku": "PLPI000006"
         },
         {
           "name": "Pipe Insulation 3/4-inch",
           "price": 7,
           "description": "Foam pipe insulation with adhesive seam for larger diameter pipes.",
           "stock_level": 73,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_insulation_34_inch_20250620_213723.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_insulation_34_inch_20250620_213723.png",
+          "sku": "PLPI000007"
         },
         {
           "name": "Pipe Heat Tape",
           "price": 21,
           "description": "Electric heat tape for preventing frozen pipes in extreme cold conditions.",
           "stock_level": 0,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_heat_tape_20250620_213757.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_heat_tape_20250620_213757.png",
+          "sku": "PLPI000008"
         },
         {
           "name": "Fiberglass Pipe Insulation",
           "price": 14,
           "description": "High-temperature fiberglass insulation for hot water pipes and steam lines.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_fiberglass_pipe_insulation_20250620_213831.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_fiberglass_pipe_insulation_20250620_213831.png",
+          "sku": "PLPI000009"
         },
         {
           "name": "Pipe Insulation Tape",
           "price": 10,
           "description": "Reflective tape insulation for additional thermal protection of pipes.",
           "stock_level": 66,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_insulation_tape_20250620_213915.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\plumbing_pipe insulation_pipe_insulation_tape_20250620_213915.png",
+          "sku": "PLPI000010"
         }
       ],
       "PLUMBER'S PUTTY": [
@@ -2587,14 +2823,16 @@
           "price": 38,
           "description": "Heavy-duty garden spade with long handle for digging and edging with comfortable grip.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_hand tools_garden_spade_long_handle_20250621_112627.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_hand tools_garden_spade_long_handle_20250621_112627.png",
+          "sku": "GOHT000001"
         },
         {
           "name": "Garden Rake Steel Tines",
           "price": 29,
           "description": "Steel-tined garden rake for leveling soil and gathering leaves with durable construction.",
           "stock_level": 7,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_hand tools_garden_rake_steel_tines_20250620_214538.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_hand tools_garden_rake_steel_tines_20250620_214538.png",
+          "sku": "GOHT000002"
         }
       ],
       "HOSES": [
@@ -2961,35 +3199,40 @@
           "price": 72,
           "description": "Adjustable steel shelving unit holding up to 3,000 pounds with powder coating.",
           "stock_level": 21,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_steel_shelving_5_tier_20250620_220811.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_steel_shelving_5_tier_20250620_220811.png",
+          "sku": "SOSH000001"
         },
         {
           "name": "Wire Shelving Chrome",
           "price": 58,
           "description": "Chrome wire shelving with adjustable shelves for versatile storage solutions.",
           "stock_level": 78,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_wire_shelving_chrome_20250620_220845.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_wire_shelving_chrome_20250620_220845.png",
+          "sku": "SOSH000002"
         },
         {
           "name": "Wooden Storage Shelves",
           "price": 100,
           "description": "Solid wood shelving unit with natural finish for workshop and garage.",
           "stock_level": 27,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_wooden_storage_shelves_20250620_220920.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_wooden_storage_shelves_20250620_220920.png",
+          "sku": "SOSH000003"
         },
         {
           "name": "Heavy Duty Rack System",
           "price": 140,
           "description": "Industrial-strength shelving for maximum weight capacity and durability.",
           "stock_level": 70,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_heavy_duty_rack_system_20250620_220956.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_heavy_duty_rack_system_20250620_220956.png",
+          "sku": "SOSH000004"
         },
         {
           "name": "Corner Shelf Unit",
           "price": 65,
           "description": "Space-saving corner shelving unit for maximizing storage in tight spaces.",
           "stock_level": 47,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_corner_shelf_unit_20250620_221030.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_shelving_corner_shelf_unit_20250620_221030.png",
+          "sku": "SOSH000005"
         }
       ],
       "PEGBOARD": [
@@ -2998,35 +3241,40 @@
           "price": 40,
           "description": "Large pegboard panel with holes for hanging tools and accessories.",
           "stock_level": 90,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_panel_4x8_20250620_221105.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_panel_4x8_20250620_221105.png",
+          "sku": "SOPB000006"
         },
         {
           "name": "Pegboard Hook Set 50-piece",
           "price": 25,
           "description": "Comprehensive pegboard hook set with various sizes and styles.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_hook_set_50_piece_20250620_221139.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_hook_set_50_piece_20250620_221139.png",
+          "sku": "SOPB000007"
         },
         {
           "name": "Metal Pegboard Gray",
           "price": 32,
           "description": "Steel pegboard with gray finish for heavy-duty tool organization.",
           "stock_level": 80,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_metal_pegboard_gray_20250620_221214.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_metal_pegboard_gray_20250620_221214.png",
+          "sku": "SOPB000008"
         },
         {
           "name": "Pegboard Storage Bins",
           "price": 18,
           "description": "Plastic bins that hang on pegboard for small parts storage.",
           "stock_level": 19,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_storage_bins_20250620_221248.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_storage_bins_20250620_221248.png",
+          "sku": "SOPB000009"
         },
         {
           "name": "Pegboard Tool Holder Set",
           "price": 21,
           "description": "Specialized tool holders for common workshop tools on pegboard systems.",
           "stock_level": 87,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_tool_holder_set_20250620_221322.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_pegboard_pegboard_tool_holder_set_20250620_221322.png",
+          "sku": "SOPB000010"
         }
       ],
       "STORAGE BINS": [
@@ -3035,35 +3283,40 @@
           "price": 14,
           "description": "Transparent storage bin with secure lid for easy identification of contents.",
           "stock_level": 2,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_clear_storage_bin_27_quart_20250620_221355.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_clear_storage_bin_27_quart_20250620_221355.png",
+          "sku": "SOSB000011"
         },
         {
           "name": "Stackable Bin Set",
           "price": 21,
           "description": "Set of stackable bins in multiple sizes for modular storage solutions.",
           "stock_level": 13,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_stackable_bin_set_20250620_221430.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_stackable_bin_set_20250620_221430.png",
+          "sku": "SOSB000012"
         },
         {
           "name": "Heavy Duty Tote 35-Gallon",
           "price": 28,
           "description": "Large capacity storage tote with reinforced handles and secure latching lid.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_heavy_duty_tote_35_gallon_20250620_221505.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_heavy_duty_tote_35_gallon_20250620_221505.png",
+          "sku": "SOSB000013"
         },
         {
           "name": "Small Parts Organizer",
           "price": 12,
           "description": "Multi-compartment organizer for screws, bolts, and small hardware.",
           "stock_level": 56,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_small_parts_organizer_20250620_221540.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_small_parts_organizer_20250620_221540.png",
+          "sku": "SOSB000014"
         },
         {
           "name": "Weatherproof Storage Box",
           "price": 35,
           "description": "Outdoor storage box with weather seals for protecting items from elements.",
           "stock_level": 11,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_weatherproof_storage_box_20250620_221614.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_storage bins_weatherproof_storage_box_20250620_221614.png",
+          "sku": "SOSB000015"
         }
       ],
       "CABINETS": [
@@ -3072,35 +3325,40 @@
           "price": 185,
           "description": "Tall metal cabinet with adjustable shelves and locking doors for security.",
           "stock_level": 53,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_metal_storage_cabinet_72_inch_20250620_221647.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_metal_storage_cabinet_72_inch_20250620_221647.png",
+          "sku": "SOCA000016"
         },
         {
           "name": "Wall Mount Cabinet",
           "price": 100,
           "description": "Space-saving wall-mounted cabinet for tools and supplies with key lock.",
           "stock_level": 46,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_wall_mount_cabinet_20250620_221723.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_wall_mount_cabinet_20250620_221723.png",
+          "sku": "SOCA000017"
         },
         {
           "name": "Base Cabinet with Drawers",
           "price": 160,
           "description": "Workshop base cabinet with combination of drawers and doors for versatile storage.",
           "stock_level": 30,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_base_cabinet_with_drawers_20250620_221757.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_base_cabinet_with_drawers_20250620_221757.png",
+          "sku": "SOCA000018"
         },
         {
           "name": "Chemical Storage Cabinet",
           "price": 290,
           "description": "Safety cabinet for storing flammable chemicals and hazardous materials.",
           "stock_level": 26,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_chemical_storage_cabinet_20250620_221831.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_chemical_storage_cabinet_20250620_221831.png",
+          "sku": "SOCA000019"
         },
         {
           "name": "Modular Cabinet System",
           "price": 250,
           "description": "Expandable modular cabinet system that grows with storage needs.",
           "stock_level": 69,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_modular_cabinet_system_20250620_221906.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_cabinets_modular_cabinet_system_20250620_221906.png",
+          "sku": "SOCA000020"
         }
       ],
       "WORKBENCHES": [
@@ -3109,35 +3367,40 @@
           "price": 325,
           "description": "Solid wood workbench with steel legs and built-in vise for heavy work.",
           "stock_level": 1,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_heavy_duty_workbench_6_foot_20250620_221941.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_heavy_duty_workbench_6_foot_20250620_221941.png",
+          "sku": "SOWB000021"
         },
         {
           "name": "Folding Workbench Portable",
           "price": 130,
           "description": "Portable folding workbench with clamps and adjustable height.",
           "stock_level": 68,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_folding_workbench_portable_20250621_093527.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_folding_workbench_portable_20250621_093527.png",
+          "sku": "SOWB000022"
         },
         {
           "name": "Mobile Work Cart",
           "price": 200,
           "description": "Rolling work cart with multiple shelves and locking casters.",
           "stock_level": 71,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_mobile_work_cart_20250620_222024.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_mobile_work_cart_20250620_222024.png",
+          "sku": "SOWB000023"
         },
         {
           "name": "Garage Workbench Kit",
           "price": 250,
           "description": "Complete workbench kit with pegboard back and storage drawers.",
           "stock_level": 65,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_garage_workbench_kit_20250620_222058.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_garage_workbench_kit_20250620_222058.png",
+          "sku": "SOWB000024"
         },
         {
           "name": "Adjustable Height Workbench",
           "price": 290,
           "description": "Ergonomic workbench with electric height adjustment for comfort.",
           "stock_level": 47,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_adjustable_height_workbench_20250620_222132.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_workbenches_adjustable_height_workbench_20250620_222132.png",
+          "sku": "SOWB000025"
         }
       ],
       "HOOKS & HANGERS": [
@@ -3146,35 +3409,40 @@
           "price": 18,
           "description": "Steel wall hooks for hanging tools, bikes, and heavy equipment.",
           "stock_level": 54,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_heavy_duty_wall_hook_set_20250620_222206.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_heavy_duty_wall_hook_set_20250620_222206.png",
+          "sku": "SOHH000026"
         },
         {
           "name": "Magnetic Tool Holder",
           "price": 14,
           "description": "Magnetic strip for holding metal tools on workshop walls and toolboxes.",
           "stock_level": 67,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_magnetic_tool_holder_20250620_222240.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_magnetic_tool_holder_20250620_222240.png",
+          "sku": "SOHH000027"
         },
         {
           "name": "Ceiling Hook Kit",
           "price": 21,
           "description": "Ceiling-mounted hooks for overhead storage of ladders and long items.",
           "stock_level": 2,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_ceiling_hook_kit_20250620_222314.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_ceiling_hook_kit_20250620_222314.png",
+          "sku": "SOHH000028"
         },
         {
           "name": "Rubber Coated Hooks",
           "price": 12,
           "description": "Protective rubber-coated hooks that won't scratch or damage equipment.",
           "stock_level": 98,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_rubber_coated_hooks_20250620_222348.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_rubber_coated_hooks_20250620_222348.png",
+          "sku": "SOHH000029"
         },
         {
           "name": "Retractable Hose Hanger",
           "price": 28,
           "description": "Wall-mounted hose reel that automatically retracts garden hoses.",
           "stock_level": 71,
-          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_retractable_hose_hanger_20250620_222423.png"
+          "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\storage & organization_hooks & hangers_retractable_hose_hanger_20250620_222423.png",
+          "sku": "SOHH000030"
         }
       ],
       "PLASTIC DRAWERS": [
