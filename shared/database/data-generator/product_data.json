@@ -154,86 +154,19 @@
           "description": "Precision wire strippers with multiple gauge settings and comfortable spring-loaded handles.",
           "stock_level": 20,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_pliers_wire_stripping_pliers_20250620_182131.png"
-        },
-        {
-          "name": "Diagonal Cutting Pliers",
-          "price": 17,
-          "description": "Sharp diagonal cutters for clean wire cutting with induction-hardened cutting edges.",
-          "stock_level": 56
         }
       ],
       "HAND SAWS": [
-        {
-          "name": "Crosscut Hand Saw 20-inch",
-          "price": 35,
-          "description": "Traditional crosscut saw with aggressive tooth pattern for cutting across wood grain efficiently.",
-          "stock_level": 46
-        },
-        {
-          "name": "Back Saw 12-inch",
-          "price": 42,
-          "description": "Precision back saw with fine teeth and reinforced spine for accurate joinery and trim work.",
-          "stock_level": 26
-        },
         {
           "name": "Coping Saw",
           "price": 13,
           "description": "Fine-blade coping saw with adjustable frame for intricate curves and detailed woodworking cuts.",
           "stock_level": 25,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_hand saws_coping_saw_20250621_110057.png"
-        },
-        {
-          "name": "Folding Saw 7-inch",
-          "price": 24,
-          "description": "Compact folding saw with razor-sharp blade for pruning and camping applications.",
-          "stock_level": 29
-        },
-        {
-          "name": "Japanese Pull Saw",
-          "price": 60,
-          "description": "Traditional Japanese pull saw with thin kerf blade for smooth, precise cuts on the pull stroke.",
-          "stock_level": 54
         }
       ],
-      "CHISELS": [
-        {
-          "name": "Wood Chisel Set 4-piece",
-          "price": 32,
-          "description": "High-carbon steel wood chisels in 1/4, 1/2, 3/4, and 1-inch sizes with durable handles.",
-          "stock_level": 2
-        },
-        {
-          "name": "Mortise Chisel 1/2-inch",
-          "price": 25,
-          "description": "Heavy-duty mortise chisel with thick blade and leather handle for chopping deep mortises.",
-          "stock_level": 85
-        },
-        {
-          "name": "Paring Chisel Set",
-          "price": 38,
-          "description": "Thin-blade paring chisels for precise trimming and detailed woodworking with razor-sharp edges.",
-          "stock_level": 58
-        },
-        {
-          "name": "Cold Chisel Set",
-          "price": 21,
-          "description": "Hardened steel cold chisels for cutting metal, masonry, and removing rivets or bolts.",
-          "stock_level": 29
-        },
-        {
-          "name": "Carving Chisel Kit",
-          "price": 45,
-          "description": "Specialized wood carving chisels with various profiles for sculptural and decorative work.",
-          "stock_level": 13
-        }
-      ],
+      "CHISELS": [],
       "FILES & RASPS": [
-        {
-          "name": "Metal File Set 6-piece",
-          "price": 17,
-          "description": "Assorted metal files including flat, round, and half-round profiles for metalworking applications.",
-          "stock_level": 81
-        },
         {
           "name": "Wood Rasp Set",
           "price": 14,
@@ -242,23 +175,11 @@
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_wood_rasp_set_20250621_110701.png"
         },
         {
-          "name": "Needle File Set",
-          "price": 21,
-          "description": "Precision needle files for detailed work on small parts and intricate metalworking tasks.",
-          "stock_level": 89
-        },
-        {
           "name": "Riffler File Set",
           "price": 27,
           "description": "Curved riffler files with various profiles for sculptural work and hard-to-reach areas.",
           "stock_level": 54,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\hand tools_files & rasps_riffler_file_set_20250621_124453.png"
-        },
-        {
-          "name": "Diamond File Set",
-          "price": 31,
-          "description": "Diamond-coated files for sharpening carbide tools and working hardened materials.",
-          "stock_level": 70
         }
       ],
       "MEASURING TOOLS": [
@@ -557,12 +478,6 @@
           "description": "Lightweight compact reciprocating saw for overhead work and tight access cutting.",
           "stock_level": 24,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\power tools_reciprocating saws_compact_recip_saw_20250621_125104.png"
-        },
-        {
-          "name": "One-Handed Recip Saw",
-          "price": 100,
-          "description": "Ergonomic one-handed reciprocating saw for precision cutting and control.",
-          "stock_level": 48
         },
         {
           "name": "Multi-Tool Oscillating",
@@ -2680,24 +2595,6 @@
           "description": "Steel-tined garden rake for leveling soil and gathering leaves with durable construction.",
           "stock_level": 7,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_hand tools_garden_rake_steel_tines_20250620_214538.png"
-        },
-        {
-          "name": "Garden Hoe 6-inch Blade",
-          "price": 25,
-          "description": "Sharp garden hoe for weeding and cultivating soil with lightweight design.",
-          "stock_level": 94
-        },
-        {
-          "name": "Hand Trowel Set",
-          "price": 14,
-          "description": "Precision hand trowels for planting and transplanting with ergonomic handles.",
-          "stock_level": 82
-        },
-        {
-          "name": "Pruning Loppers 28-inch",
-          "price": 38,
-          "description": "Long-reach pruning loppers for cutting thick branches with leverage and sharp blades.",
-          "stock_level": 27
         }
       ],
       "HOSES": [
@@ -2827,12 +2724,6 @@
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_mulch_rubber_mulch_black_20250620_215354.png"
         },
         {
-          "name": "Pine Bark Mulch",
-          "price": 8,
-          "description": "Decorative pine bark mulch with natural appearance and weed suppression.",
-          "stock_level": 52
-        },
-        {
           "name": "Cedar Mulch 3 Cu Ft",
           "price": 12,
           "description": "Aromatic cedar mulch that naturally repels insects while enriching soil.",
@@ -2960,12 +2851,6 @@
       ],
       "PRUNING TOOLS": [
         {
-          "name": "Bypass Pruning Shears",
-          "price": 25,
-          "description": "Sharp bypass pruning shears for clean cuts on live branches and stems.",
-          "stock_level": 14
-        },
-        {
           "name": "Anvil Pruners Heavy Duty",
           "price": 20,
           "description": "Anvil-style pruners for cutting dead wood and tough branches with power.",
@@ -2978,18 +2863,6 @@
           "description": "Telescoping pole saw for reaching high branches safely from the ground.",
           "stock_level": 89,
           "image_path": "c:\\Data\\GitHub\\Unlock-your-agents-potential-with-Model-Context-Protocol-Workshop\\shared\\database\\data-generator\\images\\garden & outdoor_pruning tools_pole_saw_pruner_8_foot_20250620_220454.png"
-        },
-        {
-          "name": "Hedge Shears 10-inch",
-          "price": 32,
-          "description": "Long-blade hedge shears for trimming bushes and creating shaped hedges.",
-          "stock_level": 3
-        },
-        {
-          "name": "Hand Pruners Ergonomic",
-          "price": 29,
-          "description": "Comfortable ergonomic hand pruners with cushioned grips and sharp blades.",
-          "stock_level": 8
         }
       ],
       "OUTDOOR LIGHTING": [
