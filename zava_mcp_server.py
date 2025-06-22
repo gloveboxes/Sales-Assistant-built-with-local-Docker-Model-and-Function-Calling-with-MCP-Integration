@@ -79,7 +79,7 @@ async def get_customers_table_schema() -> str:
 async def get_products_table_schema() -> str:
     """Get the complete schema information for the products table. **ALWAYS call this tool first** when queries involve product data, product analysis, or product-related queries. This provides table structure with normalized category and type references.
     
-    Note: Products now reference category_id and type_id instead of storing text directly. Use joins with categories and product_types tables for category/type names."""
+    Note: Products contain a unique SKU field for business identification and reference category_id and type_id instead of storing text directly. Use joins with categories and product_types tables for category/type names."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("products")
@@ -190,7 +190,7 @@ QUERY GUIDELINES:
 DATABASE STRUCTURE:
 - **orders**: Order headers (customer, store, date) - NO pricing information
 - **order_items**: Line items with products, quantities, pricing - JOIN with orders for complete data
-- **products**: Reference category_id and type_id - JOIN with categories/product_types for names
+- **products**: Reference category_id and type_id, include unique SKU field - JOIN with categories/product_types for names
 - **categories**: Master category lookup table
 - **product_types**: Product type lookup linked to categories
 - **customers**: Independent customer data (no store relationship)
@@ -202,6 +202,8 @@ COMMON JOIN PATTERNS:
 - Products + Categories: products p JOIN categories c ON p.category_id = c.category_id
 - Products + Types: products p JOIN product_types pt ON p.type_id = pt.type_id
 - Full Product Info: products p JOIN categories c ON p.category_id = c.category_id JOIN product_types pt ON p.type_id = pt.type_id
+- Product by SKU: SELECT * FROM products WHERE sku = 'HTHM001600'
+- Products by Category SKU: SELECT * FROM products WHERE sku LIKE 'HT%' (Hand Tools)
     
 Args:
     sqlite_query: A well-formed SQLite query to extract sales data. Must include LIMIT 20.

@@ -118,6 +118,7 @@ def create_database_schema(conn):
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS products (
                 product_id INTEGER PRIMARY KEY,
+                sku TEXT UNIQUE NOT NULL,
                 product_name TEXT NOT NULL,
                 category_id INTEGER NOT NULL,
                 type_id INTEGER NOT NULL,
@@ -177,6 +178,7 @@ def create_database_schema(conn):
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_product_types_name ON product_types(type_name)")
         
         # Product indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_sku ON products(sku)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_category ON products(category_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_type ON products(type_id)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_price ON products(base_price)")
@@ -203,7 +205,8 @@ def create_database_schema(conn):
         
         # Covering indexes for aggregation queries
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_order_items_covering ON order_items(order_id, product_id, total_amount, quantity)")
-        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_covering ON products(category_id, type_id, product_id, base_price)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_covering ON products(category_id, type_id, product_id, sku, base_price)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_products_sku_covering ON products(sku, product_id, product_name, base_price)")
         
         # Customer indexes
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_customers_email ON customers(email)")
@@ -280,13 +283,14 @@ def insert_products(conn):
                     
                 for product_details in product_list:
                     product_name = product_details["name"]
+                    sku = product_details.get("sku", f"SKU{product_id:06d}")  # Fallback if no SKU
                     fixed_price = product_details["price"]
                     description = product_details["description"]
                     base_price = float(fixed_price)
-                    products_data.append((product_id, product_name, category_id, type_id, base_price, description))
+                    products_data.append((product_id, sku, product_name, category_id, type_id, base_price, description))
                     product_id += 1
         
-        batch_insert(cursor, "INSERT INTO products (product_id, product_name, category_id, type_id, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?)", products_data)
+        batch_insert(cursor, "INSERT INTO products (product_id, sku, product_name, category_id, type_id, base_price, product_description) VALUES (?, ?, ?, ?, ?, ?, ?)", products_data)
         
         conn.commit()
         logging.info(f"Successfully inserted {len(products_data):,} products!")
