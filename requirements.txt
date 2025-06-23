@@ -1,7 +1,12 @@
-openai
+aiosqlite
+asyncpg
+faker
 mcp
 numpy
-aiosqlite
+openai
 pandas
+pillow
 python-dotenv
 requests
+torch
+transformers
