@@ -13,6 +13,13 @@
             "args": [
                 "${workspaceFolder}/zava_mcp_server.py"
             ]
+        },
+        "my-mcp-server-zava-sales-postgres-linux-macos": {
+            "type": "stdio",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "${workspaceFolder}/zava_mcp_server_postgres.py"
+            ]
         }
     }
 }

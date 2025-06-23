@@ -143,7 +143,7 @@ def get_mcp_client() -> MCPClient:
     """Get or create the MCP client instance."""
     global _mcp_client
     if _mcp_client is None:
-        server_command = [sys.executable, "zava_mcp_server.py"]
+        server_command = [sys.executable, "zava_mcp_server_postgres.py"]
         _mcp_client = MCPClient(server_command)
     return _mcp_client
 
