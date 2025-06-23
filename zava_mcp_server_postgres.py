@@ -65,7 +65,7 @@ def get_db_provider() -> PostgreSQLSchemaProvider:
 async def get_customers_table_schema() -> str:
     """Get the complete schema information for the customers table. **ALWAYS call this tool first** when queries involve customer data, customer information, or customer-related analysis. This provides table structure and column types.
     
-    Note: Customers are independent entities with no direct store relationship - store information is tracked per order in the orders table."""
+    Note: Customers are independent entities with no direct store relationship - store information is tracked per order in the orders table. **CRITICAL**: ALWAYS include customer first_name and last_name in results - never return just customer_id as it is not human-readable."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("customers")
@@ -78,7 +78,7 @@ async def get_customers_table_schema() -> str:
 async def get_products_table_schema() -> str:
     """Get the complete schema information for the products table. **ALWAYS call this tool first** when queries involve product data, product analysis, or product-related queries. This provides table structure with normalized category and type references.
     
-    Note: Products contain a unique SKU field for business identification and reference category_id and type_id instead of storing text directly. Use joins with categories and product_types tables for category/type names."""
+    Note: Products contain a unique SKU field for business identification and reference category_id and type_id instead of storing text directly. **CRITICAL**: ALWAYS join with categories and product_types tables to return category_name and type_name - never return just IDs as they are not human-readable."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("products")
@@ -91,7 +91,7 @@ async def get_products_table_schema() -> str:
 async def get_orders_table_schema() -> str:
     """Get the complete schema information for the orders table. **ALWAYS call this tool first** when queries involve order headers, order dates, customer orders, or store-based analysis. This provides order header information only.
     
-    Note: This table contains order headers (order_id, customer_id, store_id, order_date). For product details and pricing, join with order_items table."""
+    Note: This table contains order headers (order_id, customer_id, store_id, order_date). **CRITICAL**: ALWAYS join with customers table for customer names and stores table for store names - never return just customer_id or store_id as they are not human-readable. For product details and pricing, join with order_items table."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("orders")
@@ -103,7 +103,7 @@ async def get_orders_table_schema() -> str:
 async def get_inventory_table_schema() -> str:
     """Get the complete schema information for the inventory table. **ALWAYS call this tool first** when queries involve inventory data, stock levels, or inventory-related analysis. This provides table structure showing stock levels for each product at each store location, column types, and relationships.
     
-    Note: Inventory is tracked per store_id and product_id combination, allowing different stock levels at each store location."""
+    Note: Inventory is tracked per store_id and product_id combination, allowing different stock levels at each store location. **CRITICAL**: ALWAYS join with stores table for store_name and products table (then categories/product_types) for product_name, category_name, type_name - never return just store_id or product_id as they are not human-readable."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("inventory")
@@ -154,7 +154,7 @@ async def get_product_types_table_schema() -> str:
 async def get_order_items_table_schema() -> str:
     """Get the complete schema information for the order_items table. **ALWAYS call this tool first** when queries involve line item details, product quantities, pricing, discounts, or sales revenue analysis. This provides detailed information about products within orders.
     
-    Note: This table contains the actual sales transactions with product_id, quantities, pricing, and totals. Each row represents one product within an order."""
+    Note: This table contains the actual sales transactions with product_id, quantities, pricing, and totals. Each row represents one product within an order. **CRITICAL**: ALWAYS join with products table and then with categories/product_types tables to return product_name, category_name, and type_name - never return just product_id as it is not human-readable."""
     try:
         provider = get_db_provider()
         schema_info = await provider.get_table_metadata_string("order_items")
@@ -165,7 +165,7 @@ async def get_order_items_table_schema() -> str:
 
 @mcp.tool()
 async def execute_sales_query(postgresql_query: str) -> str:
-    """Execute a PostgreSQLSchemaProvider query against the customer sales database.
+    """Execute a PostgreSQL query against the customer sales database.
 
 CRITICAL WORKFLOW - ALWAYS FOLLOW THIS ORDER:
 1. **FIRST**: Call the appropriate schema tool(s) based on your query needs:
@@ -181,6 +181,12 @@ CRITICAL WORKFLOW - ALWAYS FOLLOW THIS ORDER:
 3. **FINALLY**: Execute the query with this tool
 
 QUERY GUIDELINES:
+- **ALWAYS RETURN HUMAN-READABLE NAMES**: Never return just IDs - always include names alongside IDs
+- **MANDATORY JOINS FOR READABILITY**:
+  * Products: ALWAYS join with categories and product_types to get category_name, type_name
+  * Customers: ALWAYS include customer first_name, last_name (not just customer_id)
+  * Stores: ALWAYS include store_name (not just store_id)
+  * Orders: ALWAYS join with customers and stores for names
 - Default to aggregation (SUM, AVG, COUNT, GROUP BY) unless user requests details
 - Always include LIMIT 20 in every query - never return more than 20 rows
 - Use only valid table and column names from the schema
@@ -189,20 +195,23 @@ QUERY GUIDELINES:
 DATABASE STRUCTURE:
 - **orders**: Order headers (customer, store, date) - NO pricing information
 - **order_items**: Line items with products, quantities, pricing - JOIN with orders for complete data
-- **products**: Reference category_id and type_id, include unique SKU field - JOIN with categories/product_types for names
+- **products**: Reference category_id and type_id, include unique SKU field - ALWAYS JOIN with categories/product_types for names
 - **categories**: Master category lookup table
 - **product_types**: Product type lookup linked to categories
 - **customers**: Independent customer data (no store relationship)
 - **stores**: Store reference data
 - **inventory**: Stock levels per store/product
 
-COMMON JOIN PATTERNS:
-- Orders + Order Items: orders o JOIN order_items oi ON o.order_id = oi.order_id
-- Products + Categories: products p JOIN categories c ON p.category_id = c.category_id
-- Products + Types: products p JOIN product_types pt ON p.type_id = pt.type_id
-- Full Product Info: products p JOIN categories c ON p.category_id = c.category_id JOIN product_types pt ON p.type_id = pt.type_id
-- Product by SKU: SELECT * FROM products WHERE sku = 'HTHM001600'
-- Products by Category SKU: SELECT * FROM products WHERE sku LIKE 'HT%' (Hand Tools)
+MANDATORY JOIN PATTERNS FOR READABLE RESULTS:
+- Orders + Customer Names: orders o JOIN customers c ON o.customer_id = c.customer_id
+- Orders + Store Names: orders o JOIN stores s ON o.store_id = s.store_id
+- Products + Full Names: products p JOIN categories cat ON p.category_id = cat.category_id JOIN product_types pt ON p.type_id = pt.type_id
+- Order Items + Product Names: order_items oi JOIN products p ON oi.product_id = p.product_id JOIN categories cat ON p.category_id = cat.category_id JOIN product_types pt ON p.type_id = pt.type_id
+- Complete Order View: orders o JOIN customers c ON o.customer_id = c.customer_id JOIN stores s ON o.store_id = s.store_id JOIN order_items oi ON o.order_id = oi.order_id JOIN products p ON oi.product_id = p.product_id JOIN categories cat ON p.category_id = cat.category_id JOIN product_types pt ON p.type_id = pt.type_id
+
+EXAMPLE GOOD QUERIES:
+- Product Sales: SELECT cat.category_name, pt.type_name, p.product_name, p.sku, SUM(oi.total_price) as revenue FROM products p JOIN categories cat ON p.category_id = cat.category_id JOIN product_types pt ON p.type_id = pt.type_id JOIN order_items oi ON p.product_id = oi.product_id GROUP BY cat.category_name, pt.type_name, p.product_name, p.sku ORDER BY revenue DESC LIMIT 20
+- Customer Orders: SELECT c.first_name, c.last_name, s.store_name, o.order_date, COUNT(*) as order_count FROM orders o JOIN customers c ON o.customer_id = c.customer_id JOIN stores s ON o.store_id = s.store_id GROUP BY c.first_name, c.last_name, s.store_name, o.order_date LIMIT 20
     
 Args:
     postgresql_query: A well-formed PostgreSQL query to extract sales data. Must include LIMIT 20.
