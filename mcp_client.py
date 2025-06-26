@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+from azure.ai.agents.models import AsyncFunctionTool
 
 
 class MCPClient:
@@ -171,6 +172,65 @@ async def fetch_mcp_tools_async() -> List[Dict[str, Any]]:
     """Fetch tool schemas from MCP server in OpenAI function format."""
     client = get_mcp_client()
     return await client.fetch_tools_async()
+
+
+async def fetch_and_build_mcp_tools() -> AsyncFunctionTool:
+    """Fetch tool schemas from MCP Server and build function tools."""
+    print("🔧 Fetching tools from MCP server...")
+    
+    try:
+        # Fetch tool schemas from MCP Server
+        tools = await fetch_mcp_tools_async()
+        
+        if not tools:
+            print("⚠️  No tools found from MCP server")
+            return AsyncFunctionTool(set())
+        
+        print(f"✅ Found {len(tools)} tools from MCP server")
+        
+        # Build a function for each tool with proper metadata
+        def make_tool_func(tool_schema: dict):
+            tool_name = tool_schema["function"]["name"]
+            tool_description = tool_schema["function"]["description"]
+            
+            # Create function with explicit parameter signature for tools that need it
+            if tool_name == "execute_sales_query":
+                async def execute_sales_query_func(postgresql_query: str):
+                    try:
+                        result = await call_mcp_tool_async(tool_name, postgresql_query=postgresql_query)
+                        return result
+                    except Exception as e:
+                        return f"Error executing {tool_name}: {e}"
+                tool_func = execute_sales_query_func
+            else:
+                # For tools without parameters, use **kwargs
+                async def generic_tool_func(**kwargs):
+                    try:
+                        result = await call_mcp_tool_async(tool_name, **kwargs)
+                        return result
+                    except Exception as e:
+                        return f"Error executing {tool_name}: {e}"
+                tool_func = generic_tool_func
+            
+            # Set function metadata for Azure AI Agent Service
+            tool_func.__name__ = tool_name
+            tool_func.__doc__ = tool_description
+            
+            # Note: Azure AI Agent Service will use __name__ and __doc__ for function discovery
+            
+            return tool_func
+        
+        # Create function set with proper schemas
+        functions_set = {make_tool_func(tool) for tool in tools}
+        
+        tool_names = [tool["function"]["name"] for tool in tools]
+        print(f"📋 Available MCP tools: {', '.join(tool_names)}")
+        
+        return AsyncFunctionTool(functions_set)
+        
+    except Exception as e:
+        print(f"❌ Error fetching MCP tools: {e}")
+        return AsyncFunctionTool(set())
 
 
 # Synchronous wrapper functions for use in the main app
