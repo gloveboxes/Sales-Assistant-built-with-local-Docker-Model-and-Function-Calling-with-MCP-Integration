@@ -1,5 +1,8 @@
 aiosqlite
 asyncpg
+azure-ai-agents==1.0.1
+azure-ai-projects==1.0.0b11
+azure-identity>=1.23.0, <2.0.0
 faker
 mcp
 numpy

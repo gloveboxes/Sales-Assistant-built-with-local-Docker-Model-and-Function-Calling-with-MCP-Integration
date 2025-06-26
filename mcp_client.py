@@ -152,8 +152,12 @@ async def cleanup_global_mcp_client():
     """Cleanup the global MCP client instance."""
     global _mcp_client
     if _mcp_client is not None:
-        await _mcp_client.close_session()
-    _mcp_client = None
+        try:
+            await _mcp_client.close_session()
+        except Exception as e:
+            logging.warning(f"Error during MCP client cleanup: {e}")
+        finally:
+            _mcp_client = None
 
 
 # Utility functions for integration
